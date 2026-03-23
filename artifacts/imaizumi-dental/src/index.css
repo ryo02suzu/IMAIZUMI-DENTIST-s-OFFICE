@@ -11,7 +11,7 @@
   --font-display: 'Zen Kaku Gothic New', sans-serif;
 
   /* Imaizumi Dental Brand Colors: Light Blue (Primary) & Orange (Accent) */
-  --color-background: hsl(210 33% 99%);
+  --color-background: hsl(0 0% 100%);
   --color-foreground: hsl(222 47% 11%);
   
   --color-primary: hsl(198 80% 50%);
@@ -23,19 +23,19 @@
   --color-accent: hsl(28 95% 55%);
   --color-accent-foreground: hsl(0 0% 100%);
   
-  --color-muted: hsl(210 20% 94%);
+  --color-muted: hsl(210 20% 96%);
   --color-muted-foreground: hsl(215 16% 47%);
   
   --color-border: hsl(214 32% 91%);
   --color-card: hsl(0 0% 100%);
   --color-card-foreground: hsl(222 47% 11%);
 
-  --radius-xl: 1rem;
-  --radius-2xl: 1.5rem;
+  --radius-xl: 0rem;
+  --radius-2xl: 0rem;
 }
 
 :root {
-  --background: 210 33% 99%;
+  --background: 0 0% 100%;
   --foreground: 222 47% 11%;
   
   /* Light Blue */
@@ -50,7 +50,7 @@
   --accent: 28 95% 55%;
   --accent-foreground: 0 0% 100%;
   
-  --muted: 210 20% 94%;
+  --muted: 210 20% 96%;
   --muted-foreground: 215 16% 47%;
   
   --border: 214 32% 91%;
@@ -73,11 +73,3 @@
   }
 }
 
-/* Custom utility for decorative backgrounds */
-.bg-mesh {
-  background-image: 
-    radial-gradient(at 0% 0%, hsla(198, 80%, 50%, 0.1) 0px, transparent 50%),
-    radial-gradient(at 100% 0%, hsla(28, 95%, 55%, 0.05) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, hsla(198, 80%, 50%, 0.08) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, hsla(204, 30%, 90%, 0.5) 0px, transparent 50%);
-}
