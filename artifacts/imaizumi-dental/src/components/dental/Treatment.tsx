@@ -6,10 +6,10 @@ const treatments = [
   { tag: "子供の歯を守りたい", title: "小児歯科", icon: "child-tooth", slug: "pediatric" },
   { tag: "虫歯予防したい", title: "予防歯科", icon: "prevention", slug: "preventive" },
   { tag: "入れ歯が合わない", title: "入れ歯", icon: "dentures", slug: "denture" },
-  { tag: "ご自身の歯のように", title: "インプラント", icon: "implant", slug: "implant" },
-  { tag: "部分入れ歯", title: "ノンクラスプデンチャー", icon: "partial", slug: "non-clasp" },
   { tag: "人工ダイヤモンド", title: "ジルコニア", icon: "zirconia", slug: "zirconia" },
-  { tag: "噛みやすい入れ歯", title: "リプロデンチャーシステム", icon: "repro", slug: "repro" },
+  { tag: "親知らず・外科処置", title: "口腔外科", icon: "oral-surgery", slug: "oral-surgery" },
+  { tag: "歯を白くしたい", title: "ホワイトニング", icon: "whitening", slug: "whitening" },
+  { tag: "ご自宅で診療", title: "訪問診療", icon: "home-visit", slug: "home-visit" },
 ]
 
 function TreatmentIcon({ type }: { type: string }) {
@@ -52,26 +52,6 @@ function TreatmentIcon({ type }: { type: string }) {
           <rect x="36" y="24" width="4" height="8" rx="1" />
         </svg>
       )
-    case "implant":
-      return (
-        <svg className={iconClass} viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M32 8c-6 0-10 3-12 8-1 6 0 12 2 18 1 4 3 10 6 10s3-4 4-8c1 4 1 8 4 8s5-6 6-10c2-6 3-12 2-18-2-5-6-8-12-8z" />
-          <path d="M26 44h12v4h-12z" />
-          <path d="M24 48l4 12h8l4-12" strokeWidth="2" />
-          <path d="M28 52h8M27 56h10" />
-        </svg>
-      )
-    case "partial":
-      return (
-        <svg className={iconClass} viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <path d="M8 32c0-12 10-20 24-20s24 8 24 20" />
-          <path d="M12 32v8c0 8 8 12 20 12s20-4 20-12v-8" />
-          <rect x="16" y="28" width="6" height="10" rx="2" />
-          <rect x="26" y="28" width="6" height="10" rx="2" />
-          <rect x="36" y="28" width="6" height="10" rx="2" />
-          <path d="M22 48v4M32 48v4M42 48v4" strokeDasharray="2 2" />
-        </svg>
-      )
     case "zirconia":
       return (
         <svg className={iconClass} viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5">
@@ -81,14 +61,34 @@ function TreatmentIcon({ type }: { type: string }) {
           <path d="M28 32l-4-4M36 32l4-4" />
         </svg>
       )
-    case "repro":
+    case "oral-surgery":
       return (
         <svg className={iconClass} viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5">
-          <rect x="12" y="20" width="40" height="28" rx="4" />
-          <path d="M20 28v12M28 28v12M36 28v12M44 28v12" />
-          <path d="M16 20v-4h32v4" />
-          <path d="M24 48v4M40 48v4" />
-          <rect x="20" y="52" width="24" height="4" rx="2" />
+          <path d="M12 52l28-28" strokeWidth="2" strokeLinecap="round" />
+          <path d="M34 16l10 10-4 4-10-10 4-4z" />
+          <path d="M40 12l4 4" strokeLinecap="round" />
+          <circle cx="18" cy="44" r="4" />
+          <path d="M26 46c-4 4-10 6-14 4" strokeLinecap="round" />
+        </svg>
+      )
+    case "whitening":
+      return (
+        <svg className={iconClass} viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M32 10c-8 0-14 4-16 10-2 8 0 16 2 24 2 6 4 12 8 12s4-6 6-12c2 6 2 12 6 12s6-6 8-12c2-8 4-16 2-24-2-6-8-10-16-10z" />
+          <path d="M46 8l2-4M50 12l4-2M48 16l4 1" strokeLinecap="round" />
+          <path d="M52 6l-2 2" strokeLinecap="round" />
+        </svg>
+      )
+    case "home-visit":
+      return (
+        <svg className={iconClass} viewBox="0 0 64 64" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M8 28L32 10l24 18" strokeLinecap="round" strokeLinejoin="round" />
+          <path d="M14 24v28h36V24" />
+          <rect x="24" y="36" width="16" height="16" rx="2" />
+          <path d="M32 36v16" />
+          <path d="M24 44h16" />
+          <circle cx="50" cy="18" r="8" />
+          <path d="M50 14v4l2 2" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
       )
     default:
