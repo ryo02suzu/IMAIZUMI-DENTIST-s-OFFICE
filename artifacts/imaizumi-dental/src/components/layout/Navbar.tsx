@@ -55,8 +55,8 @@ export function Navbar() {
               ご予約・お問い合わせ
             </a>
             <div className="text-right">
-              <p className="text-[#3d5f7a] text-xs">TEL</p>
-              <a href="tel:0277549893" className="text-[#3d5f7a] text-lg font-bold tracking-wider hover:opacity-80 transition-opacity">0277-54-9893</a>
+              <p className="text-[#7eb4d2] text-xs">TEL</p>
+              <a href="tel:0277549893" className="text-[#7eb4d2] text-lg font-bold tracking-wider hover:opacity-80 transition-opacity">0277-54-9893</a>
             </div>
           </div>
 

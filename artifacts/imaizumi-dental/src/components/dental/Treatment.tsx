@@ -26,7 +26,7 @@ export function Treatment() {
           className="text-center mb-12"
         >
           <p className="text-[#7eb4d2] text-sm tracking-widest mb-2">TREATMENT</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-[#4a4a4a]">診療内容</h2>
+          <h2 className="text-3xl md:text-4xl font-bold text-[#7eb4d2]">診療内容</h2>
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 max-w-5xl mx-auto">
