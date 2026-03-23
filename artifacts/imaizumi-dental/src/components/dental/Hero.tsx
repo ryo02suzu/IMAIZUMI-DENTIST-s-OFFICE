@@ -32,10 +32,10 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#7eb4d2] mb-4 leading-tight">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1e3f5a] mb-4 leading-tight">
                   桐生のアットホームな歯医者さん
                 </h1>
-                <p className="text-xl md:text-2xl text-[#d4a574] font-medium mb-8">
+                <p className="text-xl md:text-2xl text-[#3d5f7a] font-medium mb-8">
                   地域に寄り添い、笑顔をつくる
                 </p>
               </motion.div>
@@ -50,7 +50,7 @@ export function Hero() {
                 {badges.map((badge, index) => (
                   <div
                     key={index}
-                    className="w-28 h-28 rounded-full bg-[#f5d56e] flex flex-col items-center justify-center text-[#5a4a3a] shadow-lg"
+                    className="w-28 h-28 rounded-full bg-[#f5a623] flex flex-col items-center justify-center text-white shadow-lg"
                   >
                     <badge.icon className="h-8 w-8 mb-1" />
                     {badge.lines.map((line, i) => (
