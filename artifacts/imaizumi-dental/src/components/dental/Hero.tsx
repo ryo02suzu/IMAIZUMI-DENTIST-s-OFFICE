@@ -26,33 +26,21 @@ export function Hero() {
         <div className="relative z-10 container mx-auto px-4 py-12 md:py-20">
           <div className="grid lg:grid-cols-2 gap-8 items-center">
             {/* Left: Catchphrase and Badges */}
-            <div>
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <h1
-                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#7eb4d2] mb-4 leading-tight"
-                  style={{ WebkitTextStroke: "1.5px rgba(0,0,0,0.5)", textShadow: "1px 1px 3px rgba(0,0,0,0.3)" }}
-                >
-                  桐生のアットホームな歯医者さん
-                </h1>
-                <p
-                  className="text-xl md:text-2xl text-[#d4a574] font-medium mb-8"
-                  style={{ WebkitTextStroke: "1px rgba(0,0,0,0.4)", textShadow: "1px 1px 3px rgba(0,0,0,0.25)" }}
-                >
-                  地域に寄り添い、笑顔をつくる
-                </p>
-              </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl"
+            >
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#7eb4d2] mb-3 leading-tight">
+                桐生のアットホームな歯医者さん
+              </h1>
+              <p className="text-xl md:text-2xl text-[#d4a574] font-medium mb-8">
+                地域に寄り添い、笑顔をつくる
+              </p>
 
               {/* Badges */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.2 }}
-                className="flex gap-4 flex-wrap"
-              >
+              <div className="flex gap-4 flex-wrap">
                 {badges.map((badge, index) => (
                   <div
                     key={index}
@@ -64,8 +52,8 @@ export function Hero() {
                     ))}
                   </div>
                 ))}
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
 
             {/* Right: Schedule Table */}
             <motion.div
