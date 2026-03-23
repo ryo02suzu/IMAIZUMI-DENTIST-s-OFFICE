@@ -1,29 +1,30 @@
 import { ChevronRight } from "lucide-react"
+import { Link } from "wouter"
 
-const footerLinks = {
-  main: [
-    { label: "ホーム", href: "#" },
-    { label: "はじめての方へ", href: "#about" },
-  ],
-  treatment: [
-    { label: "一般歯科", href: "/treatment/general" },
-    { label: "小児歯科", href: "/treatment/pediatric" },
-    { label: "予防歯科", href: "/treatment/preventive" },
-    { label: "入れ歯", href: "/treatment/denture" },
-    { label: "審美歯科", href: "/treatment/aesthetic" },
-    { label: "口腔外科", href: "/treatment/oral-surgery" },
-    { label: "ホワイトニング", href: "/treatment/whitening" },
-    { label: "訪問診療", href: "/treatment/home-visit" },
-  ],
-  info: [
-    { label: "医師紹介", href: "#doctor" },
-    { label: "院内のご紹介", href: "#facility" },
-    { label: "アクセス", href: "#access" },
-    { label: "プライバシーポリシー", href: "#" },
-    { label: "お問い合わせ", href: "#contact" },
-    { label: "お知らせ", href: "#" },
-  ],
-}
+const footerMain = [
+  { label: "ホーム", href: "/" },
+  { label: "はじめての方へ", href: "/#about" },
+]
+
+const footerTreatment = [
+  { label: "一般歯科", href: "/treatment/general" },
+  { label: "小児歯科", href: "/treatment/pediatric" },
+  { label: "予防歯科", href: "/treatment/preventive" },
+  { label: "入れ歯", href: "/treatment/denture" },
+  { label: "審美歯科", href: "/treatment/aesthetic" },
+  { label: "口腔外科", href: "/treatment/oral-surgery" },
+  { label: "ホワイトニング", href: "/treatment/whitening" },
+  { label: "訪問診療", href: "/treatment/home-visit" },
+]
+
+const footerInfo = [
+  { label: "医師紹介", href: "/#doctor" },
+  { label: "院内のご紹介", href: "/#gallery" },
+  { label: "アクセス", href: "/#access" },
+  { label: "プライバシーポリシー", href: "/privacy-policy" },
+  { label: "お問い合わせ", href: "/#contact" },
+  { label: "お知らせ", href: "/news" },
+]
 
 export function Footer() {
   return (
@@ -73,42 +74,42 @@ export function Footer() {
 
           {/* Main Links */}
           <div>
-            {footerLinks.main.map((link) => (
-              <a
+            {footerMain.map((link) => (
+              <Link
                 key={link.label}
                 href={link.href}
                 className="block text-white/90 text-sm py-1 hover:text-white transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
           {/* Treatment Links */}
           <div>
             <p className="text-white font-medium mb-2">診療内容</p>
-            {footerLinks.treatment.map((link) => (
-              <a
+            {footerTreatment.map((link) => (
+              <Link
                 key={link.label}
                 href={link.href}
                 className="flex items-center gap-1 text-white/70 text-xs py-1 hover:text-white transition-colors"
               >
                 <ChevronRight className="h-3 w-3" />
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
 
           {/* Info Links */}
           <div>
-            {footerLinks.info.map((link) => (
-              <a
+            {footerInfo.map((link) => (
+              <Link
                 key={link.label}
                 href={link.href}
                 className="block text-white/90 text-sm py-1 hover:text-white transition-colors"
               >
                 {link.label}
-              </a>
+              </Link>
             ))}
           </div>
         </div>

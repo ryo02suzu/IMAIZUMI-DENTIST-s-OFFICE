@@ -6,6 +6,7 @@ import Home from "@/pages/Home";
 import TreatmentDetail from "@/pages/TreatmentDetail";
 import NewsPage from "@/pages/NewsPage";
 import NewsDetail from "@/pages/NewsDetail";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
 import NotFound from "@/pages/not-found";
 import { StickyBottomBar } from "@/components/layout/StickyBottomBar";
 
@@ -18,6 +19,7 @@ function Router() {
       <Route path="/treatment/:slug" component={TreatmentDetail} />
       <Route path="/news" component={NewsPage} />
       <Route path="/news/:id" component={NewsDetail} />
+      <Route path="/privacy-policy" component={PrivacyPolicy} />
       <Route component={NotFound} />
     </Switch>
   );
