@@ -16,7 +16,7 @@ export function Hero() {
   return (
     <section className="relative overflow-hidden">
       {/* Hero Image */}
-      <div className="relative min-h-[540px] md:min-h-[620px]">
+      <div className="relative min-h-[580px] md:min-h-[680px]">
         <div className="absolute inset-0">
           <img src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`} alt="院内写真" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-white/55" />
@@ -24,7 +24,7 @@ export function Hero() {
 
         {/* Content Overlay */}
         <div className="relative z-10 container mx-auto px-6 py-14 md:py-20">
-          <div className="flex flex-col lg:flex-row items-stretch gap-4 lg:gap-0">
+          <div className="flex flex-col lg:flex-row items-start gap-4 lg:gap-0">
 
             {/* Left: Catchphrase card */}
             <motion.div
@@ -64,7 +64,7 @@ export function Hero() {
               initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7, delay: 0.25 }}
-              className="relative z-20 bg-white/97 backdrop-blur-md rounded-3xl p-6 shadow-2xl w-full lg:w-[50%] lg:-ml-6 self-center"
+              className="relative z-20 bg-white/97 backdrop-blur-md rounded-3xl p-6 shadow-2xl w-full lg:w-[50%] lg:-ml-6 lg:mt-12"
               style={{ backdropFilter: "blur(12px)" }}
             >
               <div className="flex items-center gap-2 text-[#7eb4d2] mb-4">
