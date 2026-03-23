@@ -49,7 +49,7 @@ export function Hero() {
         </div>
 
         {/* Right: Photo */}
-        <div className="hidden lg:block absolute right-6 top-6 bottom-6 w-[58%] rounded-3xl overflow-hidden shadow-xl">
+        <div className="hidden lg:block absolute left-[51%] right-6 top-6 bottom-6 rounded-3xl overflow-hidden shadow-xl">
           <img
             src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`}
             alt="院内写真"
