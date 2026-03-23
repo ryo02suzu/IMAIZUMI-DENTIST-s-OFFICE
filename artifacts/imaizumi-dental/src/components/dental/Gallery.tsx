@@ -10,7 +10,7 @@ const galleryItems = [
 
 export function Gallery() {
   return (
-    <section id="facility" className="py-0">
+    <section id="gallery" className="py-0">
       <div className="flex overflow-hidden">
         {galleryItems.map((item, index) => (
           <motion.div
