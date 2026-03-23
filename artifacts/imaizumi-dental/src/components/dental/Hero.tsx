@@ -14,77 +14,78 @@ const schedule = [
 
 export function Hero() {
   return (
-    <section className="relative">
+    <section className="relative overflow-hidden">
       {/* Hero Image */}
-      <div className="relative min-h-[500px] md:min-h-[600px]">
+      <div className="relative min-h-[540px] md:min-h-[620px]">
         <div className="absolute inset-0">
           <img src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`} alt="院内写真" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-white/60" />
+          <div className="absolute inset-0 bg-white/55" />
         </div>
-        
+
         {/* Content Overlay */}
-        <div className="relative z-10 container mx-auto px-4 py-12 md:py-20">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            {/* Left: Catchphrase and Badges */}
+        <div className="relative z-10 container mx-auto px-6 py-14 md:py-20">
+          <div className="flex flex-col lg:flex-row items-stretch gap-4 lg:gap-0">
+
+            {/* Left: Catchphrase card */}
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 lg:p-6 xl:p-8 shadow-xl"
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 0.7 }}
+              className="relative z-10 bg-white/85 backdrop-blur-md rounded-3xl p-8 lg:p-10 shadow-xl w-full lg:w-[54%]"
             >
+              {/* Accent bar */}
+              <div className="w-10 h-1.5 rounded-full bg-[#f5a623] mb-5" />
+
               <h1 className="text-3xl md:text-4xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold text-[#7eb4d2] mb-3 leading-tight">
                 桐生のアットホームな歯医者さん
               </h1>
-              <p className="text-xl md:text-2xl text-[#d4a574] font-medium mb-8">
+              <p className="text-lg md:text-xl text-[#d4a574] font-medium mb-8">
                 地域に寄り添い、笑顔をつくる
               </p>
 
               {/* Badges */}
-              <div className="flex gap-4 flex-wrap">
+              <div className="flex gap-3 flex-wrap">
                 {badges.map((badge, index) => (
                   <div
                     key={index}
-                    className="w-28 h-28 rounded-full bg-[#f5a623] flex flex-col items-center justify-center text-white shadow-lg"
+                    className="w-24 h-24 rounded-full bg-[#f5a623] flex flex-col items-center justify-center text-white shadow-lg"
                   >
-                    <badge.icon className="h-8 w-8 mb-1" />
+                    <badge.icon className="h-7 w-7 mb-1" />
                     {badge.lines.map((line, i) => (
-                      <p key={i} className={`text-sm ${i === 0 ? "font-bold" : ""}`}>{line}</p>
+                      <p key={i} className={`text-xs leading-tight ${i === 0 ? "font-bold" : ""}`}>{line}</p>
                     ))}
                   </div>
                 ))}
               </div>
             </motion.div>
 
-            {/* Right: Schedule Table */}
+            {/* Right: Schedule card – overlaps left card */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
+              initial={{ opacity: 0, x: 30 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="bg-white/95 backdrop-blur rounded-lg shadow-xl p-6"
+              transition={{ duration: 0.7, delay: 0.25 }}
+              className="relative z-20 bg-white/97 backdrop-blur-md rounded-3xl p-6 shadow-2xl w-full lg:w-[50%] lg:-ml-6 self-center"
+              style={{ backdropFilter: "blur(12px)" }}
             >
               <div className="flex items-center gap-2 text-[#7eb4d2] mb-4">
                 <Clock className="h-5 w-5" />
-                <span className="font-medium">診療時間</span>
+                <span className="font-semibold text-base">診療時間</span>
               </div>
-              
+
               <div className="overflow-x-auto">
                 <table className="w-full text-sm">
                   <thead>
                     <tr className="border-b-2 border-[#7eb4d2]/30">
-                      <th className="py-2 px-2 text-left text-[#4a4a4a]"></th>
-                      <th className="py-2 px-2 text-center text-[#4a4a4a]">月</th>
-                      <th className="py-2 px-2 text-center text-[#4a4a4a]">火</th>
-                      <th className="py-2 px-2 text-center text-[#4a4a4a]">水</th>
-                      <th className="py-2 px-2 text-center text-[#4a4a4a]">木</th>
-                      <th className="py-2 px-2 text-center text-[#4a4a4a]">金</th>
-                      <th className="py-2 px-2 text-center text-[#4a4a4a]">土</th>
-                      <th className="py-2 px-2 text-center text-[#4a4a4a]">日</th>
+                      <th className="py-2 px-1 text-left text-[#4a4a4a]"></th>
+                      {["月","火","水","木","金","土","日"].map(d => (
+                        <th key={d} className="py-2 px-2 text-center text-[#4a4a4a] font-medium">{d}</th>
+                      ))}
                     </tr>
                   </thead>
                   <tbody>
                     {schedule.map((row, i) => (
-                      <tr key={i} className="border-b border-gray-200">
-                        <td className="py-3 px-2 text-[#4a4a4a]">{row.time}</td>
+                      <tr key={i} className="border-b border-gray-100">
+                        <td className="py-3 px-1 text-[#4a4a4a] text-xs whitespace-nowrap">{row.time}</td>
                         <td className="py-3 px-2 text-center">{row.mon ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
                         <td className="py-3 px-2 text-center">{row.tue ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
                         <td className="py-3 px-2 text-center">{row.wed ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
@@ -97,13 +98,13 @@ export function Hero() {
                   </tbody>
                 </table>
               </div>
-              
-              <div className="mt-4 text-xs text-[#666] space-y-1">
+
+              <div className="mt-4 text-xs text-[#888] space-y-0.5 border-t border-gray-100 pt-3">
                 <p>※都合により早く終了している場合がございますのでお電話にてご確認ください。</p>
-                <p>▲土曜午後は14：00〜16：00</p>
-                <p>木曜午前は往診のみ</p>
+                <p>▲土曜午後は14：00〜16：00　　木曜午前は往診のみ</p>
               </div>
             </motion.div>
+
           </div>
         </div>
       </div>
