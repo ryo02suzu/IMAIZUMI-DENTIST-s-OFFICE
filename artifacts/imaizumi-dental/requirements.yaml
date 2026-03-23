@@ -1,0 +1,11 @@
+packages:
+  "framer-motion": "For smooth scroll animations and page transitions to make the site feel premium"
+  "clsx": "Utility for constructing className strings conditionally"
+  "tailwind-merge": "Utility for safely merging Tailwind CSS classes"
+
+images: []
+
+notes:
+  - "The site is a static landing page, no backend API calls."
+  - "Using pure CSS placeholders for images as explicitly requested ('灰色の矩形 + テキスト「写真準備中」')."
+  - "Booking link is an external URL, so using standard <a> tags for it."

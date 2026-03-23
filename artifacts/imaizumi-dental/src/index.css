@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Zen+Kaku+Gothic+New:wght@500;700;900&display=swap');
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: 'Noto Sans JP', sans-serif;
+  --font-display: 'Zen Kaku Gothic New', sans-serif;
+
+  /* Imaizumi Dental Brand Colors: Light Blue (Primary) & Orange (Accent) */
+  --color-background: hsl(210 33% 99%);
+  --color-foreground: hsl(222 47% 11%);
+  
+  --color-primary: hsl(198 80% 50%);
+  --color-primary-foreground: hsl(0 0% 100%);
+  
+  --color-secondary: hsl(204 30% 90%);
+  --color-secondary-foreground: hsl(222 47% 11%);
+  
+  --color-accent: hsl(28 95% 55%);
+  --color-accent-foreground: hsl(0 0% 100%);
+  
+  --color-muted: hsl(210 20% 94%);
+  --color-muted-foreground: hsl(215 16% 47%);
+  
+  --color-border: hsl(214 32% 91%);
+  --color-card: hsl(0 0% 100%);
+  --color-card-foreground: hsl(222 47% 11%);
+
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+}
+
+:root {
+  --background: 210 33% 99%;
+  --foreground: 222 47% 11%;
+  
+  /* Light Blue */
+  --primary: 198 80% 50%;
+  --primary-foreground: 0 0% 100%;
+  
+  /* Soft Blue */
+  --secondary: 204 30% 90%;
+  --secondary-foreground: 222 47% 11%;
+  
+  /* Orange CTA */
+  --accent: 28 95% 55%;
+  --accent-foreground: 0 0% 100%;
+  
+  --muted: 210 20% 94%;
+  --muted-foreground: 215 16% 47%;
+  
+  --border: 214 32% 91%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+}
+
+@layer base {
+  body {
+    @apply font-sans antialiased bg-background text-foreground selection:bg-primary/20 selection:text-primary;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight font-bold text-foreground;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom utility for decorative backgrounds */
+.bg-mesh {
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(198, 80%, 50%, 0.1) 0px, transparent 50%),
+    radial-gradient(at 100% 0%, hsla(28, 95%, 55%, 0.05) 0px, transparent 50%),
+    radial-gradient(at 100% 100%, hsla(198, 80%, 50%, 0.08) 0px, transparent 50%),
+    radial-gradient(at 0% 100%, hsla(204, 30%, 90%, 0.5) 0px, transparent 50%);
+}
