@@ -32,7 +32,7 @@ export function Hero() {
               transition={{ duration: 0.6 }}
               className="bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-xl"
             >
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#7eb4d2] mb-3 leading-tight">
+              <h1 className="text-3xl md:text-4xl lg:text-4xl xl:text-5xl font-bold text-[#7eb4d2] mb-3 leading-tight">
                 桐生のアットホームな歯医者さん
               </h1>
               <p className="text-xl md:text-2xl text-[#d4a574] font-medium mb-8">
