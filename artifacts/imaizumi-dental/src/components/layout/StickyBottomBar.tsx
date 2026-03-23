@@ -11,9 +11,7 @@ export function StickyBottomBar() {
   useEffect(() => {
     const handleScroll = () => {
       const currentY = window.scrollY
-      if (currentY === 0) {
-        setVisible(false)
-      } else if (currentY < lastY) {
+      if (currentY < lastY) {
         setVisible(true)
       } else if (currentY > lastY) {
         setVisible(false)
