@@ -1,4 +1,5 @@
 import { useState } from "react"
+import { Link } from "wouter"
 import { Menu, X, Phone } from "lucide-react"
 
 const navItems = [
@@ -18,7 +19,7 @@ export function Navbar() {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
-          <a href="#" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <div className="w-12 h-12 rounded-full bg-[#7eb4d2] flex items-center justify-center">
               <span className="text-white text-[8px] font-bold leading-tight text-center">
                 今泉<br/>歯科
@@ -28,7 +29,7 @@ export function Navbar() {
               <p className="text-[#7eb4d2] font-bold text-lg tracking-wide">今泉歯科医院</p>
               <p className="text-[#7eb4d2] text-[10px] tracking-widest">IMAIZUMI DENTAL CLINIC</p>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center gap-6">
