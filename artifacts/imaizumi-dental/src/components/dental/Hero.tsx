@@ -34,13 +34,13 @@ export function Hero() {
               >
                 <h1
                   className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#7eb4d2] mb-4 leading-tight"
-                  style={{ WebkitTextStroke: "1.5px white", textShadow: "0 0 12px rgba(255,255,255,0.9)" }}
+                  style={{ WebkitTextStroke: "1.5px rgba(0,0,0,0.5)", textShadow: "1px 1px 3px rgba(0,0,0,0.3)" }}
                 >
                   桐生のアットホームな歯医者さん
                 </h1>
                 <p
                   className="text-xl md:text-2xl text-[#d4a574] font-medium mb-8"
-                  style={{ WebkitTextStroke: "1px white", textShadow: "0 0 10px rgba(255,255,255,0.9)" }}
+                  style={{ WebkitTextStroke: "1px rgba(0,0,0,0.4)", textShadow: "1px 1px 3px rgba(0,0,0,0.25)" }}
                 >
                   地域に寄り添い、笑顔をつくる
                 </p>
