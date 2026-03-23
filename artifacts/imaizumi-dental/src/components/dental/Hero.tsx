@@ -8,8 +8,8 @@ const badges = [
 ]
 
 const schedule = [
-  { time: "9:00-13:00", mon: true, tue: true, wed: true, thu: true, fri: true, sat: "▲", sun: false },
-  { time: "14:00-18:00", mon: true, tue: true, wed: true, thu: false, fri: true, sat: false, sun: false },
+  { time: "9:30-12:30", mon: true, tue: true, wed: true, thu: "往診", fri: true, sat: true, sun: false },
+  { time: "15:00-19:00", mon: true, tue: true, wed: true, thu: true, fri: true, sat: "▲", sun: false },
 ]
 
 export function Hero() {
@@ -94,7 +94,7 @@ export function Hero() {
                         <td className="py-3 px-2 text-center">{row.mon ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
                         <td className="py-3 px-2 text-center">{row.tue ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
                         <td className="py-3 px-2 text-center">{row.wed ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
-                        <td className="py-3 px-2 text-center">{row.thu ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
+                        <td className="py-3 px-2 text-center">{row.thu === "往診" ? <span className="text-[#999] text-[10px]">往診</span> : row.thu ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
                         <td className="py-3 px-2 text-center">{row.fri ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
                         <td className="py-3 px-2 text-center">{row.sat === "▲" ? <span className="text-[#f5a623]">▲</span> : row.sat ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
                         <td className="py-3 px-2 text-center">{row.sun ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
@@ -106,7 +106,8 @@ export function Hero() {
               
               <div className="mt-4 text-xs text-[#666] space-y-1">
                 <p>※都合により早く終了している場合がございますのでお電話にてご確認ください。</p>
-                <p>▲土曜日のみ9：00〜13：00</p>
+                <p>▲土曜午後は14：00〜16：00</p>
+                <p>木曜午前は往診のみ</p>
               </div>
             </motion.div>
           </div>
