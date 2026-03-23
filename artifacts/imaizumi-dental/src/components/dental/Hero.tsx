@@ -63,7 +63,7 @@ export function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.3 }}
-          className="hidden lg:block absolute bottom-10 right-10 z-20 bg-white/95 backdrop-blur-md rounded-3xl p-7 shadow-2xl w-[540px] max-w-[55%]"
+          className="hidden lg:block absolute bottom-10 right-10 z-20 bg-white/95 backdrop-blur-md rounded-3xl p-8 shadow-2xl w-[600px] max-w-[58%]"
         >
           <div className="flex items-center gap-2 text-[#7eb4d2] mb-4">
             <Clock className="h-6 w-6" />
@@ -71,7 +71,7 @@ export function Hero() {
           </div>
 
           <div className="overflow-x-auto">
-            <table className="w-full text-base">
+            <table className="w-full text-lg">
               <thead>
                 <tr className="border-b-2 border-[#7eb4d2]/30">
                   <th className="py-2 px-1 text-left text-[#4a4a4a]"></th>
