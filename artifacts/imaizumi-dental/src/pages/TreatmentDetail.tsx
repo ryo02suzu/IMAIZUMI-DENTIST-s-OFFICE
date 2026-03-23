@@ -15,7 +15,7 @@ type Treatment = {
   intro: string
   features: { title: string; body: string }[]
   steps: { num: string; title: string; body: string }[]
-  price?: { label: string; amount: string; note?: string }[]
+  price?: { label: string; amount?: string; note?: string; isHeader?: boolean }[]
   faq?: { q: string; a: string }[]
 }
 
@@ -140,9 +140,16 @@ const treatments: Treatment[] = [
       { num: "04", title: "セラミック装着・完成", body: "完成したクラウンをお口に合わせて調整・装着します。" },
     ],
     price: [
-      { label: "オールセラミック（1本）", amount: "応相談", note: "部位・形状により異なります" },
-      { label: "ジルコニアクラウン（1本）", amount: "80,000円〜", note: "部位により異なります" },
-      { label: "メタボン（1本）", amount: "応相談", note: "部位・形状により異なります" },
+      { label: "詰め物（インレー）", isHeader: true },
+      { label: "ダイレクトボンディング", amount: "16,500円〜" },
+      { label: "ハイブリッドセラミック", amount: "30,000円〜" },
+      { label: "オールセラミック e.max（インレー）", amount: "40,000円〜" },
+      { label: "ジルコニア（インレー）", amount: "40,000円〜" },
+      { label: "被せ物（クラウン）", isHeader: true },
+      { label: "フルジルコニア", amount: "40,000円〜" },
+      { label: "オールセラミック e.max（クラウン）", amount: "50,000円〜" },
+      { label: "メタルボンド", amount: "50,000円〜" },
+      { label: "ラミネートベニア", amount: "100,000円〜" },
     ],
     faq: [
       { q: "銀歯をセラミックに替えられますか？", a: "はい、既存の銀歯をセラミック系素材に変えることができます。歯の状態を確認してからご提案します。" },
@@ -194,8 +201,10 @@ const treatments: Treatment[] = [
       { num: "04", title: "効果確認・アフターケア", body: "仕上がりを確認し、色戻りを防ぐためのアドバイスをします。" },
     ],
     price: [
-      { label: "ホームホワイトニング", amount: "20,000円〜", note: "マウスピース作製・薬剤セット含む" },
-      { label: "オフィスホワイトニング", amount: "30,000円〜", note: "クリニックで約1時間の施術" },
+      { label: "オフィスホワイトニング（1回）", amount: "14,300円〜" },
+      { label: "ホームホワイトニング（片顎）", amount: "16,500円〜", note: "マウスピース・薬剤セット含む" },
+      { label: "ホームホワイトニング（上下）", amount: "20,000円〜", note: "マウスピース・薬剤セット含む" },
+      { label: "ホーム＋オフィス完了コース", amount: "55,000円〜" },
     ],
     faq: [
       { q: "効果はどのくらい続きますか？", a: "個人差はありますが、ホームで半年〜1年程度、オフィスで3〜6ヶ月程度が目安です。定期的なメンテナンスで効果を維持できます。" },
@@ -389,15 +398,23 @@ export default function TreatmentDetail() {
                     </tr>
                   </thead>
                   <tbody>
-                    {t.price.map((p, i) => (
-                      <tr key={i} className="border-t border-[#e0eff6]">
-                        <td className="py-4 px-5">
-                          <p className="font-medium text-[#4a4a4a]">{p.label}</p>
-                          {p.note && <p className="text-xs text-[#999] mt-1">{p.note}</p>}
-                        </td>
-                        <td className="py-4 px-5 text-right font-bold text-[#7eb4d2] whitespace-nowrap">{p.amount}</td>
-                      </tr>
-                    ))}
+                    {t.price.map((p, i) =>
+                      p.isHeader ? (
+                        <tr key={i} className="border-t border-[#e0eff6] bg-[#f0f8fb]">
+                          <td colSpan={2} className="py-2 px-5 text-xs font-bold text-[#7eb4d2] tracking-widest uppercase">
+                            {p.label}
+                          </td>
+                        </tr>
+                      ) : (
+                        <tr key={i} className="border-t border-[#e0eff6]">
+                          <td className="py-4 px-5">
+                            <p className="font-medium text-[#4a4a4a]">{p.label}</p>
+                            {p.note && <p className="text-xs text-[#999] mt-1">{p.note}</p>}
+                          </td>
+                          <td className="py-4 px-5 text-right font-bold text-[#7eb4d2] whitespace-nowrap">{p.amount}</td>
+                        </tr>
+                      )
+                    )}
                   </tbody>
                 </table>
               </div>
