@@ -51,7 +51,7 @@ export function Hero() {
       <div className="lg:hidden">
         {/* Photo banner */}
         <div className="px-4 pt-4">
-        <div className="relative w-full h-52 overflow-hidden rounded-2xl">
+        <div className="relative w-full h-52 overflow-hidden rounded-3xl">
           <img
             src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`}
             alt="院内写真"
