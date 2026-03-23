@@ -37,10 +37,12 @@ export function News() {
               transition={{ duration: 0.5 }}
             >
               <ul className="divide-y divide-gray-200">
-                {displayItems.map((item, index) => (
-                  <li key={index} className="py-4 flex gap-6 items-start hover:bg-gray-50 transition-colors">
-                    <span className="text-[#999] text-sm whitespace-nowrap">{item.date}</span>
-                    <span className="text-[#4a4a4a] text-sm md:text-base">{item.content}</span>
+                {displayItems.map((item) => (
+                  <li key={item.id} className="py-4 hover:bg-gray-50 transition-colors">
+                    <Link href={`/news/${item.id}`} className="flex gap-6 items-start">
+                      <span className="text-[#999] text-sm whitespace-nowrap">{item.date}</span>
+                      <span className="text-[#4a4a4a] text-sm md:text-base hover:text-[#7eb4d2] transition-colors">{item.title}</span>
+                    </Link>
                   </li>
                 ))}
               </ul>
