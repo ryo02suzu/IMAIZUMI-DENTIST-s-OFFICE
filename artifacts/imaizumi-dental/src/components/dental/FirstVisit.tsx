@@ -153,7 +153,7 @@ export function FirstVisit() {
             rel="noopener noreferrer"
             className="inline-block bg-[#f5a623] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#e09520] transition-colors shadow-md"
           >
-            WEB予約はこちら（初診の方もどうぞ）
+            WEB予約はこちら<br />（初診の方もどうぞ）
           </a>
         </motion.div>
       </div>
