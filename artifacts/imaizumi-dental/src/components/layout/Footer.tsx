@@ -1,9 +1,15 @@
 import { ChevronRight } from "lucide-react"
-import { Link } from "wouter"
 
 const footerMain = [
   { label: "ホーム", href: "/" },
+  { label: "診療内容", href: "/#treatment" },
   { label: "はじめての方へ", href: "/#about" },
+  { label: "医師紹介", href: "/#doctor" },
+  { label: "院内のご紹介", href: "/#gallery" },
+  { label: "お知らせ", href: "/news" },
+  { label: "お問い合わせ", href: "/#contact" },
+  { label: "アクセス", href: "/#access" },
+  { label: "プライバシーポリシー", href: "/privacy-policy" },
 ]
 
 const footerTreatment = [
@@ -17,20 +23,11 @@ const footerTreatment = [
   { label: "訪問診療", href: "/treatment/home-visit" },
 ]
 
-const footerInfo = [
-  { label: "医師紹介", href: "/#doctor" },
-  { label: "院内のご紹介", href: "/#gallery" },
-  { label: "アクセス", href: "/#access" },
-  { label: "プライバシーポリシー", href: "/privacy-policy" },
-  { label: "お問い合わせ", href: "/#contact" },
-  { label: "お知らせ", href: "/news" },
-]
-
 export function Footer() {
   return (
     <footer className="bg-[#7eb4d2] text-white py-12 relative">
       <div className="container mx-auto px-4">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {/* Logo and Address */}
           <div>
             <div className="flex items-center gap-3 mb-4">
@@ -57,59 +54,39 @@ export function Footer() {
 
             <div className="mb-4">
               <p className="text-white/80 text-sm font-medium mb-2">【アクセス】</p>
-              <p className="text-white/70 text-xs leading-relaxed">
-                ・バス停「昭和橋」から徒歩2分
-              </p>
-              <p className="text-white/70 text-xs leading-relaxed">
-                ・東武桐生線 新桐生駅から約1.6km
-              </p>
-              <p className="text-white/70 text-xs leading-relaxed mt-1">
-                ・駐車場10台完備
-              </p>
-              <p className="text-white/70 text-xs leading-relaxed">
-                ・日曜・祝日休診
-              </p>
+              <p className="text-white/70 text-xs leading-relaxed">・バス停「昭和橋」から徒歩2分</p>
+              <p className="text-white/70 text-xs leading-relaxed">・東武桐生線 新桐生駅から約1.6km</p>
+              <p className="text-white/70 text-xs leading-relaxed mt-1">・駐車場10台完備</p>
+              <p className="text-white/70 text-xs leading-relaxed">・日曜・祝日休診</p>
             </div>
           </div>
 
-          {/* Main Links */}
+          {/* Site Links (page order) */}
           <div>
+            <p className="text-white font-medium mb-3">サイトメニュー</p>
             {footerMain.map((link) => (
-              <Link
+              <a
                 key={link.label}
                 href={link.href}
-                className="block text-white/90 text-sm py-1 hover:text-white transition-colors"
+                className="block text-white/90 text-sm py-1.5 hover:text-white transition-colors border-b border-white/10 last:border-0"
               >
                 {link.label}
-              </Link>
+              </a>
             ))}
           </div>
 
           {/* Treatment Links */}
           <div>
-            <p className="text-white font-medium mb-2">診療内容</p>
+            <p className="text-white font-medium mb-3">診療内容</p>
             {footerTreatment.map((link) => (
-              <Link
+              <a
                 key={link.label}
                 href={link.href}
-                className="flex items-center gap-1 text-white/70 text-xs py-1 hover:text-white transition-colors"
+                className="flex items-center gap-1 text-white/80 text-sm py-1.5 hover:text-white transition-colors border-b border-white/10 last:border-0"
               >
-                <ChevronRight className="h-3 w-3" />
+                <ChevronRight className="h-3 w-3 shrink-0" />
                 {link.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Info Links */}
-          <div>
-            {footerInfo.map((link) => (
-              <Link
-                key={link.label}
-                href={link.href}
-                className="block text-white/90 text-sm py-1 hover:text-white transition-colors"
-              >
-                {link.label}
-              </Link>
+              </a>
             ))}
           </div>
         </div>
