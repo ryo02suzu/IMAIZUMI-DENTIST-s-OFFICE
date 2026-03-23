@@ -19,10 +19,15 @@ export function Gallery() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="flex-1 min-w-0 aspect-[4/3] bg-gradient-to-br from-[#e0e8ec] to-[#c8d4dc] flex items-center justify-center relative group cursor-pointer"
+            className="flex-1 min-w-0 aspect-[4/3] relative group cursor-pointer overflow-hidden"
           >
-            <p className="text-[#7eb4d2]/50 text-xs">{item}</p>
-            <div className="absolute inset-0 bg-[#7eb4d2]/0 group-hover:bg-[#7eb4d2]/20 transition-colors" />
+            <img
+              src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`}
+              alt={item}
+              className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 bg-[#3d5f7a]/30 group-hover:bg-[#3d5f7a]/10 transition-colors" />
+            <p className="absolute bottom-2 left-0 right-0 text-center text-white text-xs font-medium drop-shadow">{item}</p>
           </motion.div>
         ))}
       </div>

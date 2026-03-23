@@ -101,9 +101,9 @@ export function Contact() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="aspect-[4/3] bg-gradient-to-br from-[#e0e8ec] to-[#c8d4dc] rounded-lg flex items-center justify-center"
+            className="aspect-[4/3] rounded-lg overflow-hidden"
           >
-            <p className="text-[#7eb4d2]/50 text-sm">外観写真準備中</p>
+            <img src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`} alt="外観写真" className="w-full h-full object-cover" />
           </motion.div>
         </div>
       </div>

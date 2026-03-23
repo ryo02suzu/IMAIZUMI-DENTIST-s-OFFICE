@@ -16,10 +16,10 @@ export function Hero() {
   return (
     <section className="relative">
       {/* Hero Image */}
-      <div className="relative min-h-[500px] md:min-h-[600px] bg-gradient-to-br from-[#e8f4f8] to-[#d1e8f0]">
-        {/* Placeholder for hero image */}
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-full h-full bg-[linear-gradient(135deg,#e8f4f8_0%,#d1e8f0_50%,#c4e0eb_100%)]" />
+      <div className="relative min-h-[500px] md:min-h-[600px]">
+        <div className="absolute inset-0">
+          <img src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`} alt="院内写真" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-white/60" />
         </div>
         
         {/* Content Overlay */}

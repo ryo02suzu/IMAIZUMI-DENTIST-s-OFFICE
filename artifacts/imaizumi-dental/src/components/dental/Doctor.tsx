@@ -30,8 +30,8 @@ export function Doctor() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <div className="aspect-[3/4] bg-gradient-to-br from-[#e8f4f8] to-[#d1e8f0] rounded-2xl flex items-center justify-center max-w-xs mx-auto shadow-sm">
-              <p className="text-[#7eb4d2]/40 text-sm">写真準備中</p>
+            <div className="aspect-[3/4] rounded-2xl overflow-hidden max-w-xs mx-auto shadow-sm">
+              <img src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`} alt="院長写真" className="w-full h-full object-cover" />
             </div>
           </motion.div>
 
