@@ -2,14 +2,14 @@ import { motion } from "framer-motion"
 import { ChevronRight } from "lucide-react"
 
 const treatments = [
-  { tag: "歯が痛い・しみる", title: "一般歯科", icon: "dental-tools" },
-  { tag: "子供の歯を守りたい", title: "小児歯科", icon: "child-tooth" },
-  { tag: "虫歯予防したい", title: "予防歯科", icon: "prevention" },
-  { tag: "入れ歯が合わない", title: "入れ歯", icon: "dentures" },
-  { tag: "ご自身の歯のように", title: "インプラント", icon: "implant" },
-  { tag: "部分入れ歯", title: "ノンクラスプデンチャー", icon: "partial" },
-  { tag: "人工ダイヤモンド", title: "ジルコニア", icon: "zirconia" },
-  { tag: "噛みやすい入れ歯", title: "リプロデンチャーシステム", icon: "repro" },
+  { tag: "歯が痛い・しみる", title: "一般歯科", icon: "dental-tools", slug: "general" },
+  { tag: "子供の歯を守りたい", title: "小児歯科", icon: "child-tooth", slug: "pediatric" },
+  { tag: "虫歯予防したい", title: "予防歯科", icon: "prevention", slug: "preventive" },
+  { tag: "入れ歯が合わない", title: "入れ歯", icon: "dentures", slug: "denture" },
+  { tag: "ご自身の歯のように", title: "インプラント", icon: "implant", slug: "implant" },
+  { tag: "部分入れ歯", title: "ノンクラスプデンチャー", icon: "partial", slug: "non-clasp" },
+  { tag: "人工ダイヤモンド", title: "ジルコニア", icon: "zirconia", slug: "zirconia" },
+  { tag: "噛みやすい入れ歯", title: "リプロデンチャーシステム", icon: "repro", slug: "repro" },
 ]
 
 function TreatmentIcon({ type }: { type: string }) {
@@ -113,13 +113,14 @@ export function Treatment() {
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 max-w-5xl mx-auto">
           {treatments.map((item, index) => (
-            <motion.div
+            <motion.a
               key={index}
+              href={`/treatment/${item.slug}`}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              className="bg-[#f8fbfc] rounded-xl p-4 md:p-6 hover:shadow-lg transition-shadow cursor-pointer group"
+              className="bg-[#f8fbfc] rounded-xl p-4 md:p-6 hover:shadow-lg hover:bg-white transition-all cursor-pointer group border border-transparent hover:border-[#7eb4d2]/20 block"
             >
               <div className="mb-3">
                 <span className="inline-block bg-white border border-[#7eb4d2] text-[#7eb4d2] text-[10px] md:text-xs px-2 py-1 rounded-full">
@@ -133,7 +134,7 @@ export function Treatment() {
                 <span>{item.title}</span>
                 <ChevronRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>
