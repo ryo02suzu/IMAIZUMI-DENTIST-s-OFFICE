@@ -66,8 +66,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-2xl font-bold text-[#7eb4d2] mb-2 leading-snug">
-              桐生のアットホームな<br />歯医者さん
+            <h1 className="text-xl font-bold text-[#7eb4d2] mb-2 leading-snug whitespace-nowrap">
+              桐生のアットホームな歯医者さん
             </h1>
             <p className="text-base text-[#d4a574] font-medium mb-5">
               地域に寄り添い、笑顔をつくる
