@@ -31,11 +31,8 @@ export function Hero() {
               initial={{ opacity: 0, x: -30 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.7 }}
-              className="relative z-10 bg-white/85 backdrop-blur-md rounded-3xl p-8 lg:p-10 shadow-xl w-full lg:w-[54%]"
+              className="relative z-10 bg-white/85 backdrop-blur-md rounded-3xl p-8 lg:p-10 shadow-xl w-full lg:w-fit"
             >
-              {/* Accent bar */}
-              <div className="w-10 h-1.5 rounded-full bg-[#f5a623] mb-5" />
-
               <h1 className="text-3xl md:text-4xl lg:text-2xl xl:text-3xl 2xl:text-4xl font-bold text-[#7eb4d2] mb-3 leading-tight">
                 桐生のアットホームな歯医者さん
               </h1>
