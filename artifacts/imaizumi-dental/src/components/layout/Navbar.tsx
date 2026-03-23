@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { CalendarDays, Menu, X, Phone } from "lucide-react";
+import { useState, useEffect } from "react";
+import { CalendarDays, Menu, X, Phone, ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -7,25 +7,39 @@ const BOOKING_URL = "https://functional-prototype.replit.app/book/imaizumi-denta
 
 const NAV_LINKS = [
   { name: "ホーム", href: "#" },
-  { name: "ごあいさつ", href: "#concept" },
-  { name: "当院の特徴", href: "#features" },
   { name: "診療内容", href: "#treatments" },
-  { name: "料金表", href: "#pricing" },
-  { name: "アクセス", href: "#access" },
+  { name: "当院について", href: "#about" },
+  { name: "特徴", href: "#features" },
+  { name: "アクセス", href: "#contact" },
+  { name: "ご予約", href: "#contact" },
 ];
 
 export function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <>
-      <header className="w-full bg-white border-b border-border sticky top-0 z-50 shadow-sm">
+      <header 
+        className={cn(
+          "w-full bg-white fixed top-0 z-50 transition-shadow duration-300",
+          isScrolled ? "shadow-md" : ""
+        )}
+      >
         {/* Top Bar */}
-        <div className="hidden lg:flex justify-end items-center bg-gray-50 border-b border-border px-4 sm:px-6 lg:px-8 h-12">
-          <div className="flex items-center gap-8 h-full">
-            <div className="flex items-center gap-2 text-sm font-medium text-foreground">
+        <div className="hidden lg:flex justify-end items-center px-4 sm:px-6 lg:px-8 h-12 border-b border-border/50 bg-white">
+          <div className="flex items-center h-full">
+            <div className="flex items-center gap-2 px-6 text-foreground font-bold font-mono">
               <Phone className="w-4 h-4 text-primary" />
-              <span>TEL: 近日公開</span>
+              <span className="text-sm">TEL: 近日公開</span>
             </div>
             <a
               href={BOOKING_URL}
@@ -40,45 +54,31 @@ export function Navbar() {
         </div>
 
         {/* Main Nav */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20 lg:h-24 bg-white">
           <a href="#" className="flex items-center gap-3 group">
-            <div className="w-12 h-12 bg-primary flex items-center justify-center text-white">
-              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M12 22C10.5 22 9 20 9 18C9 16 12 14 12 14C12 14 15 16 15 18C15 20 13.5 22 12 22Z" />
-                <path d="M12 2V8" />
-                <path d="M5.5 5.5L8.5 8.5" />
-                <path d="M18.5 5.5L15.5 8.5" />
-                <path d="M3 12H8" />
-                <path d="M16 12H21" />
-              </svg>
-            </div>
             <div className="flex flex-col">
-              <span className="font-display font-bold text-2xl leading-tight text-foreground tracking-wide">
+              <span className="font-display font-bold text-2xl lg:text-3xl leading-tight text-foreground tracking-wide">
                 今泉歯科医院
-              </span>
-              <span className="text-[10px] text-primary font-bold tracking-widest uppercase">
-                Imaizumi Dental Clinic
               </span>
             </div>
           </a>
 
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center h-full">
-            <nav className="flex items-center h-full">
+            <nav className="flex items-center h-full space-x-1">
               {NAV_LINKS.map((link) => (
                 <a
                   key={link.name}
                   href={link.href}
-                  className="h-full flex items-center px-5 text-sm font-bold text-foreground relative group"
+                  className="h-full flex items-center px-4 text-sm font-bold text-foreground hover:text-primary transition-colors relative"
                 >
                   {link.name}
-                  <span className="absolute bottom-0 left-0 w-full h-[3px] bg-primary transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left" />
                 </a>
               ))}
             </nav>
           </div>
 
-          {/* Mobile Menu Button & Booking */}
+          {/* Mobile Menu Button */}
           <div className="flex items-center gap-4 lg:hidden">
             <a
               href={BOOKING_URL}
@@ -107,7 +107,7 @@ export function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-foreground/50 backdrop-blur-sm z-[60] lg:hidden"
+              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] lg:hidden"
               onClick={() => setIsMobileMenuOpen(false)}
             />
             <motion.div
@@ -120,7 +120,7 @@ export function Navbar() {
               <div className="p-6 flex justify-end">
                 <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 text-muted-foreground hover:text-foreground bg-muted rounded-none"
+                  className="p-2 text-muted-foreground hover:text-foreground bg-muted"
                 >
                   <X className="w-6 h-6" />
                 </button>
@@ -132,14 +132,15 @@ export function Navbar() {
                       key={link.name}
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-lg font-bold text-foreground py-4 border-b border-border"
+                      className="text-lg font-bold text-foreground py-4 border-b border-border flex justify-between items-center"
                     >
                       {link.name}
+                      <ChevronRight className="w-5 h-5 text-muted-foreground" />
                     </a>
                   ))}
                 </nav>
                 <div className="mt-auto pt-8 flex flex-col gap-4">
-                  <div className="flex items-center gap-2 text-sm font-bold text-foreground px-2">
+                  <div className="flex items-center justify-center gap-2 text-base font-bold text-foreground bg-gray-50 py-4 rounded-lg">
                     <Phone className="w-5 h-5 text-primary" />
                     <span>TEL: 近日公開</span>
                   </div>
@@ -147,7 +148,7 @@ export function Navbar() {
                     href={BOOKING_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full px-6 py-4 bg-accent text-accent-foreground font-bold shadow-md"
+                    className="flex items-center justify-center gap-2 w-full px-6 py-4 rounded-lg bg-accent text-accent-foreground font-bold shadow-md"
                   >
                     <CalendarDays className="w-5 h-5" />
                     24時間WEB予約
