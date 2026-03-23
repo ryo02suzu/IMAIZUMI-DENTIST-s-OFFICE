@@ -45,7 +45,7 @@ export function Doctor() {
             <div className="mb-6">
               <p className="text-[#7eb4d2] text-xs tracking-widest mb-1">DIRECTOR</p>
               <h3 className="text-3xl font-bold text-[#4a4a4a] mb-1">今泉 淳</h3>
-              <p className="text-[#888] text-sm">院長 / Imaizumi Jun</p>
+              <p className="text-[#888] text-sm">院長 / Imaizumi Atsushi</p>
             </div>
 
             <div className="flex items-start gap-2 mb-6 text-sm text-[#4a4a4a]">
