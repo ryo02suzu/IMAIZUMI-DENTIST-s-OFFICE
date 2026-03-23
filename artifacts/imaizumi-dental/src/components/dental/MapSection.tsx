@@ -11,7 +11,7 @@ export function MapSection() {
         className="w-full h-[400px] bg-[#e8f4f8]"
       >
         <iframe
-          src="https://maps.google.com/maps?q=36.388928,139.339040&z=16&output=embed"
+          src="https://maps.google.com/maps?q=今泉歯科医院+群馬県桐生市広沢町間ノ島291-5&z=17&output=embed"
           width="100%"
           height="100%"
           style={{ border: 0 }}
