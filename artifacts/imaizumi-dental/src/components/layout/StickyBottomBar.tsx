@@ -6,22 +6,15 @@ const BOOKING_URL = "https://functional-prototype.replit.app/book/imaizumi-denta
 
 export function StickyBottomBar() {
   const [visible, setVisible] = useState(false)
-  const [lastY, setLastY] = useState(0)
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentY = window.scrollY
-      if (currentY < lastY) {
-        setVisible(true)
-      } else if (currentY > lastY) {
-        setVisible(false)
-      }
-      setLastY(currentY)
+      setVisible(window.scrollY > 400)
     }
 
     window.addEventListener("scroll", handleScroll, { passive: true })
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [lastY])
+  }, [])
 
   return (
     <AnimatePresence>
