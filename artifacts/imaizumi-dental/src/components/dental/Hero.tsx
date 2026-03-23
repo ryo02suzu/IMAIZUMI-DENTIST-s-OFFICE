@@ -24,8 +24,8 @@ export function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <h1 className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl font-bold text-[#7eb4d2] mb-3 leading-tight">
-              桐生のアットホームな<br />歯医者さん
+            <h1 className="text-3xl md:text-4xl lg:text-2xl xl:text-3xl font-bold text-[#7eb4d2] mb-3 leading-tight whitespace-nowrap">
+              桐生のアットホームな歯医者さん
             </h1>
             <p className="text-lg md:text-xl text-[#d4a574] font-medium mb-10">
               地域に寄り添い、笑顔をつくる
