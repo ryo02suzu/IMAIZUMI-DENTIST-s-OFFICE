@@ -1,5 +1,6 @@
-import { motion } from "framer-motion"
+import { motion, AnimatePresence } from "framer-motion"
 import { Train, Calendar, Car, Clock } from "lucide-react"
+import { useState, useEffect } from "react"
 
 const badges = [
   { icon: Train, lines: ["昭和橋バス停", "徒歩2分"] },
@@ -11,6 +12,60 @@ const schedule = [
   { time: "9:30-12:30", mon: true, tue: true, wed: true, thu: "往診", fri: true, sat: true, sun: false },
   { time: "15:00-19:00", mon: true, tue: true, wed: true, thu: true, fri: true, sat: "▲", sun: false },
 ]
+
+// 写真を追加する場合はここにファイル名を追加してください
+const slides = [
+  { src: "clinic-photo.jpeg", alt: "院内写真１" },
+  { src: "clinic-photo.jpeg", alt: "院内写真２" },
+  { src: "clinic-photo.jpeg", alt: "院内写真３" },
+]
+
+function Slideshow({ className, imgClassName }: { className?: string; imgClassName?: string }) {
+  const [current, setCurrent] = useState(0)
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrent(prev => (prev + 1) % slides.length)
+    }, 4000)
+    return () => clearInterval(timer)
+  }, [])
+
+  return (
+    <div className={className}>
+      <div className="relative w-full h-full overflow-hidden">
+        <AnimatePresence>
+          {slides.map((slide, i) =>
+            i === current ? (
+              <motion.img
+                key={i}
+                src={`${import.meta.env.BASE_URL}${slide.src}`}
+                alt={slide.alt}
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.8 }}
+                className={`absolute inset-0 w-full h-full object-cover object-center ${imgClassName ?? ""}`}
+              />
+            ) : null
+          )}
+        </AnimatePresence>
+
+        {/* Dot indicators */}
+        <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
+          {slides.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrent(i)}
+              className={`h-2 rounded-full transition-all duration-300 ${
+                i === current ? "bg-white w-5" : "bg-white/60 w-2"
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  )
+}
 
 function ScheduleTable({ compact = false }: { compact?: boolean }) {
   const px = compact ? "px-2" : "px-3"
@@ -49,16 +104,12 @@ export function Hero() {
 
       {/* ── MOBILE layout ── */}
       <div className="lg:hidden">
-        {/* Photo banner */}
+        {/* Slideshow banner */}
         <div className="px-4 pt-4">
-        <div className="relative w-full h-52 overflow-hidden rounded-3xl">
-          <img
-            src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`}
-            alt="院内写真"
-            className="w-full h-full object-cover object-center opacity-80"
+          <Slideshow
+            className="w-full h-52 rounded-3xl"
+            imgClassName="opacity-80"
           />
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/60" />
-        </div>
         </div>
 
         {/* Catchphrase */}
@@ -140,14 +191,11 @@ export function Hero() {
           </motion.div>
         </div>
 
-        {/* Right: Photo */}
-        <div className="absolute left-[45%] right-6 top-6 bottom-6 rounded-3xl overflow-hidden shadow-xl">
-          <img
-            src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`}
-            alt="院内写真"
-            className="w-full h-full object-cover object-center opacity-60"
-          />
-        </div>
+        {/* Right: Slideshow */}
+        <Slideshow
+          className="absolute left-[45%] right-6 top-6 bottom-6 rounded-3xl shadow-xl"
+          imgClassName="opacity-60"
+        />
 
         {/* Schedule card floating over photo */}
         <motion.div
