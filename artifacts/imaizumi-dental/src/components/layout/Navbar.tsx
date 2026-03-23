@@ -26,8 +26,8 @@ export function Navbar() {
               </span>
             </div>
             <div>
-              <p className="text-[#7eb4d2] font-bold text-lg tracking-wide">今泉歯科医院</p>
-              <p className="text-[#7eb4d2] text-[10px] tracking-widest">IMAIZUMI DENTAL CLINIC</p>
+              <p className="text-[#3d5f7a] font-bold text-lg tracking-wide">今泉歯科医院</p>
+              <p className="text-[#3d5f7a] text-[10px] tracking-widest">IMAIZUMI DENTAL CLINIC</p>
             </div>
           </Link>
 
@@ -55,8 +55,8 @@ export function Navbar() {
               ご予約・お問い合わせ
             </a>
             <div className="text-right">
-              <p className="text-[#7eb4d2] text-xs">TEL</p>
-              <a href="tel:0277549893" className="text-[#7eb4d2] text-lg font-bold tracking-wider hover:opacity-80 transition-opacity">0277-54-9893</a>
+              <p className="text-[#3d5f7a] text-xs">TEL</p>
+              <a href="tel:0277549893" className="text-[#3d5f7a] text-lg font-bold tracking-wider hover:opacity-80 transition-opacity">0277-54-9893</a>
             </div>
           </div>
 
@@ -92,9 +92,9 @@ export function Navbar() {
               >
                 ご予約・お問い合わせ
               </a>
-              <div className="flex items-center justify-center gap-2 text-[#7eb4d2]">
+              <div className="flex items-center justify-center gap-2 text-[#3d5f7a]">
                 <Phone className="h-4 w-4" />
-                <a href="tel:0277549893" className="text-lg font-bold hover:opacity-80 transition-opacity">0277-54-9893</a>
+                <a href="tel:0277549893" className="text-[#3d5f7a] text-lg font-bold hover:opacity-80 transition-opacity">0277-54-9893</a>
               </div>
             </div>
           </nav>
