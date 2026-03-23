@@ -33,10 +33,10 @@ export function Hero() {
                 transition={{ duration: 0.6 }}
               >
                 <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#7eb4d2] mb-4 leading-tight">
-                  桐生の街の歯医者さん
+                  桐生のアットホームな歯医者さん
                 </h1>
                 <p className="text-xl md:text-2xl text-[#d4a574] font-medium mb-8">
-                  良い歯いつも新しい笑顔
+                  地域に寄り添い、笑顔をつくる
                 </p>
               </motion.div>
 
