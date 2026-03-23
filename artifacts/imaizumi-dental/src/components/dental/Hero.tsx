@@ -32,10 +32,16 @@ export function Hero() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6 }}
               >
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#1e3f5a] mb-4 leading-tight">
+                <h1
+                  className="text-3xl md:text-4xl lg:text-5xl font-bold text-[#7eb4d2] mb-4 leading-tight"
+                  style={{ WebkitTextStroke: "1.5px white", textShadow: "0 0 12px rgba(255,255,255,0.9)" }}
+                >
                   桐生のアットホームな歯医者さん
                 </h1>
-                <p className="text-xl md:text-2xl text-[#3d5f7a] font-medium mb-8">
+                <p
+                  className="text-xl md:text-2xl text-[#d4a574] font-medium mb-8"
+                  style={{ WebkitTextStroke: "1px white", textShadow: "0 0 10px rgba(255,255,255,0.9)" }}
+                >
                   地域に寄り添い、笑顔をつくる
                 </p>
               </motion.div>
