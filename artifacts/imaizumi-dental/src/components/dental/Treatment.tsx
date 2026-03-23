@@ -6,7 +6,7 @@ const treatments = [
   { tag: "子供の歯を守りたい", title: "小児歯科", icon: "child-tooth", slug: "pediatric" },
   { tag: "虫歯予防したい", title: "予防歯科", icon: "prevention", slug: "preventive" },
   { tag: "入れ歯が合わない", title: "入れ歯", icon: "dentures", slug: "denture" },
-  { tag: "人工ダイヤモンド", title: "ジルコニア", icon: "zirconia", slug: "zirconia" },
+  { tag: "銀歯を白くしたい", title: "審美歯科", icon: "zirconia", slug: "aesthetic" },
   { tag: "親知らず・外科処置", title: "口腔外科", icon: "oral-surgery", slug: "oral-surgery" },
   { tag: "歯を白くしたい", title: "ホワイトニング", icon: "whitening", slug: "whitening" },
   { tag: "ご自宅で診療", title: "訪問診療", icon: "home-visit", slug: "home-visit" },
