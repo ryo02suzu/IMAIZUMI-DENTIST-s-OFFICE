@@ -2,9 +2,9 @@ import { motion } from "framer-motion"
 import { Train, Calendar, Car, Clock } from "lucide-react"
 
 const badges = [
-  { icon: Train, lines: ["桐生駅", "徒歩10分"] },
+  { icon: Train, lines: ["昭和橋バス停", "徒歩2分"] },
   { icon: Calendar, lines: ["土曜", "診療あり"] },
-  { icon: Car, lines: ["駐車場", "完備"] },
+  { icon: Car, lines: ["駐車場", "10台完備"] },
 ]
 
 const schedule = [

@@ -42,17 +42,23 @@ export function Footer() {
                 <p className="text-white/70 text-[8px] tracking-widest">IMAIZUMI DENTAL CLINIC</p>
               </div>
             </div>
-            <p className="text-white/80 text-sm mb-6">
-              群馬県桐生市今泉町○-○-○
+            <p className="text-white/80 text-sm mb-4">
+              群馬県桐生市広沢町間ノ島291-5
             </p>
 
             <div className="mb-4">
               <p className="text-white/80 text-sm font-medium mb-2">【アクセス】</p>
               <p className="text-white/70 text-xs leading-relaxed">
-                ・JR両毛線 桐生駅 徒歩15分
+                ・バス停「昭和橋」から徒歩2分
               </p>
               <p className="text-white/70 text-xs leading-relaxed">
-                ・東武桐生線 新桐生駅 徒歩10分
+                ・東武桐生線 新桐生駅から約1.6km
+              </p>
+              <p className="text-white/70 text-xs leading-relaxed mt-1">
+                ・駐車場10台完備
+              </p>
+              <p className="text-white/70 text-xs leading-relaxed">
+                ・日曜・祝日休診
               </p>
             </div>
           </div>
