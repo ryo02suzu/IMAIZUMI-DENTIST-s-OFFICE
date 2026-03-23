@@ -46,11 +46,13 @@ export function Treatment() {
                   {item.tag}
                 </span>
                 <div className="flex justify-center items-center flex-1 py-1">
-                  <img
-                    src={`${BASE}icons/${item.icon}.jpeg`}
-                    alt={item.title}
-                    className="w-20 h-20 object-contain"
-                  />
+                  <div className="w-24 h-24 rounded-2xl bg-white border border-[#c8e2ee] flex items-center justify-center shadow-sm">
+                    <img
+                      src={`${BASE}icons/${item.icon}.jpeg`}
+                      alt={item.title}
+                      className="w-20 h-20 object-contain"
+                    />
+                  </div>
                 </div>
                 <div className="flex items-center justify-center gap-0.5 mt-3">
                   <span className="text-[#3d5f7a] font-bold text-sm md:text-base">{item.title}</span>
