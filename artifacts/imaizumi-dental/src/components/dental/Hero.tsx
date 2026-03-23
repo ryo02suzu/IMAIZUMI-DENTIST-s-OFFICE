@@ -18,16 +18,16 @@ export function Hero() {
       <div className="relative min-h-[560px] md:min-h-[640px] flex">
 
         {/* Left: white area with catchphrase */}
-        <div className="relative z-10 w-full lg:w-[42%] bg-white flex items-center py-14 px-8 md:px-12 lg:px-16 shrink-0">
+        <div className="relative z-10 w-full lg:w-[50%] bg-white flex items-center py-14 px-8 md:px-12 lg:px-14 shrink-0">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <h1 className="text-3xl md:text-4xl lg:text-2xl xl:text-3xl font-bold text-[#7eb4d2] mb-3 leading-tight whitespace-nowrap">
+            <h1 className="text-3xl md:text-4xl lg:text-3xl xl:text-4xl font-bold text-[#7eb4d2] mb-4 leading-tight whitespace-nowrap">
               桐生のアットホームな歯医者さん
             </h1>
-            <p className="text-lg md:text-xl text-[#d4a574] font-medium mb-10">
+            <p className="text-xl md:text-2xl text-[#d4a574] font-medium mb-10">
               地域に寄り添い、笑顔をつくる
             </p>
 
@@ -36,11 +36,11 @@ export function Hero() {
               {badges.map((badge, index) => (
                 <div
                   key={index}
-                  className="w-24 h-24 rounded-full bg-[#f5a623] flex flex-col items-center justify-center text-white shadow-lg"
+                  className="w-28 h-28 rounded-full bg-[#f5a623] flex flex-col items-center justify-center text-white shadow-lg"
                 >
-                  <badge.icon className="h-7 w-7 mb-1" />
+                  <badge.icon className="h-8 w-8 mb-1" />
                   {badge.lines.map((line, i) => (
-                    <p key={i} className={`text-xs leading-tight ${i === 0 ? "font-bold" : ""}`}>{line}</p>
+                    <p key={i} className={`text-sm leading-tight ${i === 0 ? "font-bold" : ""}`}>{line}</p>
                   ))}
                 </div>
               ))}
@@ -63,15 +63,15 @@ export function Hero() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.3 }}
-            className="absolute bottom-8 right-8 bg-white/95 backdrop-blur-md rounded-3xl p-6 shadow-2xl w-[520px] max-w-[90%]"
+            className="absolute bottom-8 right-8 bg-white/95 backdrop-blur-md rounded-3xl p-7 shadow-2xl w-[560px] max-w-[90%]"
           >
             <div className="flex items-center gap-2 text-[#7eb4d2] mb-4">
-              <Clock className="h-5 w-5" />
-              <span className="font-semibold text-base">診療時間</span>
+              <Clock className="h-6 w-6" />
+              <span className="font-semibold text-lg">診療時間</span>
             </div>
 
             <div className="overflow-x-auto">
-              <table className="w-full text-sm">
+              <table className="w-full text-base">
                 <thead>
                   <tr className="border-b-2 border-[#7eb4d2]/30">
                     <th className="py-2 px-1 text-left text-[#4a4a4a]"></th>
