@@ -42,7 +42,7 @@ export function Features() {
             >
               {/* Image placeholder with wave bottom */}
               <div className="relative mb-6">
-                <div className="aspect-[4/3] rounded-t-[40px] overflow-hidden">
+                <div className="aspect-[4/3] rounded-[40px] overflow-hidden">
                   <img src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`} alt={`特徴${feature.point}`} className="w-full h-full object-cover" />
                 </div>
                 {/* Point badge */}

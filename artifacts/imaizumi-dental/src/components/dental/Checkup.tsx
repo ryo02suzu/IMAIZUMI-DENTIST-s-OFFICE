@@ -34,7 +34,7 @@ export function Checkup() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="aspect-[4/3] rounded-lg overflow-hidden"
+            className="aspect-[4/3] rounded-2xl overflow-hidden"
           >
             <img src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`} alt="定期健診" className="w-full h-full object-cover" />
           </motion.div>

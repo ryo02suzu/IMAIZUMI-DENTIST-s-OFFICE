@@ -19,7 +19,7 @@ export function Gallery() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="flex-1 min-w-0 aspect-[4/3] relative group cursor-pointer overflow-hidden"
+            className="flex-1 min-w-0 aspect-[4/3] relative group cursor-pointer overflow-hidden rounded-2xl"
           >
             <img
               src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`}
