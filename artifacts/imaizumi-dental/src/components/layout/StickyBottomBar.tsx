@@ -36,7 +36,7 @@ export function StickyBottomBar() {
           </a>
           <a
             href="tel:0277549893"
-            className="flex-1 flex items-center justify-center gap-2 bg-[#3d5f7a] text-white py-3 rounded-full font-bold text-sm hover:bg-[#2d4a5e] transition-colors"
+            className="flex-1 flex items-center justify-center gap-2 bg-[#7eb4d2] text-white py-3 rounded-full font-bold text-sm hover:bg-[#6aa0be] transition-colors"
           >
             <Phone className="h-4 w-4" />
             0277-54-9893
