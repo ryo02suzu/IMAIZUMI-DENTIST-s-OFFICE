@@ -40,19 +40,17 @@ export function Treatment() {
             >
               <Link
                 href={`/treatment/${item.slug}`}
-                className="flex flex-col items-center bg-[#e8f4f9] rounded-2xl p-4 md:p-5 hover:shadow-md hover:bg-[#d8ecf5] transition-all cursor-pointer group block h-full"
+                className="flex flex-col items-center bg-white rounded-2xl p-4 md:p-5 border border-[#c8e2ee] hover:shadow-lg hover:border-[#7eb4d2] transition-all cursor-pointer group block h-full"
               >
-                <span className="inline-block bg-white text-[#3d5f7a] text-[10px] md:text-[11px] px-3 py-1 rounded-full font-medium mb-3 text-center leading-tight">
+                <span className="inline-block bg-[#e8f4f9] text-[#3d5f7a] text-[10px] md:text-[11px] px-3 py-1 rounded-full font-medium mb-3 text-center leading-tight">
                   {item.tag}
                 </span>
                 <div className="flex justify-center items-center flex-1 py-1">
-                  <div className="w-24 h-24 rounded-2xl bg-white border border-[#c8e2ee] flex items-center justify-center shadow-sm">
-                    <img
-                      src={`${BASE}icons/${item.icon}.jpeg`}
-                      alt={item.title}
-                      className="w-20 h-20 object-contain"
-                    />
-                  </div>
+                  <img
+                    src={`${BASE}icons/${item.icon}.jpeg`}
+                    alt={item.title}
+                    className="w-20 h-20 object-contain"
+                  />
                 </div>
                 <div className="flex items-center justify-center gap-0.5 mt-3">
                   <span className="text-[#3d5f7a] font-bold text-sm md:text-base">{item.title}</span>
