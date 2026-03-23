@@ -18,7 +18,7 @@ export function Hero() {
       <div className="relative min-h-[560px] md:min-h-[640px] flex">
 
         {/* Left: white area with catchphrase */}
-        <div className="relative z-10 w-full lg:w-[42%] bg-white flex items-center py-14 px-8 md:px-12 lg:px-14 shrink-0">
+        <div className="relative z-10 w-full lg:w-[45%] bg-white flex items-center py-14 px-8 md:px-12 lg:px-14 shrink-0">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={{ opacity: 1, x: 0 }}
@@ -49,7 +49,7 @@ export function Hero() {
         </div>
 
         {/* Right: Photo */}
-        <div className="hidden lg:block absolute left-[42%] right-6 top-6 bottom-6 rounded-3xl overflow-hidden shadow-xl">
+        <div className="hidden lg:block absolute left-[45%] right-6 top-6 bottom-6 rounded-3xl overflow-hidden shadow-xl">
           <img
             src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`}
             alt="院内写真"
