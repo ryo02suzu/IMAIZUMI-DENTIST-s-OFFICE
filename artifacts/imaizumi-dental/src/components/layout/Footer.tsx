@@ -6,13 +6,14 @@ const footerLinks = {
     { label: "はじめての方へ", href: "#about" },
   ],
   treatment: [
-    { label: "一般歯科", href: "#treatment" },
-    { label: "小児歯科", href: "#treatment" },
-    { label: "予防歯科", href: "#treatment" },
-    { label: "インプラント", href: "#treatment" },
-    { label: "ノンクラスプデンチャー", href: "#treatment" },
-    { label: "ジルコニア", href: "#treatment" },
-    { label: "リプロデンチャーシステム", href: "#treatment" },
+    { label: "一般歯科", href: "/treatment/general" },
+    { label: "小児歯科", href: "/treatment/pediatric" },
+    { label: "予防歯科", href: "/treatment/preventive" },
+    { label: "入れ歯", href: "/treatment/denture" },
+    { label: "審美歯科", href: "/treatment/aesthetic" },
+    { label: "口腔外科", href: "/treatment/oral-surgery" },
+    { label: "ホワイトニング", href: "/treatment/whitening" },
+    { label: "訪問診療", href: "/treatment/home-visit" },
   ],
   info: [
     { label: "医師紹介", href: "#doctor" },
@@ -45,6 +46,13 @@ export function Footer() {
             <p className="text-white/80 text-sm mb-4">
               群馬県桐生市広沢町間ノ島291-5
             </p>
+
+            <div className="mb-4">
+              <a href="tel:0277549893" className="block text-white font-bold text-lg mb-1 hover:opacity-80 transition-opacity">
+                0277-54-9893
+              </a>
+              <p className="text-white/60 text-xs mb-4">月〜金 9:30〜19:00（木午前除く）</p>
+            </div>
 
             <div className="mb-4">
               <p className="text-white/80 text-sm font-medium mb-2">【アクセス】</p>

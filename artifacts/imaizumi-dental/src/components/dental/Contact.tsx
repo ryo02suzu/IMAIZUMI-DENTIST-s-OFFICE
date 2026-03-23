@@ -33,10 +33,10 @@ export function Contact() {
             <div className="bg-[#f8fbfc] rounded-lg p-6 mb-6">
               <p className="text-[#7eb4d2] text-sm mb-2">ご予約・お問い合わせ</p>
               <div className="flex flex-wrap items-center gap-4">
-                <div className="text-[#7eb4d2]">
+                <a href="tel:0277549893" className="text-[#7eb4d2] hover:opacity-80 transition-opacity">
                   <span className="text-sm">TEL</span>
-                  <span className="text-2xl md:text-3xl font-bold ml-1">近日公開</span>
-                </div>
+                  <span className="text-2xl md:text-3xl font-bold ml-1">0277-54-9893</span>
+                </a>
                 <a
                   href="https://functional-prototype.replit.app/book/imaizumi-dental"
                   target="_blank"
