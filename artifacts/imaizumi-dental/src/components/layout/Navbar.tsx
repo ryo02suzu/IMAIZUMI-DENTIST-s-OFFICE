@@ -55,7 +55,7 @@ export function Navbar() {
             </a>
             <div className="text-right">
               <p className="text-[#7eb4d2] text-xs">TEL</p>
-              <p className="text-[#7eb4d2] text-xl font-bold tracking-wider">近日公開</p>
+              <a href="tel:0277549893" className="text-[#7eb4d2] text-lg font-bold tracking-wider hover:opacity-80 transition-opacity">0277-54-9893</a>
             </div>
           </div>
 
@@ -93,7 +93,7 @@ export function Navbar() {
               </a>
               <div className="flex items-center justify-center gap-2 text-[#7eb4d2]">
                 <Phone className="h-4 w-4" />
-                <span className="text-lg font-bold">近日公開</span>
+                <a href="tel:0277549893" className="text-lg font-bold hover:opacity-80 transition-opacity">0277-54-9893</a>
               </div>
             </div>
           </nav>

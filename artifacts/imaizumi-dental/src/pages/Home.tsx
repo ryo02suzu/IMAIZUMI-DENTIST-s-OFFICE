@@ -1,7 +1,8 @@
 import { Navbar } from "@/components/layout/Navbar"
 import { Hero } from "@/components/dental/Hero"
 import { Treatment } from "@/components/dental/Treatment"
-import { About } from "@/components/dental/About"
+import { FirstVisit } from "@/components/dental/FirstVisit"
+import { Doctor } from "@/components/dental/Doctor"
 import { Features } from "@/components/dental/Features"
 import { Checkup } from "@/components/dental/Checkup"
 import { Gallery } from "@/components/dental/Gallery"
@@ -17,7 +18,8 @@ export default function Home() {
       <main>
         <Hero />
         <Treatment />
-        <About />
+        <FirstVisit />
+        <Doctor />
         <Features />
         <Checkup />
         <Gallery />
