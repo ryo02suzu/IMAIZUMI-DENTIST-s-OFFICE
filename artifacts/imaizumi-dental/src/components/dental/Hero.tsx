@@ -68,7 +68,7 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-xl font-bold text-[#7eb4d2] mb-2 leading-snug whitespace-nowrap">
+            <h1 className="text-xl font-bold text-[#3d5f7a] mb-2 leading-snug whitespace-nowrap">
               桐生のアットホームな歯医者さん
             </h1>
             <p className="text-base text-[#d4a574] font-medium mb-5">
@@ -116,7 +116,7 @@ export function Hero() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.7 }}
           >
-            <h1 className="text-3xl xl:text-4xl font-bold text-[#7eb4d2] mb-4 leading-tight whitespace-nowrap">
+            <h1 className="text-3xl xl:text-4xl font-bold text-[#3d5f7a] mb-4 leading-tight whitespace-nowrap">
               桐生のアットホームな歯医者さん
             </h1>
             <p className="text-xl xl:text-2xl text-[#d4a574] font-medium mb-10">
