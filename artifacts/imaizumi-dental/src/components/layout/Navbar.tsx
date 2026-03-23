@@ -1,164 +1,104 @@
-import { useState, useEffect } from "react";
-import { CalendarDays, Menu, X, Phone, ChevronRight } from "lucide-react";
-import { cn } from "@/lib/utils";
-import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react"
+import { Menu, X, Phone } from "lucide-react"
 
-const BOOKING_URL = "https://functional-prototype.replit.app/book/imaizumi-dental";
-
-const NAV_LINKS = [
-  { name: "ホーム", href: "#" },
-  { name: "診療内容", href: "#treatments" },
-  { name: "当院について", href: "#about" },
-  { name: "特徴", href: "#features" },
-  { name: "アクセス", href: "#contact" },
-  { name: "ご予約", href: "#contact" },
-];
+const navItems = [
+  { label: "はじめての方へ", href: "#about" },
+  { label: "診療内容", href: "#treatment" },
+  { label: "医師紹介", href: "#doctor" },
+  { label: "院内のご紹介", href: "#facility" },
+  { label: "アクセス", href: "#access" },
+  { label: "お問い合わせ", href: "#contact" },
+]
 
 export function Navbar() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  const [isOpen, setIsOpen] = useState(false)
 
   return (
-    <>
-      <header 
-        className={cn(
-          "w-full bg-white fixed top-0 z-50 transition-shadow duration-300",
-          isScrolled ? "shadow-md" : ""
-        )}
-      >
-        {/* Top Bar */}
-        <div className="hidden lg:flex justify-end items-center px-4 sm:px-6 lg:px-8 h-12 border-b border-border/50 bg-white">
-          <div className="flex items-center h-full">
-            <div className="flex items-center gap-2 px-6 text-foreground font-bold font-mono">
-              <Phone className="w-4 h-4 text-primary" />
-              <span className="text-sm">TEL: 近日公開</span>
-            </div>
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 h-full px-8 bg-accent text-accent-foreground text-sm font-bold hover:bg-accent/90 transition-colors"
-            >
-              <CalendarDays className="w-4 h-4" />
-              WEB予約はこちら
-            </a>
-          </div>
-        </div>
-
-        {/* Main Nav */}
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between h-20 lg:h-24 bg-white">
-          <a href="#" className="flex items-center gap-3 group">
-            <div className="flex flex-col">
-              <span className="font-display font-bold text-2xl lg:text-3xl leading-tight text-foreground tracking-wide">
-                今泉歯科医院
+    <header className="bg-card sticky top-0 z-50 shadow-sm">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between py-4">
+          {/* Logo */}
+          <a href="#" className="flex items-center gap-3">
+            <div className="w-12 h-12 rounded-full bg-[#7eb4d2] flex items-center justify-center">
+              <span className="text-white text-[8px] font-bold leading-tight text-center">
+                今泉<br/>歯科
               </span>
+            </div>
+            <div>
+              <p className="text-[#7eb4d2] font-bold text-lg tracking-wide">今泉歯科医院</p>
+              <p className="text-[#7eb4d2] text-[10px] tracking-widest">IMAIZUMI DENTAL CLINIC</p>
             </div>
           </a>
 
-          {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center h-full">
-            <nav className="flex items-center h-full space-x-1">
-              {NAV_LINKS.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="h-full flex items-center px-4 text-sm font-bold text-foreground hover:text-primary transition-colors relative"
-                >
-                  {link.name}
-                </a>
-              ))}
-            </nav>
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-6">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="text-[#4a4a4a] text-sm hover:text-[#7eb4d2] transition-colors"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* CTA and Phone */}
+          <div className="hidden md:flex items-center gap-4">
+            <a
+              href="https://functional-prototype.replit.app/book/imaizumi-dental"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#f5a623] text-white text-xs px-4 py-2 rounded-full hover:bg-[#e09520] transition-colors"
+            >
+              ご予約・お問い合わせ
+            </a>
+            <div className="text-right">
+              <p className="text-[#7eb4d2] text-xs">TEL</p>
+              <p className="text-[#7eb4d2] text-xl font-bold tracking-wider">近日公開</p>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center gap-4 lg:hidden">
-            <a
-              href={BOOKING_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-2 px-4 py-2 rounded bg-accent text-accent-foreground text-xs font-bold"
-            >
-              <CalendarDays className="w-4 h-4" />
-              WEB予約
-            </a>
-            <button
-              className="p-2 text-foreground"
-              onClick={() => setIsMobileMenuOpen(true)}
-            >
-              <Menu className="w-6 h-6" />
-            </button>
-          </div>
+          <button
+            className="lg:hidden p-2 text-[#4a4a4a]"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label="メニュー"
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
         </div>
-      </header>
 
-      {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <>
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-black/50 backdrop-blur-sm z-[60] lg:hidden"
-              onClick={() => setIsMobileMenuOpen(false)}
-            />
-            <motion.div
-              initial={{ x: "100%" }}
-              animate={{ x: 0 }}
-              exit={{ x: "100%" }}
-              transition={{ type: "spring", damping: 25, stiffness: 20 }}
-              className="fixed top-0 right-0 bottom-0 w-4/5 max-w-sm bg-white shadow-2xl z-[70] lg:hidden flex flex-col"
-            >
-              <div className="p-6 flex justify-end">
-                <button
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="p-2 text-muted-foreground hover:text-foreground bg-muted"
-                >
-                  <X className="w-6 h-6" />
-                </button>
+        {/* Mobile Navigation */}
+        {isOpen && (
+          <nav className="lg:hidden py-4 border-t border-border">
+            {navItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                className="block py-3 text-[#4a4a4a] hover:text-[#7eb4d2] border-b border-border/50"
+                onClick={() => setIsOpen(false)}
+              >
+                {item.label}
+              </a>
+            ))}
+            <div className="pt-4 space-y-3">
+              <a
+                href="https://functional-prototype.replit.app/book/imaizumi-dental"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="block bg-[#f5a623] text-white text-center py-3 rounded-full"
+              >
+                ご予約・お問い合わせ
+              </a>
+              <div className="flex items-center justify-center gap-2 text-[#7eb4d2]">
+                <Phone className="h-4 w-4" />
+                <span className="text-lg font-bold">近日公開</span>
               </div>
-              <div className="px-6 pb-6 flex flex-col gap-6 overflow-y-auto flex-1">
-                <nav className="flex flex-col gap-0">
-                  {NAV_LINKS.map((link) => (
-                    <a
-                      key={link.name}
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className="text-lg font-bold text-foreground py-4 border-b border-border flex justify-between items-center"
-                    >
-                      {link.name}
-                      <ChevronRight className="w-5 h-5 text-muted-foreground" />
-                    </a>
-                  ))}
-                </nav>
-                <div className="mt-auto pt-8 flex flex-col gap-4">
-                  <div className="flex items-center justify-center gap-2 text-base font-bold text-foreground bg-gray-50 py-4 rounded-lg">
-                    <Phone className="w-5 h-5 text-primary" />
-                    <span>TEL: 近日公開</span>
-                  </div>
-                  <a
-                    href={BOOKING_URL}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full px-6 py-4 rounded-lg bg-accent text-accent-foreground font-bold shadow-md"
-                  >
-                    <CalendarDays className="w-5 h-5" />
-                    24時間WEB予約
-                  </a>
-                </div>
-              </div>
-            </motion.div>
-          </>
+            </div>
+          </nav>
         )}
-      </AnimatePresence>
-    </>
-  );
+      </div>
+    </header>
+  )
 }

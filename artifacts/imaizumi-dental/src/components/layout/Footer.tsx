@@ -1,130 +1,123 @@
-import { MapPin, Phone, ChevronRight } from "lucide-react";
+import { ChevronRight } from "lucide-react"
+
+const footerLinks = {
+  main: [
+    { label: "ホーム", href: "#" },
+    { label: "はじめての方へ", href: "#about" },
+  ],
+  treatment: [
+    { label: "一般歯科", href: "#treatment" },
+    { label: "小児歯科", href: "#treatment" },
+    { label: "予防歯科", href: "#treatment" },
+    { label: "インプラント", href: "#treatment" },
+    { label: "ノンクラスプデンチャー", href: "#treatment" },
+    { label: "ジルコニア", href: "#treatment" },
+    { label: "リプロデンチャーシステム", href: "#treatment" },
+  ],
+  info: [
+    { label: "医師紹介", href: "#doctor" },
+    { label: "院内のご紹介", href: "#facility" },
+    { label: "アクセス", href: "#access" },
+    { label: "プライバシーポリシー", href: "#" },
+    { label: "お問い合わせ", href: "#contact" },
+    { label: "お知らせ", href: "#" },
+  ],
+}
 
 export function Footer() {
   return (
-    <footer className="bg-secondary/50 pt-16 pb-6 border-t-[4px] border-primary">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
-          
-          {/* Logo & Address */}
+    <footer className="bg-[#7eb4d2] text-white py-12 relative">
+      <div className="container mx-auto px-4">
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+          {/* Logo and Address */}
           <div>
-            <div className="flex flex-col mb-6">
-              <span className="font-display font-bold text-2xl text-primary mb-1">
-                今泉歯科医院
-              </span>
-              <span className="text-xs text-foreground/60 tracking-widest uppercase font-bold">
-                Imaizumi Dental Clinic
-              </span>
-            </div>
-            <div className="space-y-4">
-              <div className="flex items-start gap-3 text-foreground/80 text-sm font-medium">
-                <MapPin className="w-5 h-5 text-primary shrink-0" />
-                <span>
-                  〒376-0000<br/>
-                  群馬県桐生市<br/>
-                  <span className="text-xs opacity-70 mt-1 block font-normal">※詳細住所は近日公開</span>
+            <div className="flex items-center gap-3 mb-4">
+              <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center">
+                <span className="text-white text-[6px] font-bold leading-tight text-center">
+                  今泉<br/>歯科
                 </span>
               </div>
-              <div className="flex items-center gap-3 text-foreground/80 font-mono">
-                <Phone className="w-5 h-5 text-primary shrink-0" />
-                <span className="text-lg font-bold">近日公開</span>
+              <div>
+                <p className="text-white font-bold">今泉歯科医院</p>
+                <p className="text-white/70 text-[8px] tracking-widest">IMAIZUMI DENTAL CLINIC</p>
               </div>
+            </div>
+            <p className="text-white/80 text-sm mb-6">
+              群馬県桐生市今泉町○-○-○
+            </p>
+
+            <div className="mb-4">
+              <p className="text-white/80 text-sm font-medium mb-2">【アクセス】</p>
+              <p className="text-white/70 text-xs leading-relaxed">
+                ・JR両毛線 桐生駅 徒歩15分
+              </p>
+              <p className="text-white/70 text-xs leading-relaxed">
+                ・東武桐生線 新桐生駅 徒歩10分
+              </p>
             </div>
           </div>
 
-          {/* Links 1 */}
+          {/* Main Links */}
           <div>
-            <h4 className="font-bold text-primary mb-6 border-b border-primary/20 pb-2">メニュー</h4>
-            <ul className="space-y-3">
-              {[
-                { name: "ホーム", href: "#" },
-                { name: "当院について", href: "#about" },
-                { name: "特徴", href: "#features" },
-                { name: "お知らせ", href: "#news" },
-              ].map((link) => (
-                <li key={link.name}>
-                  <a href={link.href} className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors flex items-center gap-2">
-                    <ChevronRight className="w-4 h-4 text-primary/50" />
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            {footerLinks.main.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="block text-white/90 text-sm py-1 hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
 
-          {/* Links 2 */}
+          {/* Treatment Links */}
           <div>
-            <h4 className="font-bold text-primary mb-6 border-b border-primary/20 pb-2">診療内容</h4>
-            <ul className="space-y-3">
-              {[
-                "一般歯科", "小児歯科", "予防歯科", "矯正歯科",
-                "インプラント", "審美歯科", "ホワイトニング", "口腔外科"
-              ].map((treatment) => (
-                <li key={treatment}>
-                  <a href="#treatments" className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors flex items-center gap-2">
-                    <ChevronRight className="w-4 h-4 text-primary/50" />
-                    {treatment}
-                  </a>
-                </li>
-              ))}
-            </ul>
+            <p className="text-white font-medium mb-2">診療内容</p>
+            {footerLinks.treatment.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="flex items-center gap-1 text-white/70 text-xs py-1 hover:text-white transition-colors"
+              >
+                <ChevronRight className="h-3 w-3" />
+                {link.label}
+              </a>
+            ))}
           </div>
 
-          {/* Timetable */}
+          {/* Info Links */}
           <div>
-            <h4 className="font-bold text-primary mb-6 border-b border-primary/20 pb-2">診療時間</h4>
-            <div className="bg-white p-4 rounded-lg shadow-sm border border-white">
-              <table className="w-full text-center text-sm border-collapse">
-                <thead>
-                  <tr className="border-b border-border">
-                    <th className="font-normal text-foreground/70 pb-2 text-left">診療時間</th>
-                    <th className="font-normal text-foreground/70 pb-2">月</th>
-                    <th className="font-normal text-foreground/70 pb-2">火</th>
-                    <th className="font-normal text-foreground/70 pb-2">水</th>
-                    <th className="font-normal text-foreground/70 pb-2">木</th>
-                    <th className="font-normal text-foreground/70 pb-2">金</th>
-                    <th className="font-normal text-primary pb-2">土</th>
-                    <th className="font-normal text-accent pb-2">日</th>
-                  </tr>
-                </thead>
-                <tbody className="text-foreground">
-                  <tr className="border-b border-border/50">
-                    <td className="py-2 text-left text-xs text-foreground/70">9:00 - 13:00</td>
-                    <td className="py-2 font-bold">●</td>
-                    <td className="py-2 font-bold">●</td>
-                    <td className="py-2 font-bold">●</td>
-                    <td className="py-2 font-bold">●</td>
-                    <td className="py-2 font-bold">●</td>
-                    <td className="py-2 font-bold text-primary">△</td>
-                    <td className="py-2 font-bold text-foreground/30">–</td>
-                  </tr>
-                  <tr>
-                    <td className="py-2 text-left text-xs text-foreground/70">14:00 - 18:00</td>
-                    <td className="py-2 font-bold">●</td>
-                    <td className="py-2 font-bold">●</td>
-                    <td className="py-2 font-bold">●</td>
-                    <td className="py-2 font-bold text-foreground/30">–</td>
-                    <td className="py-2 font-bold">●</td>
-                    <td className="py-2 font-bold text-foreground/30">–</td>
-                    <td className="py-2 font-bold text-foreground/30">–</td>
-                  </tr>
-                </tbody>
-              </table>
-              <div className="mt-3 text-[10px] text-foreground/60 leading-relaxed font-medium">
-                △ = 土曜午前のみ<br />
-                ※休診日：木曜午後・土曜午後・日曜・祝日
-              </div>
-            </div>
+            {footerLinks.info.map((link) => (
+              <a
+                key={link.label}
+                href={link.href}
+                className="block text-white/90 text-sm py-1 hover:text-white transition-colors"
+              >
+                {link.label}
+              </a>
+            ))}
           </div>
-
         </div>
 
-        <div className="text-center pt-8 border-t border-primary/20">
-          <p className="text-xs text-foreground/50 font-mono">
-            &copy; {new Date().getFullYear()} Imaizumi Dental Clinic. All Rights Reserved.
+        {/* Copyright */}
+        <div className="mt-12 pt-6 border-t border-white/20 text-center">
+          <p className="text-white/60 text-xs">
+            &copy; {new Date().getFullYear()} 今泉歯科医院 All Rights Reserved.
           </p>
         </div>
       </div>
+
+      {/* Page Top Button */}
+      <a
+        href="#"
+        className="fixed bottom-6 right-6 w-16 h-16 bg-white rounded-full shadow-lg flex flex-col items-center justify-center hover:shadow-xl transition-shadow group z-50"
+      >
+        <span className="text-[#7eb4d2] text-[8px] font-bold">PAGE</span>
+        <span className="text-[#7eb4d2] text-[8px] font-bold">TOP</span>
+        <svg className="w-8 h-8 text-[#7eb4d2] mt-1" viewBox="0 0 32 32" fill="currentColor">
+          <path d="M16 4c-4 0-7 2-8 5-1 4 0 8 1 12 1 3 2 7 4 7s2-3 3-6c1 3 1 6 3 6s3-4 4-7c1-4 2-8 1-12-1-3-4-5-8-5z" />
+        </svg>
+      </a>
     </footer>
-  );
+  )
 }
