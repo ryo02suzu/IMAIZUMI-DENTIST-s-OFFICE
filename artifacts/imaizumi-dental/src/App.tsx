@@ -7,6 +7,7 @@ import TreatmentDetail from "@/pages/TreatmentDetail";
 import NewsPage from "@/pages/NewsPage";
 import NewsDetail from "@/pages/NewsDetail";
 import NotFound from "@/pages/not-found";
+import { StickyBottomBar } from "@/components/layout/StickyBottomBar";
 
 const queryClient = new QueryClient();
 
@@ -29,6 +30,7 @@ function App() {
         <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
           <Router />
         </WouterRouter>
+        <StickyBottomBar />
         <Toaster />
       </TooltipProvider>
     </QueryClientProvider>
