@@ -49,60 +49,59 @@ export function Hero() {
         </div>
 
         {/* Right: Photo */}
-        <div className="hidden lg:block absolute right-0 top-0 w-[65%] h-full">
+        <div className="hidden lg:block absolute right-6 top-6 bottom-6 w-[58%] rounded-3xl overflow-hidden shadow-xl">
           <img
             src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`}
             alt="院内写真"
             className="w-full h-full object-cover object-center"
           />
-          {/* subtle gradient on left edge to blend into white */}
-          <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white to-transparent" />
 
-          {/* Schedule card floating over photo */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="absolute bottom-8 right-8 bg-white/95 backdrop-blur-md rounded-3xl p-7 shadow-2xl w-[560px] max-w-[90%]"
-          >
-            <div className="flex items-center gap-2 text-[#7eb4d2] mb-4">
-              <Clock className="h-6 w-6" />
-              <span className="font-semibold text-lg">診療時間</span>
-            </div>
-
-            <div className="overflow-x-auto">
-              <table className="w-full text-base">
-                <thead>
-                  <tr className="border-b-2 border-[#7eb4d2]/30">
-                    <th className="py-2 px-1 text-left text-[#4a4a4a]"></th>
-                    {["月","火","水","木","金","土","日"].map(d => (
-                      <th key={d} className="py-2 px-3 text-center text-[#4a4a4a] font-medium">{d}</th>
-                    ))}
-                  </tr>
-                </thead>
-                <tbody>
-                  {schedule.map((row, i) => (
-                    <tr key={i} className="border-b border-gray-100">
-                      <td className="py-3 px-1 text-[#4a4a4a] text-xs whitespace-nowrap">{row.time}</td>
-                      <td className="py-3 px-3 text-center">{row.mon ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
-                      <td className="py-3 px-3 text-center">{row.tue ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
-                      <td className="py-3 px-3 text-center">{row.wed ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
-                      <td className="py-3 px-3 text-center">{row.thu === "往診" ? <span className="text-[#999] text-[10px]">往診</span> : row.thu ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
-                      <td className="py-3 px-3 text-center">{row.fri ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
-                      <td className="py-3 px-3 text-center">{row.sat === "▲" ? <span className="text-[#f5a623]">▲</span> : row.sat ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
-                      <td className="py-3 px-3 text-center">{row.sun ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-
-            <div className="mt-4 text-xs text-[#888] space-y-0.5 border-t border-gray-100 pt-3">
-              <p>※都合により早く終了している場合がございますのでお電話にてご確認ください。</p>
-              <p>▲土曜午後は14：00〜16：00　　木曜午前は往診のみ</p>
-            </div>
-          </motion.div>
         </div>
+
+        {/* Schedule card floating over photo – outside photo div so it's not clipped */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.3 }}
+          className="hidden lg:block absolute bottom-10 right-10 z-20 bg-white/95 backdrop-blur-md rounded-3xl p-7 shadow-2xl w-[540px] max-w-[55%]"
+        >
+          <div className="flex items-center gap-2 text-[#7eb4d2] mb-4">
+            <Clock className="h-6 w-6" />
+            <span className="font-semibold text-lg">診療時間</span>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-base">
+              <thead>
+                <tr className="border-b-2 border-[#7eb4d2]/30">
+                  <th className="py-2 px-1 text-left text-[#4a4a4a]"></th>
+                  {["月","火","水","木","金","土","日"].map(d => (
+                    <th key={d} className="py-2 px-3 text-center text-[#4a4a4a] font-medium">{d}</th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {schedule.map((row, i) => (
+                  <tr key={i} className="border-b border-gray-100">
+                    <td className="py-3 px-1 text-[#4a4a4a] text-xs whitespace-nowrap">{row.time}</td>
+                    <td className="py-3 px-3 text-center">{row.mon ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
+                    <td className="py-3 px-3 text-center">{row.tue ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
+                    <td className="py-3 px-3 text-center">{row.wed ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
+                    <td className="py-3 px-3 text-center">{row.thu === "往診" ? <span className="text-[#999] text-[10px]">往診</span> : row.thu ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
+                    <td className="py-3 px-3 text-center">{row.fri ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
+                    <td className="py-3 px-3 text-center">{row.sat === "▲" ? <span className="text-[#f5a623]">▲</span> : row.sat ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
+                    <td className="py-3 px-3 text-center">{row.sun ? <span className="text-[#7eb4d2]">●</span> : "−"}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          <div className="mt-4 text-xs text-[#888] space-y-0.5 border-t border-gray-100 pt-3">
+            <p>※都合により早く終了している場合がございますのでお電話にてご確認ください。</p>
+            <p>▲土曜午後は14：00〜16：00　　木曜午前は往診のみ</p>
+          </div>
+        </motion.div>
 
         {/* Mobile: show photo below text */}
         <div className="lg:hidden absolute inset-0 -z-10">
