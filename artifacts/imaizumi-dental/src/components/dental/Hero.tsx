@@ -55,7 +55,7 @@ export function Hero() {
           <img
             src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`}
             alt="院内写真"
-            className="w-full h-full object-cover object-center opacity-70"
+            className="w-full h-full object-cover object-center opacity-80"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-transparent to-white/60" />
         </div>
