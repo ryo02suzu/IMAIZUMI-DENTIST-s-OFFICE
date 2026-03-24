@@ -52,8 +52,8 @@ const jobs = [
     role: "歯科衛生士",
     tag: "バイト・パート・正社員",
     color: "bg-[#f5a623]",
-    wage: "時給 ¥1,300〜",
-    wageNote: "実績・経験に応じて応相談",
+    wage: "時給 ¥1,300〜 ／ 正社員 月給 ¥175,000〜",
+    wageNote: "経験・スキルに応じて昇給あり",
     experience: "未経験OK（新卒歓迎）",
     employment: ["アルバイト", "パート", "正社員"],
     duties: [
