@@ -2,6 +2,7 @@ import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { Link } from "wouter"
 import { ChevronRight } from "lucide-react"
+import { useSEO } from "@/hooks/useSEO"
 
 const sections = [
   {
@@ -43,6 +44,10 @@ const sections = [
 ]
 
 export default function PrivacyPolicy() {
+  useSEO({
+    title: "プライバシーポリシー",
+    description: "今泉歯科医院の個人情報保護方針です。患者様の個人情報を適切に保護・管理することを重要な責務と考えています。",
+  })
   return (
     <div className="min-h-screen font-sans bg-white">
       <Navbar />

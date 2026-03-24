@@ -1,3 +1,4 @@
+import { useSEO } from "@/hooks/useSEO"
 import { Navbar } from "@/components/layout/Navbar"
 import { Hero } from "@/components/dental/Hero"
 import { Treatment } from "@/components/dental/Treatment"
@@ -12,6 +13,7 @@ import { MapSection } from "@/components/dental/MapSection"
 import { Footer } from "@/components/layout/Footer"
 
 export default function Home() {
+  useSEO()
   return (
     <div className="min-h-screen font-sans bg-white">
       <Navbar />

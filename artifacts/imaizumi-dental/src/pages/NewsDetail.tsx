@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer"
 import { newsItems } from "@/data/newsData"
 import { Link, useParams } from "wouter"
 import { Home } from "lucide-react"
+import { useSEO } from "@/hooks/useSEO"
 
 const categoryColor: Record<string, string> = {
   "診療案内": "bg-[#7eb4d2] text-white",
@@ -13,6 +14,10 @@ const categoryColor: Record<string, string> = {
 export default function NewsDetail() {
   const { id } = useParams()
   const item = newsItems.find((n) => n.id === id)
+  useSEO({
+    title: item?.title,
+    description: item?.body?.replace(/\n/g, " ").substring(0, 120),
+  })
 
   if (!item) {
     return (

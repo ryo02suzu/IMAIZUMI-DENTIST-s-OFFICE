@@ -3,6 +3,7 @@ import { Footer } from "@/components/layout/Footer"
 import { newsItems, categories, getArchiveMonths } from "@/data/newsData"
 import { Link } from "wouter"
 import { ChevronRight, Home } from "lucide-react"
+import { useSEO } from "@/hooks/useSEO"
 
 function MiniCalendar() {
   const today = new Date()
@@ -67,6 +68,10 @@ function MiniCalendar() {
 }
 
 export default function NewsPage() {
+  useSEO({
+    title: "お知らせ",
+    description: "今泉歯科医院からのお知らせ・診療情報・休診情報をお届けします。桐生市の歯科医院からの最新情報をご確認ください。",
+  })
   const archiveMonths = getArchiveMonths()
 
   return (

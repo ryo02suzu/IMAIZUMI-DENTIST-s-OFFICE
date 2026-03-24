@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import { ChevronRight, CheckCircle, ArrowLeft } from "lucide-react"
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
+import { useSEO } from "@/hooks/useSEO"
 
 const BOOKING_URL = "https://functional-prototype.replit.app/book/imaizumi-dental"
 
@@ -240,6 +241,10 @@ export default function TreatmentDetail() {
   const params = useParams<{ slug: string }>()
   const slug = params.slug
   const t = treatments.find((x) => x.slug === slug)
+  useSEO({
+    title: t ? `${t.title} | 診療内容` : undefined,
+    description: t ? `${t.intro}` : undefined,
+  })
 
   if (!t) {
     return (
