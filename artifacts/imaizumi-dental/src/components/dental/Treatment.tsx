@@ -19,7 +19,7 @@ const treatments: TreatmentItem[] = [
   { tag: "入れ歯が合わない",       title: "入れ歯",     icon: "denture",           href: "/treatment/denture" },
   { tag: "銀歯を白くしたい",       title: "審美歯科",   icon: "aesthetic",         href: "/treatment/aesthetic" },
   { tag: "親知らず・外科処置",     title: "口腔外科",   icon: "oral-surgery",      href: "/treatment/oral-surgery" },
-  { tag: "キレイ・スッキリしたい", title: "歯のエステ", icon: "dental-esthetics",  href: "/dental-esthetics", badge: "NEW" },
+  { tag: "キレイ・スッキリしたい", title: "お口のエステ", icon: "dental-esthetics",  href: "/dental-esthetics", badge: "NEW" },
   { tag: "ご自宅で診療",           title: "訪問診療",   icon: "home-visit",        href: "/treatment/home-visit" },
 ]
 

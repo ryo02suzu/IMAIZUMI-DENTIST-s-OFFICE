@@ -6,7 +6,7 @@ interface SEOProps {
 }
 
 const SITE_NAME = "今泉歯科医院"
-const DEFAULT_DESCRIPTION = "群馬県桐生市の今泉歯科医院。一般歯科・小児歯科・予防歯科・入れ歯・審美歯科・ホワイトニング・訪問診療など幅広く対応。土曜診療あり・駐車場10台完備。TEL 0277-54-9893"
+const DEFAULT_DESCRIPTION = "群馬県桐生市の今泉歯科医院。一般歯科・小児歯科・予防歯科・入れ歯・審美歯科・お口のエステ（ホワイトニング・クリーニング・口臭外来）・訪問診療など幅広く対応。土曜診療あり・駐車場10台完備。TEL 0277-54-9893"
 
 export function useSEO({ title, description }: SEOProps = {}) {
   useEffect(() => {

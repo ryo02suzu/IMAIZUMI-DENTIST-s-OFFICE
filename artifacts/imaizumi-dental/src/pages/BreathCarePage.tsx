@@ -61,6 +61,8 @@ export default function BreathCarePage() {
             <div className="flex items-center gap-1 text-sm text-[#7eb4d2]">
               <Link href="/" className="hover:underline">ホーム</Link>
               <ChevronRight className="h-3 w-3" />
+              <Link href="/dental-esthetics" className="hover:underline">お口のエステ</Link>
+              <ChevronRight className="h-3 w-3" />
               <span className="text-[#4a4a4a]">口臭外来</span>
             </div>
           </div>

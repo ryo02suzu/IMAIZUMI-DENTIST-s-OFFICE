@@ -13,7 +13,7 @@ export function SpecialServices() {
       <div className="container mx-auto px-4">
         <p className="text-xs font-semibold text-white/50 tracking-widest uppercase mb-2 text-center">ESTHETICS</p>
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 text-center">
-          歯のエステ
+          お口のエステ
         </h2>
         <p className="text-white/70 text-center text-sm mb-10">
           白く、清潔に、自信ある笑顔へ
@@ -29,7 +29,7 @@ export function SpecialServices() {
               <div className="md:w-40 bg-[#e8f4f9] flex items-center justify-center p-6 shrink-0">
                 <img
                   src="/icons/dental-esthetics.jpeg"
-                  alt="歯のエステ"
+                  alt="お口のエステ"
                   className="w-24 h-24 object-contain"
                 />
               </div>

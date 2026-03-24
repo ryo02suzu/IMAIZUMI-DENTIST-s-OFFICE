@@ -19,7 +19,7 @@ const footerTreatment = [
   { label: "入れ歯", href: "/treatment/denture" },
   { label: "審美歯科", href: "/treatment/aesthetic" },
   { label: "口腔外科", href: "/treatment/oral-surgery" },
-  { label: "ホワイトニング", href: "/treatment/whitening" },
+  { label: "お口のエステ", href: "/dental-esthetics" },
   { label: "訪問診療", href: "/treatment/home-visit" },
 ]
 

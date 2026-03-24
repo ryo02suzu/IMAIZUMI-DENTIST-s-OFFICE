@@ -4,6 +4,8 @@ import { Link } from "wouter"
 import { ChevronRight, ArrowRight } from "lucide-react"
 import { useSEO } from "@/hooks/useSEO"
 
+const BASE = import.meta.env.BASE_URL
+
 const menus = [
   {
     href: "/treatment/whitening",
@@ -33,8 +35,8 @@ const menus = [
 
 export default function DentalEsthetics() {
   useSEO({
-    title: "歯のエステ（ホワイトニング・クリーニング・口臭外来）| 今泉歯科医院",
-    description: "今泉歯科医院の歯のエステメニュー。ホワイトニング・クリーニング定期コース（月額¥3,300〜）・口臭外来の3つのメニューで、清潔で白い歯と自信ある笑顔をサポートします。",
+    title: "お口のエステ（ホワイトニング・クリーニング・口臭外来）| 今泉歯科医院",
+    description: "今泉歯科医院のお口のエステメニュー。ホワイトニング・クリーニング定期コース（月額¥3,300〜）・口臭外来の3つのメニューで、清潔で白い歯と自信ある笑顔をサポートします。",
   })
 
   return (
@@ -47,7 +49,7 @@ export default function DentalEsthetics() {
             <div className="flex items-center gap-1 text-sm text-[#7eb4d2]">
               <Link href="/" className="hover:underline">ホーム</Link>
               <ChevronRight className="h-3 w-3" />
-              <span className="text-[#4a4a4a]">歯のエステ</span>
+              <span className="text-[#4a4a4a]">お口のエステ</span>
             </div>
           </div>
         </div>
@@ -61,7 +63,7 @@ export default function DentalEsthetics() {
                   キレイ・スッキリしたい
                 </span>
                 <h1 className="text-3xl md:text-4xl font-bold text-[#3d5f7a] mb-4">
-                  歯のエステ
+                  お口のエステ
                 </h1>
                 <p className="text-[#7eb4d2] text-lg font-medium mb-4">
                   白く、清潔に、自信ある笑顔へ
@@ -72,8 +74,8 @@ export default function DentalEsthetics() {
               </div>
               <div className="w-48 md:w-56 shrink-0">
                 <img
-                  src="/icons/dental-esthetics.jpeg"
-                  alt="歯のエステ"
+                  src={`${BASE}icons/dental-esthetics.jpeg`}
+                  alt="お口のエステ"
                   className="w-full h-auto object-contain"
                 />
               </div>
