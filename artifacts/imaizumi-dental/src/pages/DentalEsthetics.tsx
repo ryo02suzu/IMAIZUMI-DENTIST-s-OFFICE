@@ -142,14 +142,14 @@ export default function DentalEsthetics() {
                   </div>
                 </div>
                 <div className="px-6 py-5">
-                  <div className="flex items-baseline gap-1 mb-4">
+                  <div className="flex items-baseline gap-1 mb-3">
                     <span className="text-3xl font-bold text-[#f5a623]">¥3,300</span>
                     <span className="text-[#6b7280] text-sm">OFF</span>
                   </div>
-                  <p className="text-[#4a4a4a] text-sm leading-relaxed mb-5">
+                  <p className="text-[#4a4a4a] text-sm leading-relaxed mb-4">
                     任意の2つのメニューを同時にお申し込みいただいた方に、ホワイトニング料金から¥3,300割引いたします。
                   </p>
-                  <div className="space-y-2">
+                  <div className="space-y-1.5 mb-5">
                     {[
                       "ホワイトニング × クリーニング定期コース",
                       "ホワイトニング × 口臭外来",
@@ -160,6 +160,32 @@ export default function DentalEsthetics() {
                         {combo}
                       </div>
                     ))}
+                  </div>
+                  {/* Example */}
+                  <div className="bg-[#f0f8fc] rounded-xl p-4 border border-[#c8e2ee]">
+                    <p className="text-[10px] font-bold text-[#7eb4d2] uppercase tracking-wider mb-2">計算例</p>
+                    <p className="text-xs text-[#4a4a4a] mb-3">
+                      ホワイトニング上下（¥27,500）＋ クリーニング定期コース・ライト（¥3,300/月）を同時申込
+                    </p>
+                    <div className="space-y-1 text-xs">
+                      <div className="flex justify-between text-[#6b7280]">
+                        <span>ホワイトニング</span>
+                        <span className="line-through">¥27,500</span>
+                      </div>
+                      <div className="flex justify-between text-[#f5a623] font-bold">
+                        <span>　セット割引</span>
+                        <span>－¥3,300</span>
+                      </div>
+                      <div className="flex justify-between text-[#6b7280]">
+                        <span>クリーニング定期コース（初月）</span>
+                        <span>¥3,300</span>
+                      </div>
+                      <div className="border-t border-[#c8e2ee] pt-1 mt-1 flex justify-between font-bold text-[#3d5f7a]">
+                        <span>初月のご負担</span>
+                        <span>¥27,500</span>
+                      </div>
+                    </div>
+                    <p className="text-[10px] text-[#9ca3af] mt-2">通常 ¥30,800 → ¥3,300 お得</p>
                   </div>
                 </div>
               </div>
@@ -182,13 +208,43 @@ export default function DentalEsthetics() {
                     <span className="text-3xl font-bold text-[#f5a623]">¥8,800</span>
                     <span className="text-[#6b7280] text-sm">OFF</span>
                   </div>
-                  <p className="text-xs text-[#6b7280] mb-4">（ホワイトニング¥5,500 + 精密口臭検査¥3,300 割引）</p>
-                  <p className="text-[#4a4a4a] text-sm leading-relaxed mb-5">
+                  <p className="text-xs text-[#6b7280] mb-3">（ホワイトニング¥5,500 + 精密口臭検査¥3,300 割引）</p>
+                  <p className="text-[#4a4a4a] text-sm leading-relaxed mb-4">
                     ホワイトニング・クリーニング定期コース・口臭外来の3つ全てを同時にお申し込みの方に最大割引を適用。総合的なお口のケアをまとめてスタートできます。
                   </p>
-                  <div className="flex items-center gap-2 text-xs text-[#3d5f7a]">
+                  <div className="flex items-center gap-2 text-xs text-[#3d5f7a] mb-5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#f5a623] shrink-0" />
                     ホワイトニング × クリーニング定期コース × 口臭外来
+                  </div>
+                  {/* Example */}
+                  <div className="bg-[#fffbf0] rounded-xl p-4 border border-[#f5d56e]">
+                    <p className="text-[10px] font-bold text-[#f5a623] uppercase tracking-wider mb-2">計算例</p>
+                    <p className="text-xs text-[#4a4a4a] mb-3">
+                      ホワイトニング上下（¥27,500）＋ クリーニング定期コース・スタンダード（¥5,500/月）＋ 精密口臭検査（¥5,500）を同時申込
+                    </p>
+                    <div className="space-y-1 text-xs">
+                      <div className="flex justify-between text-[#6b7280]">
+                        <span>ホワイトニング</span>
+                        <span className="line-through">¥27,500</span>
+                      </div>
+                      <div className="flex justify-between text-[#6b7280]">
+                        <span>精密口臭検査</span>
+                        <span className="line-through">¥5,500</span>
+                      </div>
+                      <div className="flex justify-between text-[#f5a623] font-bold">
+                        <span>　セット割引</span>
+                        <span>－¥8,800</span>
+                      </div>
+                      <div className="flex justify-between text-[#6b7280]">
+                        <span>クリーニング定期コース（初月）</span>
+                        <span>¥5,500</span>
+                      </div>
+                      <div className="border-t border-[#f5d56e] pt-1 mt-1 flex justify-between font-bold text-[#3d5f7a]">
+                        <span>初月のご負担</span>
+                        <span>¥29,700</span>
+                      </div>
+                    </div>
+                    <p className="text-[10px] text-[#9ca3af] mt-2">通常 ¥38,500 → ¥8,800 お得</p>
                   </div>
                 </div>
               </div>
