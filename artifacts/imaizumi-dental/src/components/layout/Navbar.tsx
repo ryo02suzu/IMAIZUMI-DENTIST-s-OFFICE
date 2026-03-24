@@ -3,12 +3,12 @@ import { Link } from "wouter"
 import { Menu, X, Phone } from "lucide-react"
 
 const navItems = [
-  { label: "診療内容", href: "#treatment" },
-  { label: "はじめての方へ", href: "#about" },
-  { label: "医師紹介", href: "#doctor" },
-  { label: "院内のご紹介", href: "#gallery" },
-  { label: "アクセス", href: "#access" },
-  { label: "お問い合わせ", href: "#contact" },
+  { label: "診療内容", href: "/#treatment" },
+  { label: "はじめての方へ", href: "/#about" },
+  { label: "医師紹介", href: "/#doctor" },
+  { label: "院内のご紹介", href: "/#gallery" },
+  { label: "アクセス", href: "/#access" },
+  { label: "お問い合わせ", href: "/#contact" },
 ]
 
 const specialItems = [
