@@ -71,5 +71,21 @@
   html {
     scroll-behavior: smooth;
   }
+
+  button,
+  a,
+  [role="button"] {
+    -webkit-tap-highlight-color: transparent;
+    transition-property: transform, opacity;
+    transition-duration: 120ms;
+    transition-timing-function: ease-out;
+  }
+
+  button:active,
+  a:active,
+  [role="button"]:active {
+    transform: scale(0.94);
+    opacity: 0.85;
+  }
 }
 
