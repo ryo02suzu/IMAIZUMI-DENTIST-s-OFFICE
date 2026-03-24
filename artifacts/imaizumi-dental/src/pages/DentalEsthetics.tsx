@@ -4,8 +4,6 @@ import { Link } from "wouter"
 import { ChevronRight, ArrowRight, Gift, Sparkles } from "lucide-react"
 import { useSEO } from "@/hooks/useSEO"
 
-const BASE = import.meta.env.BASE_URL
-
 const menus = [
   {
     href: "/treatment/whitening",
@@ -57,28 +55,19 @@ export default function DentalEsthetics() {
         {/* Hero */}
         <section className="bg-gradient-to-b from-[#e8f4f9] to-white py-16 md:py-20">
           <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-8">
-              <div className="flex-1">
-                <span className="inline-block bg-[#f5a623] text-white text-xs px-3 py-1 rounded-full mb-4">
-                  キレイ・スッキリしたい
-                </span>
-                <h1 className="text-3xl md:text-4xl font-bold text-[#3d5f7a] mb-4">
-                  お口のエステ
-                </h1>
-                <p className="text-[#7eb4d2] text-lg font-medium mb-4">
-                  白く、清潔に、自信ある笑顔へ
-                </p>
-                <p className="text-[#4a4a4a] leading-relaxed">
-                  見た目のケアから口内環境の根本改善まで、3つのメニューをご用意しています。どれか1つからでも、組み合わせでも、ご希望に合わせてお選びください。
-                </p>
-              </div>
-              <div className="w-48 md:w-56 shrink-0">
-                <img
-                  src={`${BASE}icons/dental-esthetics.jpeg`}
-                  alt="お口のエステ"
-                  className="w-full h-auto object-contain"
-                />
-              </div>
+            <div className="max-w-2xl">
+              <span className="inline-block bg-[#f5a623] text-white text-xs px-3 py-1 rounded-full mb-4">
+                キレイ・スッキリしたい
+              </span>
+              <h1 className="text-3xl md:text-4xl font-bold text-[#3d5f7a] mb-4">
+                お口のエステ
+              </h1>
+              <p className="text-[#7eb4d2] text-lg font-medium mb-4">
+                白く、清潔に、自信ある笑顔へ
+              </p>
+              <p className="text-[#4a4a4a] leading-relaxed">
+                見た目のケアから口内環境の根本改善まで、3つのメニューをご用意しています。どれか1つからでも、組み合わせでも、ご希望に合わせてお選びください。
+              </p>
             </div>
           </div>
         </section>
