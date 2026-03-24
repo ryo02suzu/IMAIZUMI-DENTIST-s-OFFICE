@@ -12,8 +12,7 @@ const navItems = [
 ]
 
 const specialItems = [
-  { label: "定期コース", href: "/subscription" },
-  { label: "口臭外来", href: "/breath-care" },
+  { label: "歯のエステ", href: "/dental-esthetics" },
 ]
 
 export function Navbar() {

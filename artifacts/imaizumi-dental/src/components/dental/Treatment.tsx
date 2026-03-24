@@ -13,16 +13,14 @@ type TreatmentItem = {
 }
 
 const treatments: TreatmentItem[] = [
-  { tag: "歯が痛い・しみる",   title: "一般歯科",           icon: "general",      href: "/treatment/general" },
-  { tag: "子供の歯を守りたい", title: "小児歯科",           icon: "pediatric",    href: "/treatment/pediatric" },
-  { tag: "虫歯予防したい",     title: "予防歯科",           icon: "preventive",   href: "/treatment/preventive" },
-  { tag: "入れ歯が合わない",   title: "入れ歯",             icon: "denture",      href: "/treatment/denture" },
-  { tag: "銀歯を白くしたい",   title: "審美歯科",           icon: "aesthetic",    href: "/treatment/aesthetic" },
-  { tag: "親知らず・外科処置", title: "口腔外科",           icon: "oral-surgery", href: "/treatment/oral-surgery" },
-  { tag: "歯を白くしたい",     title: "ホワイトニング",     icon: "whitening",    href: "/treatment/whitening" },
-  { tag: "ご自宅で診療",       title: "訪問診療",           icon: "home-visit",   href: "/treatment/home-visit" },
-  { tag: "月額¥3,300〜",       title: "クリーニング定期コース", emoji: "🦷",       href: "/subscription", badge: "NEW" },
-  { tag: "口臭が気になる",     title: "口臭外来",           emoji: "🌿",          href: "/breath-care", badge: "NEW" },
+  { tag: "歯が痛い・しみる",       title: "一般歯科",   icon: "general",           href: "/treatment/general" },
+  { tag: "子供の歯を守りたい",     title: "小児歯科",   icon: "pediatric",         href: "/treatment/pediatric" },
+  { tag: "虫歯予防したい",         title: "予防歯科",   icon: "preventive",        href: "/treatment/preventive" },
+  { tag: "入れ歯が合わない",       title: "入れ歯",     icon: "denture",           href: "/treatment/denture" },
+  { tag: "銀歯を白くしたい",       title: "審美歯科",   icon: "aesthetic",         href: "/treatment/aesthetic" },
+  { tag: "親知らず・外科処置",     title: "口腔外科",   icon: "oral-surgery",      href: "/treatment/oral-surgery" },
+  { tag: "キレイ・スッキリしたい", title: "歯のエステ", icon: "dental-esthetics",  href: "/dental-esthetics", badge: "NEW" },
+  { tag: "ご自宅で診療",           title: "訪問診療",   icon: "home-visit",        href: "/treatment/home-visit" },
 ]
 
 export function Treatment() {
@@ -40,7 +38,7 @@ export function Treatment() {
           <h2 className="text-3xl md:text-4xl font-bold text-[#7eb4d2]">診療内容</h2>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4 md:gap-5 max-w-5xl mx-auto">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-5 max-w-5xl mx-auto">
           {treatments.map((item, index) => (
             <motion.div
               key={index}

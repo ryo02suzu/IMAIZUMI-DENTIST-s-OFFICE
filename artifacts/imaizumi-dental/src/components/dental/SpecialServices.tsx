@@ -1,57 +1,56 @@
 import { Link } from "wouter"
 import { ArrowRight } from "lucide-react"
 
+const subMenus = [
+  { label: "ホワイトニング", desc: "薬剤で歯を白く明るく", href: "/treatment/whitening" },
+  { label: "クリーニング定期コース", desc: "月額¥3,300〜 ｜ いつでも解約OK", href: "/subscription" },
+  { label: "口臭外来", desc: "専用測定器で原因を数値化", href: "/breath-care" },
+]
+
 export function SpecialServices() {
   return (
     <section className="py-16 bg-[#3d5f7a]">
       <div className="container mx-auto px-4">
-        <p className="text-xs font-semibold text-white/50 tracking-widest uppercase mb-2 text-center">SPECIAL</p>
+        <p className="text-xs font-semibold text-white/50 tracking-widest uppercase mb-2 text-center">ESTHETICS</p>
         <h2 className="text-2xl md:text-3xl font-bold text-white mb-3 text-center">
-          当院の専門サービス
+          歯のエステ
         </h2>
         <p className="text-white/70 text-center text-sm mb-10">
-          保険診療の枠を超えた、こだわりのメニューをご用意しています
+          白く、清潔に、自信ある笑顔へ
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {/* Subscription */}
-          <Link href="/subscription" className="group block bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-shadow">
-            <div className="bg-[#7eb4d2] px-6 py-4 flex items-center justify-between">
-              <div>
-                <p className="text-white/80 text-xs">月額¥3,300〜 ｜ いつでも解約OK</p>
-                <h3 className="text-white text-xl font-bold mt-0.5">クリーニング定期コース</h3>
+        <div className="max-w-3xl mx-auto">
+          <Link
+            href="/dental-esthetics"
+            className="group block bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-shadow"
+          >
+            <div className="flex flex-col md:flex-row">
+              {/* Image side */}
+              <div className="md:w-40 bg-[#e8f4f9] flex items-center justify-center p-6 shrink-0">
+                <img
+                  src="/icons/dental-esthetics.jpeg"
+                  alt="歯のエステ"
+                  className="w-24 h-24 object-contain"
+                />
               </div>
-              <ArrowRight className="h-5 w-5 text-white group-hover:translate-x-1 transition-transform shrink-0" />
-            </div>
-            <div className="px-6 py-5">
-              <p className="text-[#4a4a4a] text-sm leading-relaxed mb-4">
-                PMTCやエアフローなど、保険では受けられない専門クリーニングを月額定額でご提供。家族割引あり。
-              </p>
-              <div className="flex gap-2 flex-wrap">
-                {["ライト ¥3,300/月", "スタンダード ¥5,500/月", "プレミアム ¥8,800/月"].map((p) => (
-                  <span key={p} className="bg-[#f0f8fc] text-[#3d5f7a] text-xs px-2 py-1 rounded-full">{p}</span>
-                ))}
-              </div>
-            </div>
-          </Link>
-
-          {/* Breath Care */}
-          <Link href="/breath-care" className="group block bg-white rounded-2xl overflow-hidden hover:shadow-xl transition-shadow">
-            <div className="bg-[#5a8fa8] px-6 py-4 flex items-center justify-between">
-              <div>
-                <p className="text-white/80 text-xs">精密検査で原因を数値化</p>
-                <h3 className="text-white text-xl font-bold mt-0.5">口臭外来</h3>
-              </div>
-              <ArrowRight className="h-5 w-5 text-white group-hover:translate-x-1 transition-transform shrink-0" />
-            </div>
-            <div className="px-6 py-5">
-              <p className="text-[#4a4a4a] text-sm leading-relaxed mb-4">
-                気になるお口のニオイを専用測定器で科学的に解決。舌クリーニング・歯周治療など原因に合わせた処置を行います。
-              </p>
-              <div className="flex gap-2 flex-wrap">
-                {["精密口臭検査 ¥5,500~", "専門クリーニング ¥16,500~"].map((p) => (
-                  <span key={p} className="bg-[#f0f8fc] text-[#3d5f7a] text-xs px-2 py-1 rounded-full">{p}</span>
-                ))}
+              {/* Content side */}
+              <div className="flex-1 p-6">
+                <div className="flex items-start justify-between mb-4">
+                  <div>
+                    <span className="bg-[#f5a623] text-white text-[10px] px-2 py-0.5 rounded-full">キレイ・スッキリしたい</span>
+                    <h3 className="text-[#3d5f7a] text-xl font-bold mt-1">3つのメニューを見る</h3>
+                  </div>
+                  <ArrowRight className="h-5 w-5 text-[#7eb4d2] group-hover:translate-x-1 transition-transform shrink-0 mt-1" />
+                </div>
+                <div className="space-y-2">
+                  {subMenus.map((m) => (
+                    <div key={m.label} className="flex items-center gap-2">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#f5a623] shrink-0"></span>
+                      <span className="text-[#3d5f7a] font-medium text-sm">{m.label}</span>
+                      <span className="text-[#6b7280] text-xs">— {m.desc}</span>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </Link>

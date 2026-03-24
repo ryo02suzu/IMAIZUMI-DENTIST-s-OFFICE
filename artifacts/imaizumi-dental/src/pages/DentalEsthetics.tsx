@@ -1,0 +1,150 @@
+import { Navbar } from "@/components/layout/Navbar"
+import { Footer } from "@/components/layout/Footer"
+import { Link } from "wouter"
+import { ChevronRight, ArrowRight } from "lucide-react"
+import { useSEO } from "@/hooks/useSEO"
+
+const menus = [
+  {
+    href: "/treatment/whitening",
+    tag: "歯を白くしたい",
+    title: "ホワイトニング",
+    subtitle: "薬剤の力で歯を白く明るく",
+    body: "歯を削らずに専用薬剤で白くする方法です。ホームホワイトニングとオフィスホワイトニングの2種類をご用意。ご希望の白さに合わせてご提案します。",
+    price: "ホーム上下 ¥27,500~ ／ オフィス上下 ¥27,500~",
+  },
+  {
+    href: "/subscription",
+    tag: "月額¥3,300〜",
+    title: "クリーニング定期コース",
+    subtitle: "お口のエステ ｜ いつでも解約OK",
+    body: "PMTC・エアフロー・フッ素塗布など、保険診療では受けられない専門クリーニングを月額制でご提供。家族割引あり。むし歯・歯周病の予防にも最適です。",
+    price: "ライト ¥3,300/月 ／ スタンダード ¥5,500/月 ／ プレミアム ¥8,800/月",
+  },
+  {
+    href: "/breath-care",
+    tag: "口臭が気になる",
+    title: "口臭外来",
+    subtitle: "専用測定器で原因を数値化",
+    body: "気になるお口のニオイを科学的に解決します。専用測定器でニオイの原因物質を数値化し、歯周治療・舌クリーニングなど原因に合わせた処置をご提案します。",
+    price: "精密口臭検査 ¥5,500~ ／ 専門クリーニング ¥16,500~",
+  },
+]
+
+export default function DentalEsthetics() {
+  useSEO({
+    title: "歯のエステ（ホワイトニング・クリーニング・口臭外来）| 今泉歯科医院",
+    description: "今泉歯科医院の歯のエステメニュー。ホワイトニング・クリーニング定期コース（月額¥3,300〜）・口臭外来の3つのメニューで、清潔で白い歯と自信ある笑顔をサポートします。",
+  })
+
+  return (
+    <div className="min-h-screen font-sans bg-white">
+      <Navbar />
+      <main>
+        {/* Breadcrumb */}
+        <div className="bg-[#f0f8fc] py-3">
+          <div className="container mx-auto px-4">
+            <div className="flex items-center gap-1 text-sm text-[#7eb4d2]">
+              <Link href="/" className="hover:underline">ホーム</Link>
+              <ChevronRight className="h-3 w-3" />
+              <span className="text-[#4a4a4a]">歯のエステ</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Hero */}
+        <section className="bg-gradient-to-b from-[#e8f4f9] to-white py-16 md:py-20">
+          <div className="container mx-auto px-4">
+            <div className="max-w-3xl mx-auto flex flex-col md:flex-row items-center gap-8">
+              <div className="flex-1">
+                <span className="inline-block bg-[#f5a623] text-white text-xs px-3 py-1 rounded-full mb-4">
+                  キレイ・スッキリしたい
+                </span>
+                <h1 className="text-3xl md:text-4xl font-bold text-[#3d5f7a] mb-4">
+                  歯のエステ
+                </h1>
+                <p className="text-[#7eb4d2] text-lg font-medium mb-4">
+                  白く、清潔に、自信ある笑顔へ
+                </p>
+                <p className="text-[#4a4a4a] leading-relaxed">
+                  見た目のケアから口内環境の根本改善まで、3つのメニューをご用意しています。どれか1つからでも、組み合わせでも、ご希望に合わせてお選びください。
+                </p>
+              </div>
+              <div className="w-48 md:w-56 shrink-0">
+                <img
+                  src="/icons/dental-esthetics.jpeg"
+                  alt="歯のエステ"
+                  className="w-full h-auto object-contain"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Menu Cards */}
+        <section className="py-16 bg-white">
+          <div className="container mx-auto px-4">
+            <p className="text-xs font-semibold text-[#7eb4d2] tracking-widest uppercase mb-2 text-center">MENU</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#3d5f7a] mb-10 text-center">
+              3つのメニュー
+            </h2>
+
+            <div className="max-w-3xl mx-auto space-y-6">
+              {menus.map((menu, i) => (
+                <Link
+                  key={i}
+                  href={menu.href}
+                  className="group block bg-white rounded-2xl border border-[#c8e2ee] hover:shadow-lg hover:border-[#7eb4d2] transition-all overflow-hidden"
+                >
+                  <div className="flex items-center justify-between px-6 py-4 bg-[#f0f8fc] border-b border-[#c8e2ee]">
+                    <div className="flex items-center gap-3">
+                      <span className="bg-[#7eb4d2] text-white text-[10px] px-2 py-0.5 rounded-full shrink-0">
+                        {menu.tag}
+                      </span>
+                      <h3 className="font-bold text-[#3d5f7a] text-lg">{menu.title}</h3>
+                    </div>
+                    <ArrowRight className="h-5 w-5 text-[#7eb4d2] group-hover:translate-x-1 transition-transform shrink-0" />
+                  </div>
+                  <div className="px-6 py-5">
+                    <p className="text-[#7eb4d2] text-sm font-medium mb-2">{menu.subtitle}</p>
+                    <p className="text-[#4a4a4a] text-sm leading-relaxed mb-3">{menu.body}</p>
+                    <p className="text-xs text-[#6b7280] bg-[#f8fbfd] rounded-lg px-3 py-2 inline-block">
+                      💰 {menu.price}（税込）
+                    </p>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* CTA */}
+        <section className="py-16 bg-[#3d5f7a] text-white text-center">
+          <div className="container mx-auto px-4">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">まずはお気軽にご相談ください</h2>
+            <p className="text-white/80 mb-8 max-w-xl mx-auto">
+              どのメニューが合うかわからない場合も、診察時にゆっくりご説明します。
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <a
+                href="https://functional-prototype.replit.app/book/imaizumi-dental"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e09520] transition-colors"
+              >
+                ウェブ予約はこちら
+              </a>
+              <a
+                href="tel:0277549893"
+                className="border border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition-colors"
+              >
+                0277-54-9893
+              </a>
+            </div>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  )
+}
