@@ -35,7 +35,7 @@ const BOOKING_URL = "https://functional-prototype.replit.app/book/imaizumi-denta
 
 export function FirstVisit() {
   return (
-    <section id="about" className="py-16 bg-[#f8fbfc]">
+    <section id="about" className="py-16 bg-[#f8fbfc] scroll-mt-20">
       <div className="container mx-auto px-4 max-w-6xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

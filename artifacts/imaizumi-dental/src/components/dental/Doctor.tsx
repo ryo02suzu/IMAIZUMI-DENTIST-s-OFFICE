@@ -9,7 +9,7 @@ const message = `桐生の地で育ちながら、地域の皆さまのお口の
 
 export function Doctor() {
   return (
-    <section id="doctor" className="py-16 bg-white">
+    <section id="doctor" className="py-16 bg-white scroll-mt-20">
       <div className="container mx-auto px-4 max-w-5xl">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

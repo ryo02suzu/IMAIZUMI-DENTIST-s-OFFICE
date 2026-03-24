@@ -2,7 +2,7 @@ import { motion } from "framer-motion"
 
 export function MapSection() {
   return (
-    <section id="access" className="bg-white">
+    <section id="access" className="bg-white scroll-mt-20">
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
