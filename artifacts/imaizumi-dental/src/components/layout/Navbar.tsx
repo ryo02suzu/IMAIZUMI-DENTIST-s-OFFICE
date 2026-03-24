@@ -7,8 +7,8 @@ const navItems = [
   { label: "はじめての方へ", href: "/#about" },
   { label: "医師紹介", href: "/#doctor" },
   { label: "院内のご紹介", href: "/#gallery" },
-  { label: "アクセス", href: "/#access" },
   { label: "お問い合わせ", href: "/#contact" },
+  { label: "アクセス", href: "/#access" },
 ]
 
 const specialItems = [
