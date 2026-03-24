@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { Link } from "wouter"
-import { ChevronRight, ArrowRight } from "lucide-react"
+import { ChevronRight, ArrowRight, Gift, Sparkles } from "lucide-react"
 import { useSEO } from "@/hooks/useSEO"
 
 const BASE = import.meta.env.BASE_URL
@@ -117,6 +117,86 @@ export default function DentalEsthetics() {
                 </Link>
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Set Discount */}
+        <section className="py-16 bg-[#f8fbfd]">
+          <div className="container mx-auto px-4">
+            <p className="text-xs font-semibold text-[#f5a623] tracking-widest uppercase mb-2 text-center">SET PLAN</p>
+            <h2 className="text-2xl md:text-3xl font-bold text-[#3d5f7a] mb-3 text-center">
+              組み合わせでさらにお得
+            </h2>
+            <p className="text-center text-sm text-[#6b7280] mb-10">
+              2つ以上のメニューを同時にお申し込みいただくと割引が適用されます
+            </p>
+
+            <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+              {/* Double Set */}
+              <div className="bg-white rounded-2xl shadow-sm border border-[#c8e2ee] overflow-hidden">
+                <div className="bg-[#7eb4d2] px-6 py-4 flex items-center gap-3">
+                  <Gift className="h-5 w-5 text-white shrink-0" />
+                  <div>
+                    <p className="text-white/80 text-[10px] tracking-wider uppercase">Double Care</p>
+                    <h3 className="text-white font-bold text-lg leading-tight">2つセット割引</h3>
+                  </div>
+                </div>
+                <div className="px-6 py-5">
+                  <div className="flex items-baseline gap-1 mb-4">
+                    <span className="text-3xl font-bold text-[#f5a623]">¥3,300</span>
+                    <span className="text-[#6b7280] text-sm">OFF</span>
+                  </div>
+                  <p className="text-[#4a4a4a] text-sm leading-relaxed mb-5">
+                    任意の2つのメニューを同時にお申し込みいただいた方に、ホワイトニング料金から¥3,300割引いたします。
+                  </p>
+                  <div className="space-y-2">
+                    {[
+                      "ホワイトニング × クリーニング定期コース",
+                      "ホワイトニング × 口臭外来",
+                      "クリーニング定期コース × 口臭外来",
+                    ].map((combo) => (
+                      <div key={combo} className="flex items-center gap-2 text-xs text-[#3d5f7a]">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#7eb4d2] shrink-0" />
+                        {combo}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Triple Set */}
+              <div className="bg-white rounded-2xl shadow-md border-2 border-[#f5a623] overflow-hidden relative">
+                <div className="absolute top-0 right-0 bg-[#f5a623] text-white text-[10px] font-bold px-3 py-1 rounded-bl-xl flex items-center gap-1">
+                  <Sparkles className="h-3 w-3" />
+                  一番お得
+                </div>
+                <div className="bg-[#3d5f7a] px-6 py-4 flex items-center gap-3">
+                  <Sparkles className="h-5 w-5 text-[#f5a623] shrink-0" />
+                  <div>
+                    <p className="text-white/70 text-[10px] tracking-wider uppercase">Triple Care</p>
+                    <h3 className="text-white font-bold text-lg leading-tight">3つ全部セット割引</h3>
+                  </div>
+                </div>
+                <div className="px-6 py-5">
+                  <div className="flex items-baseline gap-1 mb-1">
+                    <span className="text-3xl font-bold text-[#f5a623]">¥8,800</span>
+                    <span className="text-[#6b7280] text-sm">OFF</span>
+                  </div>
+                  <p className="text-xs text-[#6b7280] mb-4">（ホワイトニング¥5,500 + 精密口臭検査¥3,300 割引）</p>
+                  <p className="text-[#4a4a4a] text-sm leading-relaxed mb-5">
+                    ホワイトニング・クリーニング定期コース・口臭外来の3つ全てを同時にお申し込みの方に最大割引を適用。総合的なお口のケアをまとめてスタートできます。
+                  </p>
+                  <div className="flex items-center gap-2 text-xs text-[#3d5f7a]">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#f5a623] shrink-0" />
+                    ホワイトニング × クリーニング定期コース × 口臭外来
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <p className="text-center text-xs text-[#9ca3af] mt-6">
+              ※ 割引はカウンセリング当日のお申し込みに限ります。他の割引との併用はできません。
+            </p>
           </div>
         </section>
 
