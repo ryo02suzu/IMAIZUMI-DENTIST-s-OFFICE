@@ -6,6 +6,7 @@ import { FirstVisit } from "@/components/dental/FirstVisit"
 import { Doctor } from "@/components/dental/Doctor"
 import { Features } from "@/components/dental/Features"
 import { Checkup } from "@/components/dental/Checkup"
+import { SpecialServices } from "@/components/dental/SpecialServices"
 import { Gallery } from "@/components/dental/Gallery"
 import { News } from "@/components/dental/News"
 import { Contact } from "@/components/dental/Contact"
@@ -24,6 +25,7 @@ export default function Home() {
         <Doctor />
         <Features />
         <Checkup />
+        <SpecialServices />
         <Gallery />
         <News />
         <Contact />

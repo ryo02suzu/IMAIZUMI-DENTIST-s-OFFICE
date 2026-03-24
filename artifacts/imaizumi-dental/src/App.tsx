@@ -7,6 +7,8 @@ import TreatmentDetail from "@/pages/TreatmentDetail";
 import NewsPage from "@/pages/NewsPage";
 import NewsDetail from "@/pages/NewsDetail";
 import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import SubscriptionPage from "@/pages/SubscriptionPage";
+import BreathCarePage from "@/pages/BreathCarePage";
 import NotFound from "@/pages/not-found";
 import { StickyBottomBar } from "@/components/layout/StickyBottomBar";
 
@@ -20,6 +22,8 @@ function Router() {
       <Route path="/news" component={NewsPage} />
       <Route path="/news/:id" component={NewsDetail} />
       <Route path="/privacy-policy" component={PrivacyPolicy} />
+      <Route path="/subscription" component={SubscriptionPage} />
+      <Route path="/breath-care" component={BreathCarePage} />
       <Route component={NotFound} />
     </Switch>
   );
