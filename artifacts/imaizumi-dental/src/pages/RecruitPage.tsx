@@ -249,7 +249,7 @@ export default function RecruitPage() {
                 お問い合わせフォーム
               </Link>
             </div>
-            <p className="text-white/50 text-xs mt-6">受付時間：月〜金 9:30〜19:00（木午前除く）、土 9:30〜16:00</p>
+            <p className="text-white/50 text-xs mt-6">受付時間：月〜金 9:30〜19:00（木午前除く）、土 9:30〜12:30 / 14:00〜16:00</p>
           </div>
         </section>
       </main>
