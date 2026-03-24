@@ -26,7 +26,7 @@ export function SpecialServices() {
           >
             <div className="flex flex-col md:flex-row">
               {/* Image side */}
-              <div className="md:w-40 bg-[#e8f4f9] flex items-center justify-center p-6 shrink-0">
+              <div className="md:w-40 bg-white flex items-center justify-center p-6 shrink-0">
                 <img
                   src="/icons/dental-esthetics.jpeg"
                   alt="お口のエステ"
