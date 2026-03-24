@@ -13,6 +13,7 @@ const navItems = [
 
 const specialItems = [
   { label: "お口のエステ", href: "/dental-esthetics" },
+  { label: "採用情報", href: "/recruit" },
 ]
 
 export function Navbar() {
