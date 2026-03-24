@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Link } from "wouter"
+import { Link, useLocation } from "wouter"
 import { Menu, X, Phone } from "lucide-react"
 
 const navItems = [
@@ -17,24 +17,29 @@ const specialItems = [
 
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [location] = useLocation()
+
+  const visibleSpecialItems = specialItems.filter((item) => item.href !== location)
 
   return (
     <header className="bg-card sticky top-0 z-50 shadow-sm">
-      {/* Special pages bar */}
-      <div className="bg-[#3d5f7a] hidden lg:block">
-        <div className="container mx-auto px-4 flex justify-end gap-4 py-1">
-          {specialItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className="text-white/80 text-xs hover:text-white transition-colors flex items-center gap-1"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-[#f5a623] inline-block"></span>
-              {item.label}
-            </Link>
-          ))}
+      {/* Special pages bar – hidden when already on that page */}
+      {visibleSpecialItems.length > 0 && (
+        <div className="bg-[#3d5f7a] hidden lg:block">
+          <div className="container mx-auto px-4 flex justify-end gap-4 py-1">
+            {visibleSpecialItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="text-white/80 text-xs hover:text-white transition-colors flex items-center gap-1"
+              >
+                <span className="w-1.5 h-1.5 rounded-full bg-[#f5a623] inline-block"></span>
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between py-4">
@@ -103,19 +108,21 @@ export function Navbar() {
                 {item.label}
               </a>
             ))}
-            <div className="py-2 border-b border-border/50 space-y-1">
-              {specialItems.map((item) => (
-                <Link
-                  key={item.label}
-                  href={item.href}
-                  className="flex items-center gap-2 py-2 text-[#3d5f7a] font-medium text-sm hover:text-[#7eb4d2]"
-                  onClick={() => setIsOpen(false)}
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#f5a623] inline-block"></span>
-                  {item.label}
-                </Link>
-              ))}
-            </div>
+            {visibleSpecialItems.length > 0 && (
+              <div className="py-2 border-b border-border/50 space-y-1">
+                {visibleSpecialItems.map((item) => (
+                  <Link
+                    key={item.label}
+                    href={item.href}
+                    className="flex items-center gap-2 py-2 text-[#3d5f7a] font-medium text-sm hover:text-[#7eb4d2]"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#f5a623] inline-block"></span>
+                    {item.label}
+                  </Link>
+                ))}
+              </div>
+            )}
             <div className="pt-4 space-y-3">
               <a
                 href="https://functional-prototype.replit.app/book/imaizumi-dental"
