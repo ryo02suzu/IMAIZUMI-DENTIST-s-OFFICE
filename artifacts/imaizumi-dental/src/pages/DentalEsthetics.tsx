@@ -125,10 +125,10 @@ export default function DentalEsthetics() {
           <div className="container mx-auto px-4">
             <p className="text-xs font-semibold text-[#f5a623] tracking-widest uppercase mb-2 text-center">SET PLAN</p>
             <h2 className="text-2xl md:text-3xl font-bold text-[#3d5f7a] mb-3 text-center">
-              組み合わせでさらにお得
+              定期コースと組み合わせてお得に
             </h2>
             <p className="text-center text-sm text-[#6b7280] mb-10">
-              2つ以上のメニューを同時にお申し込みいただくと割引が適用されます
+              クリーニング定期コースと一緒にお申し込みいただくと、定期コースの月額が無料になります
             </p>
 
             <div className="max-w-3xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -138,22 +138,21 @@ export default function DentalEsthetics() {
                   <Gift className="h-5 w-5 text-white shrink-0" />
                   <div>
                     <p className="text-white/80 text-[10px] tracking-wider uppercase">Double Care</p>
-                    <h3 className="text-white font-bold text-lg leading-tight">2つセット割引</h3>
+                    <h3 className="text-white font-bold text-lg leading-tight">2つセット → 初月無料</h3>
                   </div>
                 </div>
                 <div className="px-6 py-5">
-                  <div className="flex items-baseline gap-1 mb-3">
-                    <span className="text-3xl font-bold text-[#f5a623]">¥3,300</span>
-                    <span className="text-[#6b7280] text-sm">OFF</span>
+                  <div className="mb-4">
+                    <p className="text-sm text-[#6b7280] mb-0.5">定期コース</p>
+                    <p className="text-3xl font-bold text-[#f5a623]">初月 <span className="text-4xl">無料</span></p>
                   </div>
                   <p className="text-[#4a4a4a] text-sm leading-relaxed mb-4">
-                    任意の2つのメニューを同時にお申し込みいただいた方に、ホワイトニング料金から¥3,300割引いたします。
+                    ホワイトニングまたは口臭外来と同時に定期コースをお申し込みいただいた方に、定期コース初月分を無料にいたします。
                   </p>
                   <div className="space-y-1.5 mb-5">
                     {[
                       "ホワイトニング × クリーニング定期コース",
-                      "ホワイトニング × 口臭外来",
-                      "クリーニング定期コース × 口臭外来",
+                      "口臭外来 × クリーニング定期コース",
                     ].map((combo) => (
                       <div key={combo} className="flex items-center gap-2 text-xs text-[#3d5f7a]">
                         <span className="w-1.5 h-1.5 rounded-full bg-[#7eb4d2] shrink-0" />
@@ -161,31 +160,30 @@ export default function DentalEsthetics() {
                       </div>
                     ))}
                   </div>
-                  {/* Example */}
                   <div className="bg-[#f0f8fc] rounded-xl p-4 border border-[#c8e2ee]">
                     <p className="text-[10px] font-bold text-[#7eb4d2] uppercase tracking-wider mb-2">計算例</p>
                     <p className="text-xs text-[#4a4a4a] mb-3">
-                      ホワイトニング上下（¥27,500）＋ クリーニング定期コース・ライト（¥3,300/月）を同時申込
+                      ホワイトニング上下（¥27,500）＋ 定期コース・スタンダード（¥5,500/月）を同時申込
                     </p>
                     <div className="space-y-1 text-xs">
                       <div className="flex justify-between text-[#6b7280]">
-                        <span>ホワイトニング</span>
-                        <span className="line-through">¥27,500</span>
-                      </div>
-                      <div className="flex justify-between text-[#f5a623] font-bold">
-                        <span>　セット割引</span>
-                        <span>－¥3,300</span>
+                        <span>ホワイトニング上下</span>
+                        <span>¥27,500</span>
                       </div>
                       <div className="flex justify-between text-[#6b7280]">
-                        <span>クリーニング定期コース（初月）</span>
-                        <span>¥3,300</span>
+                        <span>定期コース・スタンダード（初月）</span>
+                        <span className="line-through">¥5,500</span>
+                      </div>
+                      <div className="flex justify-between text-[#f5a623] font-bold">
+                        <span>　→ 初月無料</span>
+                        <span>¥0</span>
                       </div>
                       <div className="border-t border-[#c8e2ee] pt-1 mt-1 flex justify-between font-bold text-[#3d5f7a]">
-                        <span>初月のご負担</span>
+                        <span>1ヶ月目のご負担</span>
                         <span>¥27,500</span>
                       </div>
                     </div>
-                    <p className="text-[10px] text-[#9ca3af] mt-2">通常 ¥30,800 → ¥3,300 お得</p>
+                    <p className="text-[10px] text-[#9ca3af] mt-2">通常 ¥33,000 → ¥5,500 お得</p>
                   </div>
                 </div>
               </div>
@@ -200,51 +198,49 @@ export default function DentalEsthetics() {
                   <Sparkles className="h-5 w-5 text-[#f5a623] shrink-0" />
                   <div>
                     <p className="text-white/70 text-[10px] tracking-wider uppercase">Triple Care</p>
-                    <h3 className="text-white font-bold text-lg leading-tight">3つ全部セット割引</h3>
+                    <h3 className="text-white font-bold text-lg leading-tight">3つ全部 → 2ヶ月無料</h3>
                   </div>
                 </div>
                 <div className="px-6 py-5">
-                  <div className="flex items-baseline gap-1 mb-1">
-                    <span className="text-3xl font-bold text-[#f5a623]">¥8,800</span>
-                    <span className="text-[#6b7280] text-sm">OFF</span>
+                  <div className="mb-4">
+                    <p className="text-sm text-[#6b7280] mb-0.5">定期コース</p>
+                    <p className="text-3xl font-bold text-[#f5a623]">2ヶ月間 <span className="text-4xl">無料</span></p>
                   </div>
-                  <p className="text-xs text-[#6b7280] mb-3">（ホワイトニング¥5,500 + 精密口臭検査¥3,300 割引）</p>
                   <p className="text-[#4a4a4a] text-sm leading-relaxed mb-4">
-                    ホワイトニング・クリーニング定期コース・口臭外来の3つ全てを同時にお申し込みの方に最大割引を適用。総合的なお口のケアをまとめてスタートできます。
+                    3つ全てを同時にお申し込みの方に、定期コースの最初の2ヶ月分を無料にいたします。総合的なお口のケアをまとめてスタートできます。
                   </p>
                   <div className="flex items-center gap-2 text-xs text-[#3d5f7a] mb-5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#f5a623] shrink-0" />
-                    ホワイトニング × クリーニング定期コース × 口臭外来
+                    ホワイトニング × 口臭外来 × クリーニング定期コース
                   </div>
-                  {/* Example */}
                   <div className="bg-[#fffbf0] rounded-xl p-4 border border-[#f5d56e]">
                     <p className="text-[10px] font-bold text-[#f5a623] uppercase tracking-wider mb-2">計算例</p>
                     <p className="text-xs text-[#4a4a4a] mb-3">
-                      ホワイトニング上下（¥27,500）＋ クリーニング定期コース・スタンダード（¥5,500/月）＋ 精密口臭検査（¥5,500）を同時申込
+                      ホワイトニング上下（¥27,500）＋ 精密口臭検査（¥5,500）＋ 定期コース・スタンダード（¥5,500/月）を同時申込
                     </p>
                     <div className="space-y-1 text-xs">
                       <div className="flex justify-between text-[#6b7280]">
-                        <span>ホワイトニング</span>
-                        <span className="line-through">¥27,500</span>
+                        <span>ホワイトニング上下</span>
+                        <span>¥27,500</span>
                       </div>
                       <div className="flex justify-between text-[#6b7280]">
                         <span>精密口臭検査</span>
-                        <span className="line-through">¥5,500</span>
-                      </div>
-                      <div className="flex justify-between text-[#f5a623] font-bold">
-                        <span>　セット割引</span>
-                        <span>－¥8,800</span>
-                      </div>
-                      <div className="flex justify-between text-[#6b7280]">
-                        <span>クリーニング定期コース（初月）</span>
                         <span>¥5,500</span>
                       </div>
+                      <div className="flex justify-between text-[#6b7280]">
+                        <span>定期コース 1〜2ヶ月目（¥5,500×2）</span>
+                        <span className="line-through">¥11,000</span>
+                      </div>
+                      <div className="flex justify-between text-[#f5a623] font-bold">
+                        <span>　→ 2ヶ月間無料</span>
+                        <span>¥0</span>
+                      </div>
                       <div className="border-t border-[#f5d56e] pt-1 mt-1 flex justify-between font-bold text-[#3d5f7a]">
-                        <span>初月のご負担</span>
-                        <span>¥29,700</span>
+                        <span>1ヶ月目のご負担</span>
+                        <span>¥33,000</span>
                       </div>
                     </div>
-                    <p className="text-[10px] text-[#9ca3af] mt-2">通常 ¥38,500 → ¥8,800 お得</p>
+                    <p className="text-[10px] text-[#9ca3af] mt-2">通常 ¥44,000 → ¥11,000 お得（2ヶ月分）</p>
                   </div>
                 </div>
               </div>
