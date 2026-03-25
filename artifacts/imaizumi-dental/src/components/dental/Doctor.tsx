@@ -23,19 +23,15 @@ export function Doctor() {
         </motion.div>
 
         <div className="grid md:grid-cols-2 gap-10 items-center max-w-4xl mx-auto">
-          {/* Photos */}
+          {/* Photo */}
           <motion.div
             initial={{ opacity: 0, x: -20 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="flex gap-3 max-w-xs mx-auto"
           >
-            <div className="flex-[2] aspect-[3/4] rounded-3xl overflow-hidden shadow-sm">
+            <div className="aspect-[3/4] rounded-3xl overflow-hidden max-w-xs mx-auto shadow-sm">
               <img src={`${import.meta.env.BASE_URL}doctor.jpeg`} alt="今泉淳 院長" className="w-full h-full object-cover object-top" />
-            </div>
-            <div className="flex-1 aspect-[3/4] rounded-3xl overflow-hidden shadow-sm">
-              <img src={`${import.meta.env.BASE_URL}doctor-fun.jpeg`} alt="今泉淳 院長（診療中）" className="w-full h-full object-cover object-top" />
             </div>
           </motion.div>
 

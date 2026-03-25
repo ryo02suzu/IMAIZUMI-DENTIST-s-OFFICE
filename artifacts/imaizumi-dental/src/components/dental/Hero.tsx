@@ -14,9 +14,9 @@ const schedule = [
 ]
 
 const slides = [
-  { src: "clinic-reception.jpeg", alt: "受付" },
   { src: "clinic-waiting.jpeg", alt: "待合室" },
   { src: "clinic-unit2.jpeg", alt: "診療室" },
+  { src: "clinic-treatment.jpeg", alt: "治療中" },
 ]
 
 function Slideshow({ className, imgClassName }: { className?: string; imgClassName?: string }) {
