@@ -37,7 +37,7 @@ const jobs = [
     color: "bg-[#7eb4d2]",
     wage: "時給 ¥1,050〜",
     wageNote: "経験・スキルに応じて応相談",
-    experience: "未経験OK・学生さん・高校生も歓迎！",
+    experience: "未経験歓迎・高校生から応募OK",
     employment: ["アルバイト", "パート"],
     duties: [
       "診療補助（器具の準備・片付けなど）",
