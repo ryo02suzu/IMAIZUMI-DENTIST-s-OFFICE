@@ -494,14 +494,9 @@ export default function TreatmentDetail() {
               {t.title}についてご予約・お問い合わせ
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href={BOOKING_URL}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#f5a623] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#e09520] transition-colors shadow-lg"
-              >
-                WEB予約はこちら
-              </a>
+              <span className="bg-gray-200 text-gray-400 px-10 py-4 rounded-full font-bold text-lg cursor-not-allowed select-none">
+                WEB予約（後日掲載予定）
+              </span>
               <a
                 href="/#treatment"
                 className="bg-white text-[#7eb4d2] px-10 py-4 rounded-full font-bold text-lg hover:bg-[#f0f8fb] transition-colors flex items-center justify-center gap-2"
