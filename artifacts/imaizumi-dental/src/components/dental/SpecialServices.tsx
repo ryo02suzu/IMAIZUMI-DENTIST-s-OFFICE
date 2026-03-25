@@ -38,9 +38,11 @@ export function SpecialServices() {
                 <p className="text-[#3d5f7a] text-lg font-bold">歯科助手</p>
                 <p className="text-[#6b7280] text-sm">時給 ¥1,050〜 ／ 高校生から応募OK</p>
               </div>
-              <div className="w-12 h-12 rounded-full bg-[#fff7ed] flex items-center justify-center text-2xl shrink-0">
-                🦷
-              </div>
+              <img
+                src={`${import.meta.env.BASE_URL}recruit-assistant.jpeg`}
+                alt="歯科助手"
+                className="w-24 h-24 rounded-full object-cover shrink-0 border-2 border-orange-100"
+              />
             </div>
             <div className="bg-white rounded-2xl p-5 shadow-sm border border-orange-100 flex items-center justify-between">
               <div>
@@ -48,9 +50,11 @@ export function SpecialServices() {
                 <p className="text-[#3d5f7a] text-lg font-bold">歯科衛生士</p>
                 <p className="text-[#6b7280] text-sm">時給 ¥1,300〜 ／ 新卒・未経験OK</p>
               </div>
-              <div className="w-12 h-12 rounded-full bg-[#fff7ed] flex items-center justify-center text-2xl shrink-0">
-                😊
-              </div>
+              <img
+                src={`${import.meta.env.BASE_URL}recruit-hygienist.jpeg`}
+                alt="歯科衛生士"
+                className="w-24 h-24 rounded-full object-cover shrink-0 border-2 border-orange-100"
+              />
             </div>
           </div>
 
