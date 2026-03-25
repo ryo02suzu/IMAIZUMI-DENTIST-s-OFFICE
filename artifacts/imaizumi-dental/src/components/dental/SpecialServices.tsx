@@ -34,40 +34,40 @@ export function SpecialServices() {
           <div className="flex-1 w-full space-y-4">
 
             {/* 歯科助手カード */}
-            <div className="relative bg-white rounded-2xl shadow-sm border border-orange-100 overflow-hidden h-20">
+            <div className="relative bg-white rounded-2xl shadow-sm border border-orange-100 overflow-hidden h-28">
               {/* 背景イラスト（右側） */}
               <img
                 src={`${import.meta.env.BASE_URL}recruit-assistant.jpeg`}
                 alt=""
                 aria-hidden="true"
-                className="absolute right-0 top-0 h-full w-1/2 object-cover object-left"
+                className="absolute right-0 top-0 h-full w-2/5 object-cover object-left"
               />
               {/* グラデーションオーバーレイ */}
               <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent" />
               {/* テキスト */}
               <div className="relative z-10 flex flex-col justify-center h-full px-5">
-                <p className="text-xs text-[#f5a623] font-semibold mb-0.5">バイト・パート</p>
-                <p className="text-[#3d5f7a] text-lg font-bold">歯科助手</p>
-                <p className="text-[#6b7280] text-xs">時給 ¥1,050〜 ／ 高校生から応募OK</p>
+                <p className="text-xs text-[#f5a623] font-semibold mb-1">バイト・パート</p>
+                <p className="text-[#3d5f7a] text-xl font-bold">歯科助手</p>
+                <p className="text-[#6b7280] text-sm">時給 ¥1,050〜 ／ 高校生から応募OK</p>
               </div>
             </div>
 
             {/* 歯科衛生士カード */}
-            <div className="relative bg-white rounded-2xl shadow-sm border border-orange-100 overflow-hidden h-20">
+            <div className="relative bg-white rounded-2xl shadow-sm border border-orange-100 overflow-hidden h-28">
               {/* 背景イラスト（右側） */}
               <img
                 src={`${import.meta.env.BASE_URL}recruit-hygienist.jpeg`}
                 alt=""
                 aria-hidden="true"
-                className="absolute right-0 top-0 h-full w-1/2 object-cover object-left"
+                className="absolute right-0 top-0 h-full w-2/5 object-cover object-left"
               />
               {/* グラデーションオーバーレイ */}
               <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent" />
               {/* テキスト */}
               <div className="relative z-10 flex flex-col justify-center h-full px-5">
-                <p className="text-xs text-[#f5a623] font-semibold mb-0.5">バイト・パート・正社員</p>
-                <p className="text-[#3d5f7a] text-lg font-bold">歯科衛生士</p>
-                <p className="text-[#6b7280] text-xs">時給 ¥1,300〜 ／ 新卒・未経験OK</p>
+                <p className="text-xs text-[#f5a623] font-semibold mb-1">バイト・パート・正社員</p>
+                <p className="text-[#3d5f7a] text-xl font-bold">歯科衛生士</p>
+                <p className="text-[#6b7280] text-sm">時給 ¥1,300〜 ／ 新卒・未経験OK</p>
               </div>
             </div>
 
