@@ -181,8 +181,15 @@ export default function RecruitPage() {
                     <p className="text-white/80 text-xs">{job.wageNote}</p>
                   </div>
                   <div className="p-6 space-y-4">
-                    <div className="inline-block bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">
-                      {job.experience}
+                    <div className="flex flex-wrap gap-2 items-center">
+                      <div className="inline-block bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">
+                        {job.experience}
+                      </div>
+                      {job.role === "歯科助手" && (
+                        <div className="inline-block bg-orange-50 text-orange-600 text-xs font-bold px-3 py-1 rounded-full border border-orange-200">
+                          ✨ 高校生・大学生スタッフ活躍中！
+                        </div>
+                      )}
                     </div>
 
                     <div>
