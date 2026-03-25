@@ -6,7 +6,7 @@ const features = [
   {
     point: "01",
     img: `${BASE}clinic-reception.jpeg`,
-    lines: ["インフォームドコンセントを", "大切にし予防歯科に", "力を入れて治療しております"],
+    lines: ["笑顔でお迎えする受付から", "診療まで、ひとりひとりに", "寄り添った対応を心がけています"],
   },
   {
     point: "02",
@@ -16,7 +16,7 @@ const features = [
   {
     point: "03",
     img: `${BASE}doctor-fun.jpeg`,
-    lines: ["患者さんとの", "コミュニケーションを", "大切にしています"],
+    lines: ["写真は少し照れていますが", "話しかけやすく気さくな院長が", "いつでも丁寧に対応します"],
   },
 ]
 
@@ -46,12 +46,13 @@ export function Features() {
               className="text-center"
             >
               <div className="relative mb-6">
-                <div className="aspect-[4/3] rounded-[40px] overflow-hidden">
+                <div className="aspect-[4/3] rounded-[40px] overflow-hidden relative">
                   <img
                     src={feature.img}
                     alt={`特徴${feature.point}`}
                     className="w-full h-full object-cover"
                   />
+                  <div className="absolute inset-0 bg-black/20" />
                 </div>
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 bg-white rounded-full px-4 py-2 shadow-lg">
                   <p className="text-[#7eb4d2] text-xs">POINT</p>
