@@ -3,6 +3,7 @@ import { Link, useLocation } from "wouter"
 import { Menu, X, Phone } from "lucide-react"
 
 const navItems = [
+  { label: "お知らせ", href: "/news" },
   { label: "診療内容", href: "/#treatment" },
   { label: "はじめての方へ", href: "/#about" },
   { label: "医師紹介", href: "/#doctor" },

@@ -2,11 +2,11 @@ import { ChevronRight } from "lucide-react"
 
 const footerMain = [
   { label: "ホーム", href: "/" },
+  { label: "お知らせ", href: "/news" },
   { label: "診療内容", href: "/#treatment" },
   { label: "はじめての方へ", href: "/#about" },
   { label: "医師紹介", href: "/#doctor" },
   { label: "院内のご紹介", href: "/#gallery" },
-  { label: "お知らせ", href: "/news" },
   { label: "お問い合わせ", href: "/#contact" },
   { label: "アクセス", href: "/#access" },
   { label: "採用情報", href: "/recruit" },

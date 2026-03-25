@@ -20,6 +20,7 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <News />
         <Treatment />
         <FirstVisit />
         <Doctor />
@@ -27,7 +28,6 @@ export default function Home() {
         <Checkup />
         <SpecialServices />
         <Gallery />
-        <News />
         <Contact />
         <MapSection />
       </main>
