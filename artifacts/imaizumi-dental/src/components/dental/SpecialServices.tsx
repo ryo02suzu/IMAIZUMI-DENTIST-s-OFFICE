@@ -34,13 +34,13 @@ export function SpecialServices() {
           <div className="flex-1 w-full space-y-4">
 
             {/* 歯科助手カード */}
-            <div className="relative bg-white rounded-2xl shadow-sm border border-orange-100 overflow-hidden h-28">
+            <div className="relative bg-white rounded-2xl shadow-sm border border-orange-100 overflow-hidden h-[120px]">
               {/* 背景イラスト（右側） */}
               <img
                 src={`${import.meta.env.BASE_URL}recruit-assistant.jpeg`}
                 alt=""
                 aria-hidden="true"
-                className="absolute right-0 top-0 h-full w-2/5 object-cover object-left"
+                className="absolute right-0 top-0 h-full w-[35%] object-cover object-left"
               />
               {/* グラデーションオーバーレイ */}
               <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent" />
@@ -53,13 +53,13 @@ export function SpecialServices() {
             </div>
 
             {/* 歯科衛生士カード */}
-            <div className="relative bg-white rounded-2xl shadow-sm border border-orange-100 overflow-hidden h-28">
+            <div className="relative bg-white rounded-2xl shadow-sm border border-orange-100 overflow-hidden h-[120px]">
               {/* 背景イラスト（右側） */}
               <img
                 src={`${import.meta.env.BASE_URL}recruit-hygienist.jpeg`}
                 alt=""
                 aria-hidden="true"
-                className="absolute right-0 top-0 h-full w-2/5 object-cover object-left"
+                className="absolute right-0 top-0 h-full w-[35%] object-cover object-left"
               />
               {/* グラデーションオーバーレイ */}
               <div className="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent" />
