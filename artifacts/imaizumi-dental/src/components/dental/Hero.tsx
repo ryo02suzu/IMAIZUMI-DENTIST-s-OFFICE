@@ -100,7 +100,9 @@ export function Hero() {
       {/* ── MOBILE layout ── */}
       <div className="lg:hidden">
         {/* Full-width slideshow */}
-        <Slideshow className="w-full h-64 sm:h-80" />
+        <div className="px-4 pt-4">
+          <Slideshow className="w-full h-64 sm:h-80 rounded-3xl overflow-hidden shadow-lg" />
+        </div>
 
         {/* Catchphrase */}
         <div className="px-6 pt-6 pb-2">
