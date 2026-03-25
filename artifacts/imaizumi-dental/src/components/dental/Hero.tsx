@@ -14,9 +14,9 @@ const schedule = [
 ]
 
 const slides = [
-  { src: "clinic-waiting.jpeg", alt: "待合室" },
-  { src: "clinic-unit2.jpeg", alt: "診療室" },
-  { src: "clinic-treatment.jpeg", alt: "治療中" },
+  { src: "clinic-waiting.jpeg", alt: "待合室", overlay: "bg-black/5" },
+  { src: "clinic-unit2.jpeg", alt: "診療室", overlay: "bg-black/20" },
+  { src: "clinic-treatment.jpeg", alt: "治療中", overlay: "bg-black/5" },
 ]
 
 function Slideshow({ className, imgClassName }: { className?: string; imgClassName?: string }) {
@@ -35,21 +35,25 @@ function Slideshow({ className, imgClassName }: { className?: string; imgClassNa
         <AnimatePresence>
           {slides.map((slide, i) =>
             i === current ? (
-              <motion.img
+              <motion.div
                 key={i}
-                src={`${import.meta.env.BASE_URL}${slide.src}`}
-                alt={slide.alt}
+                className="absolute inset-0"
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.8 }}
-                className={`absolute inset-0 w-full h-full object-cover object-center ${imgClassName ?? ""}`}
-              />
+              >
+                <img
+                  src={`${import.meta.env.BASE_URL}${slide.src}`}
+                  alt={slide.alt}
+                  className={`absolute inset-0 w-full h-full object-cover object-center ${imgClassName ?? ""}`}
+                />
+                {/* スライドごとの明るさ調整オーバーレイ */}
+                <div className={`absolute inset-0 ${slide.overlay}`} />
+              </motion.div>
             ) : null
           )}
         </AnimatePresence>
-        {/* 明るさを少し落とすオーバーレイ */}
-        <div className="absolute inset-0 bg-black/20 z-[1]" />
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
           {slides.map((_, i) => (
             <button
