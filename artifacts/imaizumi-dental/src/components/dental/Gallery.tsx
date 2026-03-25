@@ -63,8 +63,8 @@ function MobileGallery() {
         return (
           <motion.div
             key={idx}
-            className="absolute top-0 rounded-2xl overflow-hidden cursor-pointer"
-            style={{ width: cardW, height: CARD_HEIGHT, left: 0, marginLeft: marginL }}
+            className="absolute top-0 overflow-hidden cursor-pointer"
+            style={{ width: cardW, height: CARD_HEIGHT, left: 0, marginLeft: marginL, borderRadius: 20 }}
             animate={{ x: offset * step, scale, opacity, zIndex }}
             transition={{ type: "spring", stiffness: 280, damping: 30 }}
             onClick={() => { if (offset !== 0) move(offset > 0 ? 1 : -1) }}
@@ -121,7 +121,7 @@ export function Gallery() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: index * 0.1 }}
-            className="flex-1 min-w-0 aspect-[4/3] relative group cursor-pointer overflow-hidden"
+            className="flex-1 min-w-0 aspect-[4/3] relative group cursor-pointer overflow-hidden rounded-xl"
           >
             <img
               src={item.src}
