@@ -31,7 +31,7 @@ export function Doctor() {
             transition={{ duration: 0.6 }}
           >
             <div className="aspect-[3/4] rounded-2xl overflow-hidden max-w-xs mx-auto shadow-sm">
-              <img src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`} alt="院長写真" className="w-full h-full object-cover" />
+              <img src={`${import.meta.env.BASE_URL}doctor.jpeg`} alt="今泉淳 院長" className="w-full h-full object-cover object-top" />
             </div>
           </motion.div>
 
