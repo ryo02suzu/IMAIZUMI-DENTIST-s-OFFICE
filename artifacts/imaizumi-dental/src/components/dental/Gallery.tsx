@@ -13,7 +13,7 @@ const galleryItems = [
 export function Gallery() {
   return (
     <section id="gallery" className="py-0 scroll-mt-20">
-      <div className="flex overflow-hidden">
+      <div className="flex gap-1">
         {galleryItems.map((item, index) => (
           <motion.div
             key={index}
@@ -28,8 +28,12 @@ export function Gallery() {
               alt={item.label}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-[#3d5f7a]/30 group-hover:bg-[#3d5f7a]/10 transition-colors" />
-            <p className="absolute bottom-2 left-0 right-0 text-center text-white text-xs font-medium drop-shadow">{item.label}</p>
+            {/* 明るさを診療室に合わせる */}
+            <div className="absolute inset-0 bg-black/20" />
+            {/* 下部グラデーション＋ラベル */}
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent pt-6 pb-2 px-1">
+              <p className="text-center text-white text-xs font-bold tracking-wide drop-shadow">{item.label}</p>
+            </div>
           </motion.div>
         ))}
       </div>
