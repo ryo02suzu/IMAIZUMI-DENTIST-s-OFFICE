@@ -6,7 +6,7 @@ const galleryItems = [
   { label: "待合室", src: `${BASE}clinic-waiting.jpeg` },
   { label: "受付", src: `${BASE}clinic-reception.jpeg` },
   { label: "診療室", src: `${BASE}clinic-unit2.jpeg` },
-  { label: "診療ユニット", src: `${BASE}clinic-unit1.jpeg` },
+  { label: "治療中", src: `${BASE}clinic-treatment.jpeg` },
   { label: "消毒スペース", src: `${BASE}clinic-sanitizer.jpeg` },
 ]
 
