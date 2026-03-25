@@ -34,10 +34,10 @@ export function SpecialServices() {
           <div className="flex-1 w-full space-y-4">
 
             {/* 歯科助手カード */}
-            <div className="relative bg-white rounded-2xl shadow-sm border border-orange-100 overflow-hidden h-[120px]">
+            <div className="relative bg-white rounded-2xl shadow-sm border border-orange-100 overflow-hidden h-[140px]">
               {/* 背景イラスト（右側） */}
               <img
-                src={`${import.meta.env.BASE_URL}recruit-assistant.jpeg`}
+                src={`${import.meta.env.BASE_URL}recruit-assistant-v2.jpeg`}
                 alt=""
                 aria-hidden="true"
                 className="absolute right-0 top-0 h-full w-[35%] object-cover object-left"
@@ -53,7 +53,7 @@ export function SpecialServices() {
             </div>
 
             {/* 歯科衛生士カード */}
-            <div className="relative bg-white rounded-2xl shadow-sm border border-orange-100 overflow-hidden h-[120px]">
+            <div className="relative bg-white rounded-2xl shadow-sm border border-orange-100 overflow-hidden h-[140px]">
               {/* 背景イラスト（右側） */}
               <img
                 src={`${import.meta.env.BASE_URL}recruit-hygienist.jpeg`}
