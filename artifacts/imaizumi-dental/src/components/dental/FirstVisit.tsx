@@ -139,6 +139,48 @@ export function FirstVisit() {
           </motion.div>
         </div>
 
+        {/* 感染対策 */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-12"
+        >
+          <h3 className="text-lg font-bold text-[#7eb4d2] mb-6 flex items-center gap-2">
+            <span className="w-1 h-6 bg-[#7eb4d2] rounded-full inline-block" />
+            院内の感染対策
+          </h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div className="bg-white rounded-2xl overflow-hidden border border-[#e0eff6] shadow-sm flex flex-col">
+              <div className="h-52 overflow-hidden">
+                <img
+                  src={`${import.meta.env.BASE_URL}clinic-air-purifier.jpeg`}
+                  alt="空気清浄機"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4">
+                <p className="font-bold text-[#4a4a4a] mb-1">空気清浄機</p>
+                <p className="text-sm text-[#666]">院内各所に空気清浄機を設置し、清潔な空気環境を保っています。</p>
+              </div>
+            </div>
+            <div className="bg-white rounded-2xl overflow-hidden border border-[#e0eff6] shadow-sm flex flex-col">
+              <div className="h-52 overflow-hidden">
+                <img
+                  src={`${import.meta.env.BASE_URL}clinic-humidifier.jpeg`}
+                  alt="加湿器"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-4">
+                <p className="font-bold text-[#4a4a4a] mb-1">加湿器</p>
+                <p className="text-sm text-[#666]">適切な湿度管理でウイルス対策にも配慮した院内環境を整えています。</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
         {/* CTA */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
