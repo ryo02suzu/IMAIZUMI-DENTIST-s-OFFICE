@@ -153,12 +153,13 @@ export function FirstVisit() {
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="bg-white rounded-2xl overflow-hidden border border-[#e0eff6] shadow-sm flex flex-col">
-              <div className="h-52 overflow-hidden">
+              <div className="h-52 overflow-hidden relative">
                 <img
                   src={`${import.meta.env.BASE_URL}clinic-air-purifier.jpeg`}
                   alt="空気清浄機"
                   className="w-full h-full object-cover"
                 />
+                <div className="absolute inset-0 bg-black/20" />
               </div>
               <div className="p-4">
                 <p className="font-bold text-[#4a4a4a] mb-1">空気清浄機</p>
@@ -166,12 +167,13 @@ export function FirstVisit() {
               </div>
             </div>
             <div className="bg-white rounded-2xl overflow-hidden border border-[#e0eff6] shadow-sm flex flex-col">
-              <div className="h-52 overflow-hidden">
+              <div className="h-52 overflow-hidden relative">
                 <img
                   src={`${import.meta.env.BASE_URL}clinic-humidifier.jpeg`}
                   alt="加湿器"
                   className="w-full h-full object-cover"
                 />
+                <div className="absolute inset-0 bg-black/20" />
               </div>
               <div className="p-4">
                 <p className="font-bold text-[#4a4a4a] mb-1">加湿器</p>
@@ -179,12 +181,13 @@ export function FirstVisit() {
               </div>
             </div>
             <div className="bg-white rounded-2xl overflow-hidden border border-[#e0eff6] shadow-sm flex flex-col">
-              <div className="h-52 overflow-hidden">
+              <div className="h-52 overflow-hidden relative">
                 <img
                   src={`${import.meta.env.BASE_URL}clinic-autoclave.jpeg`}
                   alt="オートクレーブ（滅菌機）"
                   className="w-full h-full object-cover object-center"
                 />
+                <div className="absolute inset-0 bg-black/20" />
               </div>
               <div className="p-4">
                 <p className="font-bold text-[#4a4a4a] mb-1">オートクレーブ（滅菌機）</p>
