@@ -15,9 +15,9 @@ const schedule = [
 
 // 写真を追加する場合はここにファイル名を追加してください
 const slides = [
-  { src: "clinic-photo.jpeg", alt: "院内写真１" },
-  { src: "clinic-photo.jpeg", alt: "院内写真２" },
-  { src: "clinic-photo.jpeg", alt: "院内写真３" },
+  { src: "clinic-unit2.jpeg", alt: "診療室全景" },
+  { src: "clinic-unit1.jpeg", alt: "診療ユニット" },
+  { src: "clinic-photo.jpeg", alt: "院内写真" },
 ]
 
 function Slideshow({ className, imgClassName }: { className?: string; imgClassName?: string }) {
