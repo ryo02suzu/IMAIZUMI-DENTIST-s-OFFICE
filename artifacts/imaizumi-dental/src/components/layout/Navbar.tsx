@@ -46,14 +46,16 @@ export function Navbar() {
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full bg-[#7eb4d2] flex items-center justify-center">
-              <span className="text-white text-[8px] font-bold leading-tight text-center">
-                今泉<br/>歯科
-              </span>
+            <div className="w-12 h-12 rounded-full bg-white border-2 border-[#7eb4d2] flex items-center justify-center overflow-hidden">
+              <img
+                src={`${import.meta.env.BASE_URL}clinic-icon.png`}
+                alt="今泉歯科医院"
+                className="w-full h-full object-contain p-0.5"
+              />
             </div>
             <div>
               <p className="text-[#3d5f7a] font-bold text-lg tracking-wide">今泉歯科医院</p>
-              <p className="text-[#3d5f7a] text-[10px] tracking-widest">IMAIZUMI DENTAL CLINIC</p>
+              <p className="text-[#3d5f7a] text-[10px] tracking-widest">IMAIZUMI DENTIST OFFICE</p>
             </div>
           </Link>
 
