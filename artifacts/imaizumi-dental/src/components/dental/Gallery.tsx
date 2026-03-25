@@ -5,7 +5,7 @@ const BASE = import.meta.env.BASE_URL
 const galleryItems = [
   { label: "診療室", src: `${BASE}clinic-unit2.jpeg` },
   { label: "診療ユニット", src: `${BASE}clinic-unit1.jpeg` },
-  { label: "院内", src: `${BASE}clinic-photo.jpeg` },
+  { label: "院内", src: `${BASE}clinic-unit1.jpeg` },
   { label: "診療室", src: `${BASE}clinic-unit2.jpeg` },
   { label: "ユニット", src: `${BASE}clinic-unit1.jpeg` },
 ]
