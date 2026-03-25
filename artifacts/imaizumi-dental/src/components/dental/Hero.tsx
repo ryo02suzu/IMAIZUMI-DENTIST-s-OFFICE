@@ -1,6 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion"
 import { Train, Calendar, Car, Clock } from "lucide-react"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 
 const badges = [
   { icon: Train, lines: ["昭和橋バス停", "徒歩2分"] },
@@ -21,16 +21,29 @@ const slides = [
 
 function Slideshow({ className, imgClassName }: { className?: string; imgClassName?: string }) {
   const [current, setCurrent] = useState(0)
+  const touchStartX = useRef<number | null>(null)
+
+  const move = (dir: 1 | -1) =>
+    setCurrent(prev => ((prev + dir) % slides.length + slides.length) % slides.length)
 
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrent(prev => (prev + 1) % slides.length)
-    }, 4000)
+    }, 6000)
     return () => clearInterval(timer)
   }, [])
 
   return (
-    <div className={className}>
+    <div
+      className={className}
+      onTouchStart={e => { touchStartX.current = e.touches[0].clientX }}
+      onTouchEnd={e => {
+        if (touchStartX.current === null) return
+        const diff = touchStartX.current - e.changedTouches[0].clientX
+        if (Math.abs(diff) > 40) move(diff > 0 ? 1 : -1)
+        touchStartX.current = null
+      }}
+    >
       <div className="relative w-full h-full overflow-hidden rounded-[inherit]">
         <AnimatePresence>
           {slides.map((slide, i) =>
@@ -41,7 +54,7 @@ function Slideshow({ className, imgClassName }: { className?: string; imgClassNa
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
-                transition={{ duration: 0.8 }}
+                transition={{ duration: 1.8, ease: "easeInOut" }}
               >
                 <img
                   src={`${import.meta.env.BASE_URL}${slide.src}`}
