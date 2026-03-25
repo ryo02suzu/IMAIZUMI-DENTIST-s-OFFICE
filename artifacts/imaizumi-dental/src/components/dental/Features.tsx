@@ -6,16 +6,19 @@ const features = [
   {
     point: "01",
     img: `${BASE}clinic-reception.jpeg`,
+    brightness: 1.0,
     lines: ["笑顔でお迎えする受付から", "診療まで、ひとりひとりに", "寄り添った対応を心がけています"],
   },
   {
     point: "02",
     img: `${BASE}clinic-unit1.jpeg`,
+    brightness: 1.0,
     lines: ["最新のユニット（治療台）を", "導入し、快適な", "治療環境を整えています"],
   },
   {
     point: "03",
     img: `${BASE}doctor-fun.jpeg`,
+    brightness: 1.4,
     lines: ["写真は少し照れていますが", "話しかけやすく気さくな院長が", "いつでも丁寧に対応します"],
   },
 ]
@@ -51,6 +54,7 @@ export function Features() {
                     src={feature.img}
                     alt={`特徴${feature.point}`}
                     className="w-full h-full object-cover"
+                    style={{ filter: `brightness(${feature.brightness})` }}
                   />
                   <div className="absolute inset-0 bg-black/20" />
                 </div>
