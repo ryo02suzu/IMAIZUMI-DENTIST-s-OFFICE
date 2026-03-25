@@ -31,7 +31,7 @@ function Slideshow({ className, imgClassName }: { className?: string; imgClassNa
 
   return (
     <div className={className}>
-      <div className="relative w-full h-full overflow-hidden">
+      <div className="relative w-full h-full overflow-hidden rounded-[inherit]">
         <AnimatePresence>
           {slides.map((slide, i) =>
             i === current ? (
@@ -95,7 +95,7 @@ function ScheduleTable() {
 
 export function Hero() {
   return (
-    <section className="relative overflow-hidden bg-white">
+    <section className="relative bg-white">
 
       {/* ── MOBILE layout ── */}
       <div className="lg:hidden">
@@ -196,7 +196,7 @@ export function Hero() {
 
         {/* Right: full photo — no overlapping elements */}
         <div className="flex-1 relative">
-          <Slideshow className="absolute inset-4 rounded-3xl shadow-xl" />
+          <Slideshow className="absolute inset-4 rounded-3xl shadow-xl overflow-hidden" />
         </div>
 
       </div>
