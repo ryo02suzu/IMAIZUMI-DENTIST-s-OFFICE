@@ -37,7 +37,7 @@ const jobs = [
     color: "bg-[#7eb4d2]",
     wage: "時給 ¥1,050〜",
     wageNote: "経験・スキルに応じて応相談",
-    experience: "未経験OK",
+    experience: "未経験OK・学生さんも歓迎！",
     employment: ["アルバイト", "パート"],
     duties: [
       "診療補助（器具の準備・片付けなど）",
@@ -241,13 +241,13 @@ export default function RecruitPage() {
                 <Phone className="h-5 w-5" />
                 0277-54-9893
               </a>
-              <Link
-                href="/#contact"
+              <a
+                href={`mailto:pocjcom@yahoo.co.jp?subject=${encodeURIComponent('採用お問い合わせ（今泉歯科医院）')}&body=${encodeURIComponent('【採用応募フォーム】\n\n① 氏名：\n\n② 電話番号：\n\n③ 希望職種（歯科助手／歯科衛生士）：\n\n④ 勤務可能曜日・時間帯\n（例：平日17:00〜20:00、土曜終日 など）：\n\n⑤ 面接可能日時（第3希望まで）\n（例：\n・4/1 17:00以降\n・4/2 終日\n・4/5 18:00以降）：\n')}`}
                 className="flex items-center justify-center gap-2 bg-white text-[#3d5f7a] font-bold py-4 px-8 rounded-full hover:opacity-90 transition-opacity"
               >
                 <Mail className="h-5 w-5" />
-                お問い合わせフォーム
-              </Link>
+                メールで応募する
+              </a>
             </div>
             <p className="text-white/50 text-xs mt-6">受付時間：月〜金 9:30〜19:00（木午前除く）、土 9:30〜12:30 / 14:00〜16:00</p>
           </div>

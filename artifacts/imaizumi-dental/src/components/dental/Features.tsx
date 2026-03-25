@@ -18,7 +18,7 @@ const features = [
   {
     point: "03",
     img: `${BASE}doctor-fun.jpeg`,
-    brightness: 1.4,
+    brightness: 1.2,
     lines: ["写真は少し照れていますが", "話しかけやすく気さくな院長が", "いつでも丁寧に対応します"],
   },
 ]
