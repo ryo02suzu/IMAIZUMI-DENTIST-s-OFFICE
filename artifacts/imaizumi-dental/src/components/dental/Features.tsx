@@ -1,16 +1,21 @@
 import { motion } from "framer-motion"
 
+const BASE = import.meta.env.BASE_URL
+
 const features = [
   {
     point: "01",
+    img: `${BASE}clinic-reception.jpeg`,
     lines: ["インフォームドコンセントを", "大切にし予防歯科に", "力を入れて治療しております"],
   },
   {
     point: "02",
+    img: `${BASE}clinic-unit1.jpeg`,
     lines: ["最新のユニット（治療台）を", "導入し、快適な", "治療環境を整えています"],
   },
   {
     point: "03",
+    img: `${BASE}doctor-fun.jpeg`,
     lines: ["患者さんとの", "コミュニケーションを", "大切にしています"],
   },
 ]
@@ -40,12 +45,14 @@ export function Features() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               className="text-center"
             >
-              {/* Image placeholder with wave bottom */}
               <div className="relative mb-6">
                 <div className="aspect-[4/3] rounded-[40px] overflow-hidden">
-                  <img src={`${import.meta.env.BASE_URL}clinic-photo.jpeg`} alt={`特徴${feature.point}`} className="w-full h-full object-cover" />
+                  <img
+                    src={feature.img}
+                    alt={`特徴${feature.point}`}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                {/* Point badge */}
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 bg-white rounded-full px-4 py-2 shadow-lg">
                   <p className="text-[#7eb4d2] text-xs">POINT</p>
                   <p className="text-[#7eb4d2] text-2xl font-bold">{feature.point}</p>
