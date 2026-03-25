@@ -36,7 +36,7 @@ export function SpecialServices() {
               <div>
                 <p className="text-xs text-[#f5a623] font-semibold mb-1">バイト・パート</p>
                 <p className="text-[#3d5f7a] text-lg font-bold">歯科助手</p>
-                <p className="text-[#6b7280] text-sm">時給 ¥1,050〜 ／ 未経験OK</p>
+                <p className="text-[#6b7280] text-sm">時給 ¥1,050〜 ／ 高校生から応募OK</p>
               </div>
               <div className="w-12 h-12 rounded-full bg-[#fff7ed] flex items-center justify-center text-2xl shrink-0">
                 🦷
