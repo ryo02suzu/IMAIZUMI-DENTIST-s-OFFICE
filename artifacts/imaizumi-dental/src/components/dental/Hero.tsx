@@ -48,6 +48,8 @@ function Slideshow({ className, imgClassName }: { className?: string; imgClassNa
             ) : null
           )}
         </AnimatePresence>
+        {/* 明るさを少し落とすオーバーレイ */}
+        <div className="absolute inset-0 bg-black/20 z-[1]" />
         <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5 z-10">
           {slides.map((_, i) => (
             <button
