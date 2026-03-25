@@ -11,7 +11,6 @@ const galleryItems = [
   { label: "消毒スペース", src: `${BASE}clinic-sanitizer.jpeg`,  brightness: 1.25 },
 ]
 
-const CARD_HEIGHT = 200
 
 function MobileGallery() {
   const [current, setCurrent] = useState(0)
@@ -33,14 +32,15 @@ function MobileGallery() {
 
   const move = (dir: 1 | -1) => setCurrent(c => ((c + dir) % n + n) % n)
 
-  const cardW = winW * 0.7
-  const step  = winW * 0.6
+  const cardW   = winW * 0.7
+  const cardH   = Math.round(cardW * (3 / 4))   // 4:3 比率を維持
+  const step    = winW * 0.6
   const marginL = (winW - cardW) / 2
 
   return (
     <div
       className="relative w-full overflow-hidden select-none"
-      style={{ height: CARD_HEIGHT + 28 }}
+      style={{ height: cardH + 28 }}
       onTouchStart={e => { touchX.current = e.touches[0].clientX }}
       onTouchEnd={e => {
         if (touchX.current === null) return
@@ -64,7 +64,7 @@ function MobileGallery() {
           <motion.div
             key={idx}
             className="absolute top-0 overflow-hidden cursor-pointer"
-            style={{ width: cardW, height: CARD_HEIGHT, left: 0, marginLeft: marginL, borderRadius: 20 }}
+            style={{ width: cardW, height: cardH, left: 0, marginLeft: marginL, borderRadius: 20 }}
             animate={{ x: offset * step, scale, opacity, zIndex }}
             transition={{ type: "spring", stiffness: 280, damping: 30 }}
             onClick={() => { if (offset !== 0) move(offset > 0 ? 1 : -1) }}
