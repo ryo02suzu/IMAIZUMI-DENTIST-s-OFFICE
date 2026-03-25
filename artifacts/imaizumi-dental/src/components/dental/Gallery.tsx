@@ -3,11 +3,11 @@ import { motion } from "framer-motion"
 const BASE = import.meta.env.BASE_URL
 
 const galleryItems = [
-  { label: "待合室", src: `${BASE}clinic-waiting.jpeg` },
-  { label: "受付", src: `${BASE}clinic-reception.jpeg` },
-  { label: "診療室", src: `${BASE}clinic-unit2.jpeg` },
-  { label: "治療中", src: `${BASE}clinic-treatment.jpeg` },
-  { label: "消毒スペース", src: `${BASE}clinic-sanitizer.jpeg` },
+  { label: "待合室",     src: `${BASE}clinic-waiting.jpeg`,    brightness: 1.2 },
+  { label: "受付",       src: `${BASE}clinic-reception.jpeg`,  brightness: 1.15 },
+  { label: "診療室",     src: `${BASE}clinic-unit2.jpeg`,      brightness: 1.0 },
+  { label: "治療中",     src: `${BASE}clinic-treatment.jpeg`,  brightness: 1.35 },
+  { label: "消毒スペース", src: `${BASE}clinic-sanitizer.jpeg`, brightness: 1.25 },
 ]
 
 export function Gallery() {
@@ -26,11 +26,10 @@ export function Gallery() {
             <img
               src={item.src}
               alt={item.label}
+              style={{ filter: `brightness(${item.brightness})` }}
               className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
             />
-            {/* 明るさを診療室に合わせる */}
             <div className="absolute inset-0 bg-black/20" />
-            {/* 下部グラデーション＋ラベル */}
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/60 to-transparent pt-6 pb-2 px-1">
               <p className="text-center text-white text-xs font-bold tracking-wide drop-shadow">{item.label}</p>
             </div>
