@@ -78,8 +78,9 @@ const faqs = [
 
 export default function SubscriptionPage() {
   useSEO({
-    title: "クリーニング定期コース（サブスク） | 今泉歯科医院",
-    description: "月額¥3,300〜。今泉歯科医院のお口のエステ定期コース。PMTC・エアフロー・フッ素塗布など、保険診療を超えた専門クリーニングで健康な歯を維持します。いつでも解約可能。家族割あり。",
+    title: "桐生市の歯のクリーニング定期コース | 今泉歯科医院",
+    description: "桐生市の歯医者「今泉歯科医院」のクリーニング定期コース（月額¥3,300〜）。PMTC・エアフロー・フッ素塗布など専門クリーニングで健康な歯を維持。いつでも解約可能・家族割あり。",
+    canonicalPath: "/subscription",
   })
 
   return (

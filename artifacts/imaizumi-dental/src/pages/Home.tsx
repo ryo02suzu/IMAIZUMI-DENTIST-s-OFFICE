@@ -14,7 +14,7 @@ import { MapSection } from "@/components/dental/MapSection"
 import { Footer } from "@/components/layout/Footer"
 
 export default function Home() {
-  useSEO()
+  useSEO({ canonicalPath: "/" })
   return (
     <div className="min-h-screen font-sans bg-white">
       <Navbar />
