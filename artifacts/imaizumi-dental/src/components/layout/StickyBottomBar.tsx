@@ -26,9 +26,14 @@ export function StickyBottomBar() {
           transition={{ duration: 0.25, ease: "easeOut" }}
           className="fixed bottom-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-lg px-4 py-3 flex items-center gap-3"
         >
-          <span className="flex-1 bg-gray-100 text-gray-400 text-center py-3 rounded-full font-bold text-sm cursor-not-allowed select-none">
-            WEB予約（後日掲載予定）
-          </span>
+          <a
+            href="https://functional-prototype.replit.app/book/imaizumi-dental"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex-1 bg-[#f5a623] text-white text-center py-3 rounded-full font-bold text-sm hover:bg-[#e09520] transition-colors"
+          >
+            WEB予約
+          </a>
           <a
             href="tel:0277549893"
             className="flex-1 flex items-center justify-center gap-2 bg-[#7eb4d2] text-white py-3 rounded-full font-bold text-sm hover:bg-[#6aa0be] transition-colors"

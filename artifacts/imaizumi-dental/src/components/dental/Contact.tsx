@@ -37,9 +37,14 @@ export function Contact() {
                   <span className="text-sm">TEL</span>
                   <span className="text-2xl md:text-3xl font-bold ml-1">0277-54-9893</span>
                 </a>
-                <span className="inline-flex items-center gap-2 bg-gray-100 text-gray-400 px-6 py-2 rounded-full text-sm cursor-not-allowed select-none">
-                  WEB予約（後日掲載予定）
-                </span>
+                <a
+                  href="https://functional-prototype.replit.app/book/imaizumi-dental"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 bg-[#f5a623] text-white px-6 py-2 rounded-full text-sm font-bold hover:bg-[#e09520] transition-colors"
+                >
+                  WEB予約
+                </a>
               </div>
             </div>
 

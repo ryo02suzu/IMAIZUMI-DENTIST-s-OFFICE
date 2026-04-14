@@ -205,9 +205,14 @@ export function FirstVisit() {
           transition={{ duration: 0.5 }}
           className="text-center mt-12"
         >
-          <span className="inline-block bg-gray-100 text-gray-400 px-10 py-4 rounded-full font-bold text-lg cursor-not-allowed select-none">
-            WEB予約（後日掲載予定）
-          </span>
+          <a
+            href="https://functional-prototype.replit.app/book/imaizumi-dental"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-[#f5a623] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#e09520] transition-colors"
+          >
+            WEB予約はこちら
+          </a>
         </motion.div>
       </div>
     </section>
