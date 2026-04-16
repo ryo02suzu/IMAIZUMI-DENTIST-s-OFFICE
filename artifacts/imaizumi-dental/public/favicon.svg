@@ -1,3 +1,15 @@
 <svg width="180" height="180" viewBox="0 0 180 180" fill="none" xmlns="http://www.w3.org/2000/svg">
-<rect width="180" height="180" rx="36" fill="#FF3C00"/>
+  <rect width="180" height="180" rx="36" fill="#7eb4d2"/>
+  <!-- Tooth shape -->
+  <g transform="translate(30, 18)">
+    <!-- Main tooth body -->
+    <path d="M60 20 C35 20, 15 38, 15 58 C15 70, 20 80, 20 95 C20 112, 28 130, 38 130 C45 130, 50 122, 55 110 C57 104, 59 98, 60 98 C61 98, 63 104, 65 110 C70 122, 75 130, 82 130 C92 130, 100 112, 100 95 C100 80, 105 70, 105 58 C105 38, 85 20, 60 20 Z" fill="white" stroke="#5a9cc0" stroke-width="2"/>
+    <!-- Highlight on tooth -->
+    <path d="M35 35 C28 45, 25 55, 27 65" stroke="#b8d8ea" stroke-width="4" stroke-linecap="round"/>
+    <!-- Smile eyes -->
+    <circle cx="44" cy="60" r="4" fill="#5a9cc0"/>
+    <circle cx="76" cy="60" r="4" fill="#5a9cc0"/>
+    <!-- Smile mouth -->
+    <path d="M44 75 Q60 88 76 75" stroke="#5a9cc0" stroke-width="3" stroke-linecap="round" fill="none"/>
+  </g>
 </svg>
