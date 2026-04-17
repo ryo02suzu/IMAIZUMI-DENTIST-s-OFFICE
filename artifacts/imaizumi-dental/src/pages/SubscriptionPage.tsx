@@ -250,14 +250,9 @@ export default function SubscriptionPage() {
               「どのプランが合うかわからない」という方も、診察時にゆっくりご説明します。お気軽にお問い合わせください。
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a
-                href="https://functional-prototype.replit.app/book/imaizumi-dental"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e09520] transition-colors"
-              >
-                WEB予約はこちら
-              </a>
+              <span className="bg-gray-200 text-gray-400 px-8 py-3 rounded-full font-bold cursor-not-allowed select-none">
+                WEB予約（後日掲載予定）
+              </span>
               <a
                 href="tel:0277549893"
                 className="border border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition-colors"
