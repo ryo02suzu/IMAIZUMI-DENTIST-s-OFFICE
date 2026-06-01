@@ -67,10 +67,10 @@ export const newsItems: NewsItem[] = [
 
 export const categories = ["診療案内", "休診案内", "お知らせ"]
 
-export const getArchiveMonths = () => {
+export const getArchiveMonths = (items: NewsItem[] = newsItems) => {
   const months: { label: string; key: string }[] = []
   const seen = new Set<string>()
-  newsItems.forEach((item) => {
+  items.forEach((item) => {
     const d = new Date(item.datetime)
     const key = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}`
     const label = `${d.getFullYear()}年${d.getMonth() + 1}月`
