@@ -99,3 +99,45 @@ export async function onRequestPost(context: any): Promise<Response> {
   const data: any = await res.json().catch(() => ({}))
   return json({ ok: true, id: data.id })
 }
+
+// ── 削除（スタッフ投稿ページの削除ボタン用） ──
+export async function onRequestDelete(context: any): Promise<Response> {
+  const { request, env } = context
+
+  if (!env.STAFF_PASSWORD || !env.MICROCMS_SERVICE_DOMAIN || !env.MICROCMS_API_KEY) {
+    return json({ error: "サーバー側の設定が未完了です（管理者にご連絡ください）" }, 500)
+  }
+
+  let payload: any
+  try {
+    payload = await request.json()
+  } catch {
+    return json({ error: "リクエストの形式が不正です" }, 400)
+  }
+
+  const { password, id } = payload ?? {}
+
+  if (password !== env.STAFF_PASSWORD) {
+    return json({ error: "パスワードが違います" }, 401)
+  }
+  if (!id) {
+    return json({ error: "削除対象が指定されていません" }, 400)
+  }
+
+  let res: Response
+  try {
+    res = await fetch(`${microcmsUrl(env)}/${encodeURIComponent(id)}`, {
+      method: "DELETE",
+      headers: { "X-MICROCMS-API-KEY": env.MICROCMS_API_KEY },
+    })
+  } catch {
+    return json({ error: "microCMS への接続に失敗しました" }, 502)
+  }
+
+  if (!res.ok) {
+    const detail = await res.text().catch(() => "")
+    return json({ error: `削除に失敗しました (${res.status})`, detail }, 502)
+  }
+
+  return json({ ok: true })
+}

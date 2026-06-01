@@ -101,6 +101,31 @@ export const TEMPLATES: TemplateDef[] = [
     },
   },
   {
+    id: "morning-closure",
+    label: "午前休診",
+    description: "午前だけお休み（午後は通常診療）",
+    fields: [
+      { key: "date", label: "休診日", type: "date", required: true },
+      { key: "note", label: "理由・補足（任意）", type: "text", placeholder: "例：研修のため" },
+    ],
+    build: ({ date, note }) => {
+      const d = parseDate(date!)
+      const reason = note ? `${note}のため、` : ""
+      const body =
+        `${reason}${d.long}は午前の診療を休診させていただきます。\n\n` +
+        `午後の診療（15:00〜19:00）は通常通り行っております。\n\n` +
+        `ご迷惑をおかけして誠に申し訳ございません。\n\n` +
+        `ご予約・お問い合わせはお電話（${TEL}）にてお気軽にご連絡ください。`
+      return {
+        title: `${d.short} 午前休診のお知らせ`,
+        date: d.iso,
+        category: ["休診案内"],
+        excerpt: `${d.long}は午前の診療を休診させていただきます。午後（15:00〜19:00）は通常通りです。`,
+        body,
+      }
+    },
+  },
+  {
     id: "temp-closure",
     label: "臨時休診",
     description: "急なお休み",

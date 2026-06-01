@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react"
+import { useState, useMemo, useEffect, useCallback } from "react"
 import { Link } from "wouter"
 import {
   TEMPLATES,
@@ -6,6 +6,8 @@ import {
   type AnnouncementDraft,
   type TemplateInputs,
 } from "@/lib/announcementTemplates"
+import { fetchNews } from "@/lib/microcms"
+import type { NewsItem } from "@/data/newsData"
 
 const PW_KEY = "imaizumi_staff_pw"
 
@@ -32,6 +34,10 @@ export default function StaffPost() {
   const [status, setStatus] = useState<Status>("idle")
   const [message, setMessage] = useState<string>("")
 
+  // 最近の投稿（削除用）
+  const [list, setList] = useState<NewsItem[]>([])
+  const [deletingId, setDeletingId] = useState<string | null>(null)
+
   const template = getTemplate(templateId)
 
   const draft: AnnouncementDraft | null = useMemo(() => {
@@ -44,6 +50,16 @@ export default function StaffPost() {
       return null
     }
   }, [template, inputs])
+
+  const loadList = useCallback(() => {
+    fetchNews()
+      .then(setList)
+      .catch(() => setList([]))
+  }, [])
+
+  useEffect(() => {
+    loadList()
+  }, [loadList])
 
   function setField(key: keyof TemplateInputs, value: string) {
     setInputs((prev) => ({ ...prev, [key]: value }))
@@ -71,10 +87,7 @@ export default function StaffPost() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password, draft }),
       })
-      const data = (await res.json().catch(() => ({}))) as {
-        error?: string
-        ok?: boolean
-      }
+      const data = (await res.json().catch(() => ({}))) as { error?: string }
       if (!res.ok) {
         setStatus("error")
         setMessage(data.error ?? `送信に失敗しました (${res.status})`)
@@ -84,9 +97,43 @@ export default function StaffPost() {
       setStatus("done")
       setMessage("お知らせを公開しました！サイトに反映されます。")
       setInputs({})
+      // 反映に少しラグがあることがあるため、少し待ってから一覧を更新
+      setTimeout(loadList, 800)
     } catch {
       setStatus("error")
       setMessage("通信エラーが発生しました。電波状況を確認して再度お試しください。")
+    }
+  }
+
+  async function remove(item: NewsItem) {
+    if (!password) {
+      setStatus("error")
+      setMessage("削除するには上の合言葉を入力してください")
+      return
+    }
+    if (!window.confirm(`「${item.title}」を削除します。よろしいですか？`)) return
+    setDeletingId(item.id)
+    setMessage("")
+    try {
+      const res = await fetch("/api/news", {
+        method: "DELETE",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ password, id: item.id }),
+      })
+      const data = (await res.json().catch(() => ({}))) as { error?: string }
+      if (!res.ok) {
+        setStatus("error")
+        setMessage(data.error ?? `削除に失敗しました (${res.status})`)
+        return
+      }
+      setStatus("done")
+      setMessage("削除しました。")
+      setTimeout(loadList, 800)
+    } catch {
+      setStatus("error")
+      setMessage("通信エラーが発生しました。")
+    } finally {
+      setDeletingId(null)
     }
   }
 
@@ -237,9 +284,46 @@ export default function StaffPost() {
           )}
         </div>
 
-        <p className="text-center text-[11px] text-[#aaa] mt-6">
-          間違えて投稿した場合は、microCMSの管理画面から修正・削除できます。
-        </p>
+        {/* 最近の投稿（削除できる） */}
+        <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-5 mt-6">
+          <div className="flex items-center justify-between mb-3">
+            <h2 className="text-sm font-bold text-[#4a4a4a]">
+              現在のお知らせ（ここから削除できます）
+            </h2>
+            <button
+              type="button"
+              onClick={loadList}
+              className="text-xs text-[#7eb4d2] hover:underline"
+            >
+              更新
+            </button>
+          </div>
+          {list.length === 0 ? (
+            <p className="text-sm text-[#999]">現在お知らせはありません。</p>
+          ) : (
+            <ul className="divide-y divide-gray-100">
+              {list.map((item) => (
+                <li key={item.id} className="py-3 flex items-start gap-3">
+                  <div className="flex-1 min-w-0">
+                    <p className="text-xs text-[#999]">{item.date}</p>
+                    <p className="text-sm text-[#4a4a4a] truncate">{item.title}</p>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => remove(item)}
+                    disabled={deletingId === item.id}
+                    className="shrink-0 text-xs px-3 py-1 rounded-full border border-red-200 text-red-500 hover:bg-red-50 disabled:opacity-40"
+                  >
+                    {deletingId === item.id ? "削除中..." : "削除"}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          )}
+          <p className="text-[11px] text-[#aaa] mt-3">
+            削除には上の合言葉が必要です。細かい修正は microCMS の管理画面でも行えます。
+          </p>
+        </div>
       </div>
     </div>
   )
