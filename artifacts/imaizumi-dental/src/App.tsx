@@ -12,6 +12,7 @@ import SubscriptionPage from "@/pages/SubscriptionPage";
 import BreathCarePage from "@/pages/BreathCarePage";
 import DentalEsthetics from "@/pages/DentalEsthetics";
 import RecruitPage from "@/pages/RecruitPage";
+import StaffPost from "@/pages/StaffPost";
 import NotFound from "@/pages/not-found";
 import { StickyBottomBar } from "@/components/layout/StickyBottomBar";
 
@@ -37,6 +38,7 @@ function Router() {
       <Route path="/breath-care" component={BreathCarePage} />
       <Route path="/dental-esthetics" component={DentalEsthetics} />
       <Route path="/recruit" component={RecruitPage} />
+      <Route path="/staff" component={StaffPost} />
       <Route component={NotFound} />
     </Switch>
   );
