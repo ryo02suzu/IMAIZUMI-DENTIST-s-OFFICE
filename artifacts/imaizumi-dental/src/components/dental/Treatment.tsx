@@ -61,7 +61,7 @@ export function Treatment() {
                 </span>
                 <div className="flex justify-center items-center flex-1 py-1">
                   {item.icon ? (
-                    <img
+                    <img loading="lazy" decoding="async"
                       src={`${BASE}icons/${item.icon}.jpeg`}
                       alt={item.title}
                       className="w-20 h-20 object-contain"

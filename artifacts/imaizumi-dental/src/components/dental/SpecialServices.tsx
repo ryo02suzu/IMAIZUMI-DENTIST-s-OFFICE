@@ -36,7 +36,7 @@ export function SpecialServices() {
             {/* 歯科助手カード */}
             <div className="relative bg-white rounded-2xl shadow-sm border border-orange-100 overflow-hidden h-[140px]">
               {/* 背景イラスト（右側） */}
-              <img
+              <img loading="lazy" decoding="async"
                 src={`${import.meta.env.BASE_URL}recruit-assistant-v2.jpeg`}
                 alt=""
                 aria-hidden="true"
@@ -55,7 +55,7 @@ export function SpecialServices() {
             {/* 歯科衛生士カード */}
             <div className="relative bg-white rounded-2xl shadow-sm border border-orange-100 overflow-hidden h-[140px]">
               {/* 背景イラスト（右側） */}
-              <img
+              <img loading="lazy" decoding="async"
                 src={`${import.meta.env.BASE_URL}recruit-hygienist.jpeg`}
                 alt=""
                 aria-hidden="true"

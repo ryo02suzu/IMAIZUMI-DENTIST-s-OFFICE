@@ -154,7 +154,7 @@ export function FirstVisit() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="bg-white rounded-2xl overflow-hidden border border-[#e0eff6] shadow-sm flex flex-col">
               <div className="h-52 overflow-hidden relative">
-                <img
+                <img loading="lazy" decoding="async"
                   src={`${import.meta.env.BASE_URL}clinic-air-purifier.jpeg`}
                   alt="空気清浄機"
                   className="w-full h-full object-cover"
@@ -168,7 +168,7 @@ export function FirstVisit() {
             </div>
             <div className="bg-white rounded-2xl overflow-hidden border border-[#e0eff6] shadow-sm flex flex-col">
               <div className="h-52 overflow-hidden relative">
-                <img
+                <img loading="lazy" decoding="async"
                   src={`${import.meta.env.BASE_URL}clinic-humidifier.jpeg`}
                   alt="加湿器"
                   className="w-full h-full object-cover"
@@ -182,7 +182,7 @@ export function FirstVisit() {
             </div>
             <div className="bg-white rounded-2xl overflow-hidden border border-[#e0eff6] shadow-sm flex flex-col">
               <div className="h-52 overflow-hidden relative">
-                <img
+                <img loading="lazy" decoding="async"
                   src={`${import.meta.env.BASE_URL}clinic-autoclave.jpeg`}
                   alt="オートクレーブ（滅菌機）"
                   className="w-full h-full object-cover object-center"

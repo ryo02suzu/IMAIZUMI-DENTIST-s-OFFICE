@@ -97,7 +97,7 @@ export function Contact() {
             transition={{ duration: 0.6 }}
             className="aspect-[4/3] rounded-2xl overflow-hidden"
           >
-            <img src={`${import.meta.env.BASE_URL}clinic-exterior.jpeg`} alt="今泉歯科医院 外観" className="w-full h-full object-cover" />
+            <img loading="lazy" decoding="async" src={`${import.meta.env.BASE_URL}clinic-exterior.jpeg`} alt="今泉歯科医院 外観" className="w-full h-full object-cover" />
           </motion.div>
         </div>
       </div>
