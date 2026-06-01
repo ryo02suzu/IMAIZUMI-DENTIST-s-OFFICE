@@ -1,10 +1,11 @@
 import { motion } from "framer-motion"
 import { ChevronRight } from "lucide-react"
-import { newsItems } from "@/data/newsData"
+import { useNews } from "@/hooks/useNews"
 import { Link } from "wouter"
 
 export function News() {
-  const displayItems = newsItems.slice(0, 3)
+  const { items } = useNews()
+  const displayItems = items.slice(0, 3)
 
   return (
     <section className="py-16 bg-white">

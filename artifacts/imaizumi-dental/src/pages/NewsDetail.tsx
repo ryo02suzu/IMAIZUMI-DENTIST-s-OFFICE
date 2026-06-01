@@ -1,6 +1,6 @@
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
-import { newsItems } from "@/data/newsData"
+import { useNews } from "@/hooks/useNews"
 import { Link, useParams } from "wouter"
 import { Home } from "lucide-react"
 import { useSEO } from "@/hooks/useSEO"
@@ -13,7 +13,8 @@ const categoryColor: Record<string, string> = {
 
 export default function NewsDetail() {
   const { id } = useParams()
-  const item = newsItems.find((n) => n.id === id)
+  const { items, isLoading } = useNews()
+  const item = items.find((n) => n.id === id)
   useSEO({
     title: item?.title,
     description: item?.body?.replace(/\n/g, " ").substring(0, 120),
@@ -25,7 +26,9 @@ export default function NewsDetail() {
         <Navbar />
         <main className="flex-1 flex items-center justify-center">
           <div className="text-center">
-            <p className="text-[#999] mb-4">記事が見つかりません</p>
+            <p className="text-[#999] mb-4">
+              {isLoading ? "読み込み中..." : "記事が見つかりません"}
+            </p>
             <Link href="/news" className="text-[#7eb4d2] hover:underline text-sm">← お知らせ一覧へ</Link>
           </div>
         </main>

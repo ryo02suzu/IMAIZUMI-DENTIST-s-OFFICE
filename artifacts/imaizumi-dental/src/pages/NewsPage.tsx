@@ -1,6 +1,7 @@
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
-import { newsItems, categories, getArchiveMonths } from "@/data/newsData"
+import { categories, getArchiveMonths } from "@/data/newsData"
+import { useNews } from "@/hooks/useNews"
 import { Link } from "wouter"
 import { ChevronRight, Home } from "lucide-react"
 import { useSEO } from "@/hooks/useSEO"
@@ -73,7 +74,8 @@ export default function NewsPage() {
     description: "桐生市の歯医者「今泉歯科医院」からのお知らせ・診療情報・休診情報をお届けします。最新情報をご確認ください。",
     canonicalPath: "/news",
   })
-  const archiveMonths = getArchiveMonths()
+  const { items: newsItems } = useNews()
+  const archiveMonths = getArchiveMonths(newsItems)
 
   return (
     <div className="min-h-screen flex flex-col">

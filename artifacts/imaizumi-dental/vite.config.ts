@@ -2,47 +2,31 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 import tailwindcss from "@tailwindcss/vite";
 import path from "path";
-import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
-const rawPort = process.env.PORT;
+// ホスティング非依存の設定。
+// - PORT      : dev/preview サーバーのポート（未指定なら 5173）
+// - BASE_PATH : 公開時のベースパス（独自ドメイン直下なら "/"。未指定なら "/"）
+// Replit 専用プラグインは Replit 環境（REPL_ID が存在）の開発時のみ読み込む。
+const port = Number(process.env.PORT) || 5173;
+const basePath = process.env.BASE_PATH || "/";
+const isReplitDev =
+  process.env.REPL_ID !== undefined && process.env.NODE_ENV !== "production";
 
-if (!rawPort) {
-  throw new Error(
-    "PORT environment variable is required but was not provided.",
-  );
-}
-
-const port = Number(rawPort);
-
-if (Number.isNaN(port) || port <= 0) {
-  throw new Error(`Invalid PORT value: "${rawPort}"`);
-}
-
-const basePath = process.env.BASE_PATH;
-
-if (!basePath) {
-  throw new Error(
-    "BASE_PATH environment variable is required but was not provided.",
-  );
-}
-
-export default defineConfig({
+export default defineConfig(async () => ({
   base: basePath,
   plugins: [
     react(),
     tailwindcss(),
-    runtimeErrorOverlay(),
-    ...(process.env.NODE_ENV !== "production" &&
-    process.env.REPL_ID !== undefined
+    // 以下は Replit の開発環境専用。本番ビルドや他ホスティングでは読み込まれない。
+    ...(isReplitDev
       ? [
-          await import("@replit/vite-plugin-cartographer").then((m) =>
-            m.cartographer({
-              root: path.resolve(import.meta.dirname, ".."),
-            }),
-          ),
-          await import("@replit/vite-plugin-dev-banner").then((m) =>
-            m.devBanner(),
-          ),
+          (await import("@replit/vite-plugin-runtime-error-modal")).default(),
+          (
+            await import("@replit/vite-plugin-cartographer")
+          ).cartographer({
+            root: path.resolve(import.meta.dirname, ".."),
+          }),
+          (await import("@replit/vite-plugin-dev-banner")).devBanner(),
         ]
       : []),
   ],
@@ -72,4 +56,4 @@ export default defineConfig({
     host: "0.0.0.0",
     allowedHosts: true,
   },
-});
+}));

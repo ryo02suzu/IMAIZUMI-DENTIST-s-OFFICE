@@ -1,0 +1,3 @@
+# Cloudflare Pages（SPA）用：実在するファイル以外はすべて index.html を返し、
+# wouter のクライアントサイドルーティングに任せる（/news/:id などの直リンク対策）。
+/*    /index.html    200
