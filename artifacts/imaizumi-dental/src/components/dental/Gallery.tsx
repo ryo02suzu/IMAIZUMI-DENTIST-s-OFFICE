@@ -69,7 +69,7 @@ function MobileGallery() {
             transition={{ type: "spring", stiffness: 280, damping: 30 }}
             onClick={() => { if (offset !== 0) move(offset > 0 ? 1 : -1) }}
           >
-            <img
+            <img loading="lazy" decoding="async"
               src={item.src}
               alt={item.label}
               style={{ filter: `brightness(${item.brightness})` }}
@@ -123,7 +123,7 @@ export function Gallery() {
             transition={{ duration: 0.5, delay: index * 0.1 }}
             className="flex-1 min-w-0 aspect-[4/3] relative group cursor-pointer overflow-hidden rounded-xl"
           >
-            <img
+            <img loading="lazy" decoding="async"
               src={item.src}
               alt={item.label}
               style={{ filter: `brightness(${item.brightness})` }}

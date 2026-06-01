@@ -50,7 +50,7 @@ export function Features() {
             >
               <div className="relative mb-6">
                 <div className="aspect-[4/3] rounded-[40px] overflow-hidden relative">
-                  <img
+                  <img loading="lazy" decoding="async"
                     src={feature.img}
                     alt={`特徴${feature.point}`}
                     className="w-full h-full object-cover"

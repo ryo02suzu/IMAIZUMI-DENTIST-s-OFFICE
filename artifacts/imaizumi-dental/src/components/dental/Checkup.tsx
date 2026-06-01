@@ -36,7 +36,7 @@ export function Checkup() {
             transition={{ duration: 0.6 }}
             className="aspect-[4/3] rounded-2xl overflow-hidden"
           >
-            <img src={`${import.meta.env.BASE_URL}clinic-treatment.jpeg`} alt="定期健診・メンテナンス" className="w-full h-full object-cover" />
+            <img loading="lazy" decoding="async" src={`${import.meta.env.BASE_URL}clinic-treatment.jpeg`} alt="定期健診・メンテナンス" className="w-full h-full object-cover" />
           </motion.div>
         </div>
       </div>
