@@ -47,7 +47,7 @@ const faqs = [
 
 export default function BreathCarePage() {
   useSEO({
-    title: "桐生市の口臭外来なら今泉歯科医院",
+    title: "桐生市の口臭外来",
     description: "桐生市の歯医者「今泉歯科医院」の口臭外来。専用測定器による精密口臭検査（¥5,500〜）と舌クリーニング・専門処置で口臭の根本原因を科学的に解決します。一人で悩まず、まずご相談ください。",
     canonicalPath: "/breath-care",
   })

@@ -71,7 +71,7 @@ function MiniCalendar() {
 
 export default function NewsPage() {
   useSEO({
-    title: "お知らせ | 今泉歯科医院（桐生市の歯医者）",
+    title: "お知らせ（桐生市の歯医者）",
     description: "桐生市の歯医者「今泉歯科医院」からのお知らせ・診療情報・休診情報をお届けします。最新情報をご確認ください。",
     canonicalPath: "/news",
   })

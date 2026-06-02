@@ -78,7 +78,7 @@ const faqs = [
 
 export default function SubscriptionPage() {
   useSEO({
-    title: "桐生市の歯のクリーニング定期コース | 今泉歯科医院",
+    title: "桐生市の歯のクリーニング定期コース",
     description: "桐生市の歯医者「今泉歯科医院」のクリーニング定期コース（月額¥3,300〜）。PMTC・エアフロー・フッ素塗布など専門クリーニングで健康な歯を維持。いつでも解約可能・家族割あり。",
     canonicalPath: "/subscription",
   })
