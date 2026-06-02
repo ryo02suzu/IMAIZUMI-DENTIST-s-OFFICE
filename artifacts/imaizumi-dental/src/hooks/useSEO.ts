@@ -9,7 +9,7 @@ interface SEOProps {
 const SITE_NAME = "今泉歯科医院"
 const SITE_URL = "https://imaizumi-dentist-office.com"
 const DEFAULT_TITLE = `今泉歯科医院｜桐生市の歯医者・歯科`
-const DEFAULT_DESCRIPTION = "桐生市の歯医者「今泉歯科医院」。一般歯科・小児歯科・予防歯科・入れ歯・審美歯科・ホワイトニング・訪問診療に対応。土曜診療あり・駐車場10台完備・昭和橋バス停から徒歩2分。TEL 0277-54-9893"
+const DEFAULT_DESCRIPTION = "群馬県桐生市の歯医者「今泉歯科医院」。一般歯科から小児・予防・審美・訪問診療まで幅広く対応し、土曜も診療しています。駐車場10台完備、昭和橋バス停から徒歩2分。お口のお悩みはお気軽にご相談ください。"
 
 export function useSEO({ title, description, canonicalPath }: SEOProps = {}) {
   useEffect(() => {
