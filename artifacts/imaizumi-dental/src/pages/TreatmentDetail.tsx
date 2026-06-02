@@ -4,6 +4,7 @@ import { ChevronRight, CheckCircle, ArrowLeft } from "lucide-react"
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { useSEO } from "@/hooks/useSEO"
+import { useJsonLd, breadcrumbLd } from "@/lib/useJsonLd"
 
 const BOOKING_URL = "https://functional-prototype.replit.app/book/imaizumi-dental"
 
@@ -260,6 +261,15 @@ export default function TreatmentDetail() {
     description: t ? `桐生市の歯医者「今泉歯科医院」の${t.title}について。${t.intro}` : undefined,
     canonicalPath: t ? `/treatment/${t.slug}` : undefined,
   })
+  useJsonLd(
+    t
+      ? breadcrumbLd([
+          { name: "ホーム", path: "/" },
+          { name: "診療内容", path: "/#treatment" },
+          { name: t.title },
+        ])
+      : null,
+  )
 
   if (!t) {
     return (

@@ -5,6 +5,7 @@ import { useNews } from "@/hooks/useNews"
 import { Link } from "wouter"
 import { ChevronRight, Home } from "lucide-react"
 import { useSEO } from "@/hooks/useSEO"
+import { useJsonLd, breadcrumbLd } from "@/lib/useJsonLd"
 
 function MiniCalendar() {
   const today = new Date()
@@ -74,6 +75,12 @@ export default function NewsPage() {
     description: "桐生市の歯医者「今泉歯科医院」からのお知らせ・診療情報・休診情報をお届けします。最新情報をご確認ください。",
     canonicalPath: "/news",
   })
+  useJsonLd(
+    breadcrumbLd([
+      { name: "ホーム", path: "/" },
+      { name: "お知らせ" },
+    ]),
+  )
   const { items: newsItems } = useNews()
   const archiveMonths = getArchiveMonths(newsItems)
 

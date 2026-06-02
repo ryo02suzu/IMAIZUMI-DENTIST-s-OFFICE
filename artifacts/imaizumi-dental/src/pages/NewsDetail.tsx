@@ -4,6 +4,7 @@ import { useNews } from "@/hooks/useNews"
 import { Link, useParams } from "wouter"
 import { Home } from "lucide-react"
 import { useSEO } from "@/hooks/useSEO"
+import { useJsonLd, breadcrumbLd } from "@/lib/useJsonLd"
 
 const categoryColor: Record<string, string> = {
   "診療案内": "bg-[#7eb4d2] text-white",
@@ -19,6 +20,15 @@ export default function NewsDetail() {
     title: item?.title,
     description: item?.body?.replace(/\n/g, " ").substring(0, 120),
   })
+  useJsonLd(
+    item
+      ? breadcrumbLd([
+          { name: "ホーム", path: "/" },
+          { name: "お知らせ", path: "/news" },
+          { name: item.title },
+        ])
+      : null,
+  )
 
   if (!item) {
     return (
