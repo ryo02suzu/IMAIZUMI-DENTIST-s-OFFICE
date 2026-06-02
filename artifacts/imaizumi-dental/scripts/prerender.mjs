@@ -95,9 +95,13 @@ let count = 0
 for (const r of routes) {
   const url = `${SITE}${r.path}`
   const html = applyMeta(tpl, { title: r.title, description: r.description, url })
-  const outDir = path.join(DIST, r.path)
-  mkdirSync(outDir, { recursive: true })
-  writeFileSync(path.join(outDir, "index.html"), html)
+  // ディレクトリ(index.html)ではなくフラットな .html で出力する。
+  // Cloudflare Pages は /foo を foo.html から末尾スラッシュ無し・リダイレクト無しで
+  // 配信するため、canonical/サイトマップ(スラッシュ無し)と完全に一致する。
+  const rel = r.path.replace(/^\//, "")
+  const outFile = path.join(DIST, `${rel}.html`)
+  mkdirSync(path.dirname(outFile), { recursive: true })
+  writeFileSync(outFile, html)
   count++
 }
 console.log(`prerendered ${count} pages`)
