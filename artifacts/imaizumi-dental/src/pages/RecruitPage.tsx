@@ -69,7 +69,7 @@ const jobs = [
 
 export default function RecruitPage() {
   useSEO({
-    title: "採用情報（歯科衛生士・歯科助手募集）| 今泉歯科医院",
+    title: "採用情報（歯科衛生士・歯科助手募集）",
     description: "桐生市の今泉歯科医院では歯科衛生士・歯科助手を募集しています。未経験OK・パート・アルバイト・正社員（衛生士）。一緒に働きませんか？",
     canonicalPath: "/recruit",
   })

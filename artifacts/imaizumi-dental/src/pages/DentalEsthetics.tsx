@@ -33,7 +33,7 @@ const menus = [
 
 export default function DentalEsthetics() {
   useSEO({
-    title: "桐生市のホワイトニング・歯のクリーニングなら今泉歯科医院",
+    title: "桐生市のホワイトニング・歯のクリーニング",
     description: "桐生市の歯医者「今泉歯科医院」のお口のエステ。ホワイトニング・クリーニング定期コース（月額¥3,300〜）・口臭外来の3つのメニューで、清潔で白い歯と自信ある笑顔をサポートします。",
     canonicalPath: "/dental-esthetics",
   })

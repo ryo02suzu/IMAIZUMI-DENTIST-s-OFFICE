@@ -257,7 +257,7 @@ export default function TreatmentDetail() {
   const slug = params.slug
   const t = treatments.find((x) => x.slug === slug)
   useSEO({
-    title: t ? `桐生市の${t.title}なら今泉歯科医院` : undefined,
+    title: t ? `桐生市の${t.title}` : undefined,
     description: t ? `桐生市の歯医者「今泉歯科医院」の${t.title}について。${t.intro}` : undefined,
     canonicalPath: t ? `/treatment/${t.slug}` : undefined,
   })
