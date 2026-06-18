@@ -31,7 +31,7 @@ const items = [
   "他院での治療中の方はその情報があれば",
 ]
 
-const BOOKING_URL = "https://functional-prototype.replit.app/book/imaizumi-dental"
+const BOOKING_URL = "https://dental-reservation-app.onrender.com/book/imaizumi-dental"
 
 export function FirstVisit() {
   return (
@@ -205,9 +205,7 @@ export function FirstVisit() {
           transition={{ duration: 0.5 }}
           className="text-center mt-12"
         >
-          <span className="inline-block bg-gray-100 text-gray-400 px-10 py-4 rounded-full font-bold text-lg cursor-not-allowed select-none">
-            WEB予約（後日掲載予定）
-          </span>
+          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-[#f5a623] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#e0961c] transition-colors">WEB予約</a>
         </motion.div>
       </div>
     </section>
