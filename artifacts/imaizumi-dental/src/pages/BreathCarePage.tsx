@@ -1,4 +1,5 @@
 import { Navbar } from "@/components/layout/Navbar"
+import { BOOKING_URL } from "@/config/booking"
 import { Footer } from "@/components/layout/Footer"
 import { Link } from "wouter"
 import { ChevronRight, Check } from "lucide-react"
@@ -191,9 +192,7 @@ export default function BreathCarePage() {
               プライバシーに配慮した環境でご対応します。まずは検査だけのご来院も歓迎です。
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <span className="bg-gray-200 text-gray-400 px-8 py-3 rounded-full font-bold cursor-not-allowed select-none">
-                WEB予約（後日掲載予定）
-              </span>
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e0961c] transition-colors">WEB予約</a>
               <a
                 href="tel:0277549893"
                 className="border border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition-colors"
