@@ -3,6 +3,7 @@ import { ChevronRight } from "lucide-react"
 const footerMain = [
   { label: "ホーム", href: "/" },
   { label: "お知らせ", href: "/news" },
+  { label: "コラム", href: "/column" },
   { label: "診療内容", href: "/#treatment" },
   { label: "はじめての方へ", href: "/#about" },
   { label: "医師紹介", href: "/#doctor" },
