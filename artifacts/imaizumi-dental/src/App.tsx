@@ -10,6 +10,8 @@ import { StickyBottomBar } from "@/components/layout/StickyBottomBar";
 const TreatmentDetail = lazy(() => import("@/pages/TreatmentDetail"));
 const NewsPage = lazy(() => import("@/pages/NewsPage"));
 const NewsDetail = lazy(() => import("@/pages/NewsDetail"));
+const ColumnPage = lazy(() => import("@/pages/ColumnPage"));
+const ColumnDetail = lazy(() => import("@/pages/ColumnDetail"));
 const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
 const SubscriptionPage = lazy(() => import("@/pages/SubscriptionPage"));
 const BreathCarePage = lazy(() => import("@/pages/BreathCarePage"));
@@ -36,6 +38,8 @@ function Router() {
         <Route path="/treatment/:slug" component={TreatmentDetail} />
         <Route path="/news" component={NewsPage} />
         <Route path="/news/:id" component={NewsDetail} />
+        <Route path="/column" component={ColumnPage} />
+        <Route path="/column/:slug" component={ColumnDetail} />
         <Route path="/privacy-policy" component={PrivacyPolicy} />
         <Route path="/subscription" component={SubscriptionPage} />
         <Route path="/breath-care" component={BreathCarePage} />
