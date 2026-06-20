@@ -99,18 +99,14 @@ export default function ColumnDetail() {
             </div>
             <h1 className="text-xl md:text-2xl font-bold text-[#4a4a4a] mb-5 leading-relaxed">{item.title}</h1>
 
-            {/* メイン写真スロット */}
-            {item.eyecatch ? (
+            {/* メイン写真（任意。設定があれば表示） */}
+            {item.eyecatch && (
               <img
                 src={item.eyecatch}
                 alt={item.title}
                 loading="lazy"
                 className="w-full rounded-xl mb-8 object-cover"
               />
-            ) : (
-              <div className="mb-8">
-                <PhotoPlaceholder label="記事のメイン写真（後日挿入）" />
-              </div>
             )}
 
             {/* 本文（Markdown） */}

@@ -57,9 +57,7 @@ export default function ColumnPage() {
                     className="w-full aspect-[16/9] object-cover"
                   />
                 ) : (
-                  <div className="w-full aspect-[16/9] bg-gradient-to-br from-[#e8f4f8] to-[#d1e8f0] flex items-center justify-center">
-                    <span className="text-[#7eb4d2]/60 text-xs">写真準備中</span>
-                  </div>
+                  <div className="h-2 bg-gradient-to-r from-[#7eb4d2] to-[#a9d2e6]" />
                 )}
                 <div className="p-5">
                   <div className="flex items-center gap-2 mb-2">
