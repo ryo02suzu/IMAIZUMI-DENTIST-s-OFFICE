@@ -6,6 +6,9 @@
   <url><loc>https://imaizumi-dentist-office.com/news</loc><changefreq>weekly</changefreq><priority>0.9</priority></url>
   <url><loc>https://imaizumi-dentist-office.com/column</loc><changefreq>weekly</changefreq><priority>0.8</priority></url>
   <url><loc>https://imaizumi-dentist-office.com/column/wisdom-tooth</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://imaizumi-dentist-office.com/column/tooth-sensitivity</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://imaizumi-dentist-office.com/column/filling-came-off</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://imaizumi-dentist-office.com/column/toothache</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
   <url><loc>https://imaizumi-dentist-office.com/treatment/general</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://imaizumi-dentist-office.com/treatment/pediatric</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://imaizumi-dentist-office.com/treatment/preventive</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
