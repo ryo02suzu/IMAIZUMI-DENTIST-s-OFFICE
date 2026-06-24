@@ -17,6 +17,7 @@ const SubscriptionPage = lazy(() => import("@/pages/SubscriptionPage"));
 const BreathCarePage = lazy(() => import("@/pages/BreathCarePage"));
 const DentalEsthetics = lazy(() => import("@/pages/DentalEsthetics"));
 const RecruitPage = lazy(() => import("@/pages/RecruitPage"));
+const EnglishPage = lazy(() => import("@/pages/EnglishPage"));
 const StaffPost = lazy(() => import("@/pages/StaffPost"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
@@ -45,6 +46,7 @@ function Router() {
         <Route path="/breath-care" component={BreathCarePage} />
         <Route path="/dental-esthetics" component={DentalEsthetics} />
         <Route path="/recruit" component={RecruitPage} />
+        <Route path="/en" component={EnglishPage} />
         <Route path="/staff" component={StaffPost} />
         <Route component={NotFound} />
       </Switch>

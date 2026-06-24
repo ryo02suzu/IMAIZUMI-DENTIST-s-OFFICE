@@ -91,12 +91,18 @@ const routes = [
     title: "プライバシーポリシー",
     description: "今泉歯科医院の個人情報保護方針です。患者様の個人情報を適切に保護・管理することを重要な責務と考えています。",
   },
+  {
+    path: "/en",
+    rawTitle: "English-Speaking Dentist in Kiryu | Imaizumi Dental Clinic",
+    description:
+      "Imaizumi Dental Clinic in Kiryu, Gunma. Our director speaks English and is available during all clinic hours. General, pediatric, preventive and cosmetic dentistry. Saturday hours, free parking.",
+  },
 ]
 
 const tpl = readFileSync(path.join(DIST, "index.html"), "utf8")
 
-function applyMeta(html, { title, description, url }) {
-  const t = fullTitle(title)
+function applyMeta(html, { titleStr, description, url }) {
+  const t = titleStr
   const repl = (re, value) => {
     html = html.replace(re, value)
   }
@@ -119,7 +125,8 @@ function applyMeta(html, { title, description, url }) {
 let count = 0
 for (const r of routes) {
   const url = `${SITE}${r.path}`
-  const html = applyMeta(tpl, { title: r.title, description: r.description, url })
+  const titleStr = r.rawTitle ?? fullTitle(r.title)
+  const html = applyMeta(tpl, { titleStr, description: r.description, url })
   // ディレクトリ(index.html)ではなくフラットな .html で出力する。
   // Cloudflare Pages は /foo を foo.html から末尾スラッシュ無し・リダイレクト無しで
   // 配信するため、canonical/サイトマップ(スラッシュ無し)と完全に一致する。

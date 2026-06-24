@@ -11,6 +11,7 @@ const footerMain = [
   { label: "お問い合わせ", href: "/#contact" },
   { label: "アクセス", href: "/#access" },
   { label: "採用情報", href: "/recruit" },
+  { label: "English", href: "/en" },
   { label: "プライバシーポリシー", href: "/privacy-policy" },
 ]
 
