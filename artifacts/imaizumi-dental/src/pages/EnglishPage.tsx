@@ -1,15 +1,16 @@
 import { useEffect } from "react"
 import { Link } from "wouter"
-import { Phone, Car, Train, Clock, MapPin, Globe } from "lucide-react"
+import { Phone, Car, Train, Clock, MapPin, Globe, GraduationCap } from "lucide-react"
 
 const SITE_URL = "https://imaizumi-dentist-office.com"
+const BASE = import.meta.env.BASE_URL
 
 // 英語ページ専用のメタ設定（useSEOは院名を後置するため、ここで直接設定する）
 function useEnglishSEO() {
   useEffect(() => {
     const title = "English-Speaking Dentist in Kiryu | Imaizumi Dental Clinic"
     const description =
-      "Imaizumi Dental Clinic in Kiryu, Gunma. Our director speaks English and is available during all clinic hours. General, pediatric, preventive and cosmetic dentistry. Saturday hours, free parking."
+      "Imaizumi Dental Clinic in Kiryu, Gunma. Our director speaks English and is available during all clinic hours. General, pediatric, preventive and cosmetic dentistry. Saturday hours, free parking. Insurance and self-pay welcome."
     const prevTitle = document.title
     const prevLang = document.documentElement.lang
     document.title = title
@@ -43,6 +44,29 @@ const schedule = [
   { time: "15:00 – 19:00", days: [true, true, true, true, true, "▲", false] },
 ]
 const dayHeads = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
+
+const faqs = [
+  {
+    q: "Do I need an appointment?",
+    a: "Appointments are recommended so we can see you smoothly. You can call us, or use our online booking (currently in Japanese). If you have a dental emergency, please call us.",
+  },
+  {
+    q: "I don't have Japanese health insurance. Can I still come?",
+    a: "Yes, of course. In that case treatment is provided on a self-pay basis. Please feel free to ask for an estimate before we begin.",
+  },
+  {
+    q: "What languages do you speak?",
+    a: "Our director, Dr. Imaizumi, speaks English. Reception and other staff mainly speak Japanese, so for detailed questions it helps to speak directly with Dr. Imaizumi during your visit.",
+  },
+  {
+    q: "What should I bring?",
+    a: "Your health insurance card (if you have Japanese health insurance), and — if you take any medication — the medicine itself or your medication notebook (おくすり手帳).",
+  },
+  {
+    q: "Is there parking?",
+    a: "Yes. We have free parking for 10 cars, and we are a 2-minute walk from the Showabashi bus stop.",
+  },
+]
 
 export default function EnglishPage() {
   useEnglishSEO()
@@ -91,7 +115,7 @@ export default function EnglishPage() {
         </div>
       </section>
 
-      {/* English support — the key point */}
+      {/* English support */}
       <section className="py-14 bg-white">
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="rounded-2xl border border-[#c8e2ee] bg-[#f8fbfd] p-6 md:p-8">
@@ -113,14 +137,53 @@ export default function EnglishPage() {
         </div>
       </section>
 
-      {/* Hours */}
+      {/* Meet the dentist */}
       <section className="py-14 bg-[#f8fbfd]">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <h2 className="text-xl font-bold text-[#3d5f7a] mb-6">Meet the Dentist</h2>
+          <div className="grid md:grid-cols-[200px_1fr] gap-6 items-start">
+            <img
+              src={`${BASE}doctor.jpeg`}
+              alt="Dr. Atsushi Imaizumi"
+              loading="lazy"
+              className="w-full max-w-[200px] mx-auto rounded-2xl object-cover object-top aspect-[3/4]"
+            />
+            <div>
+              <p className="text-xl font-bold text-[#3d5f7a]">Dr. Atsushi Imaizumi</p>
+              <p className="text-sm text-[#888] mb-3">Director</p>
+              <div className="flex items-start gap-2 mb-4 text-sm">
+                <GraduationCap className="h-4 w-4 text-[#7eb4d2] shrink-0 mt-0.5" />
+                <span>Graduate of Nihon University School of Dentistry at Matsudo</span>
+              </div>
+              <div className="border-l-4 border-[#7eb4d2] pl-4 space-y-3 text-sm leading-relaxed">
+                <p>
+                  I grew up here in Kiryu, and I feel it is my mission to help protect the
+                  oral health of people in our community.
+                </p>
+                <p>
+                  Many people think of dental treatment as “scary” or “painful,” but at our
+                  clinic we listen carefully to each patient and explain things in a way
+                  that is easy to understand.
+                </p>
+                <p>
+                  From children to seniors, I hope to be your family dentist for many years
+                  to come. Please feel free to talk to me about anything — in English or
+                  Japanese.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Hours */}
+      <section className="py-14 bg-white">
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="flex items-center gap-2 text-[#7eb4d2] mb-4">
             <Clock className="h-5 w-5" />
             <h2 className="text-xl font-bold text-[#3d5f7a]">Clinic Hours</h2>
           </div>
-          <div className="overflow-x-auto rounded-xl border border-gray-200 bg-white">
+          <div className="overflow-x-auto rounded-xl border border-gray-200">
             <table className="w-full text-sm">
               <thead>
                 <tr className="border-b border-gray-200 bg-gray-50">
@@ -132,7 +195,7 @@ export default function EnglishPage() {
               </thead>
               <tbody>
                 {schedule.map((row, i) => (
-                  <tr key={i} className="border-b border-gray-100">
+                  <tr key={i} className="border-b border-gray-100 last:border-0">
                     <td className="py-3 px-3 whitespace-nowrap text-xs">{row.time}</td>
                     {row.days.map((d, j) => (
                       <td key={j} className="py-3 px-2 text-center">
@@ -161,7 +224,7 @@ export default function EnglishPage() {
       </section>
 
       {/* Services */}
-      <section className="py-14 bg-white">
+      <section className="py-14 bg-[#f8fbfd]">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2 className="text-xl font-bold text-[#3d5f7a] mb-5">Our Services</h2>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
@@ -177,7 +240,7 @@ export default function EnglishPage() {
             ].map((s) => (
               <div
                 key={s}
-                className="rounded-lg border border-[#c8e2ee] bg-[#f8fbfd] px-3 py-3 text-sm text-center text-[#3d5f7a]"
+                className="rounded-lg border border-[#c8e2ee] bg-white px-3 py-3 text-sm text-center text-[#3d5f7a]"
               >
                 {s}
               </div>
@@ -186,28 +249,83 @@ export default function EnglishPage() {
         </div>
       </section>
 
+      {/* Insurance & payment */}
+      <section className="py-14 bg-white">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <h2 className="text-xl font-bold text-[#3d5f7a] mb-4">Insurance &amp; Costs</h2>
+          <ul className="space-y-3 text-sm leading-relaxed">
+            <li>
+              • <strong>With Japanese public health insurance:</strong> Please bring your
+              insurance card. Most general treatments are covered, and you pay the standard
+              co-payment (usually 30%).
+            </li>
+            <li>
+              • <strong>Without Japanese health insurance:</strong> Treatment is provided on
+              a self-pay basis. Please feel free to ask for an estimate before we begin.
+            </li>
+            <li>
+              • Some treatments (such as whitening and cosmetic dentistry) are self-pay
+              regardless of insurance.
+            </li>
+          </ul>
+          <p className="text-xs text-[#888] mt-3">
+            If you have any questions about costs, please ask us — we are happy to explain.
+          </p>
+        </div>
+      </section>
+
       {/* First visit */}
       <section className="py-14 bg-[#f8fbfd]">
         <div className="container mx-auto px-4 max-w-3xl">
           <h2 className="text-xl font-bold text-[#3d5f7a] mb-4">Your First Visit</h2>
-          <ul className="space-y-2 text-sm leading-relaxed">
-            <li>
-              • If you have Japanese health insurance, please bring your{" "}
-              <strong>health insurance card</strong>.
-            </li>
-            <li>• If you are taking any medication, please bring it or your medication notebook (おくすり手帳).</li>
-            <li>• Booking in advance is recommended, but please feel free to contact us anytime.</li>
-          </ul>
+          <ol className="space-y-3 text-sm leading-relaxed list-none">
+            {[
+              "Book by phone or online (or visit us — appointments are recommended).",
+              "At reception, please show your health insurance card if you have one.",
+              "We check your concern, examine your mouth (X-ray if needed), and explain the plan.",
+              "We begin treatment, keeping you comfortable and informed at each step.",
+            ].map((t, i) => (
+              <li key={i} className="flex gap-3">
+                <span className="shrink-0 w-6 h-6 rounded-full bg-[#7eb4d2] text-white text-xs font-bold flex items-center justify-center">
+                  {i + 1}
+                </span>
+                <span>{t}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="py-14 bg-white">
+        <div className="container mx-auto px-4 max-w-3xl">
+          <h2 className="text-xl font-bold text-[#3d5f7a] mb-5">
+            FAQ for International Patients
+          </h2>
+          <div className="space-y-4">
+            {faqs.map((f) => (
+              <div key={f.q} className="rounded-xl border border-gray-200 p-5">
+                <p className="font-bold text-[#3d5f7a] mb-1">Q. {f.q}</p>
+                <p className="text-sm text-[#555] leading-relaxed">{f.a}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Access */}
-      <section className="py-14 bg-white">
+      <section className="py-14 bg-[#f8fbfd]">
         <div className="container mx-auto px-4 max-w-3xl">
           <div className="flex items-center gap-2 text-[#7eb4d2] mb-4">
             <MapPin className="h-5 w-5" />
             <h2 className="text-xl font-bold text-[#3d5f7a]">Access</h2>
           </div>
+          <img
+            src={`${BASE}clinic-exterior.jpeg`}
+            alt="Imaizumi Dental Clinic exterior"
+            loading="lazy"
+            className="w-full rounded-xl mb-4 object-cover aspect-[16/9]"
+          />
           <p className="text-sm leading-relaxed mb-1">
             291-5 Manoshima, Hirosawacho, Kiryu, Gunma 376-0014
           </p>
