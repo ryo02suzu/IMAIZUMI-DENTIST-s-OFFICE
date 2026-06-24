@@ -12,6 +12,7 @@ const navItems = [
   { label: "院内のご紹介", href: "/#gallery" },
   { label: "お問い合わせ", href: "/#contact" },
   { label: "アクセス", href: "/#access" },
+  { label: "English", href: "/en" },
 ]
 
 const specialItems = [
