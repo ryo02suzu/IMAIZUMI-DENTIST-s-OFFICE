@@ -267,6 +267,10 @@ export default function EnglishPage() {
               • Some treatments (such as whitening and cosmetic dentistry) are self-pay
               regardless of insurance.
             </li>
+            <li>
+              • <strong>Payment:</strong> We accept cash. Credit cards are accepted for
+              payments of ¥10,000 or more.
+            </li>
           </ul>
           <p className="text-xs text-[#888] mt-3">
             If you have any questions about costs, please ask us — we are happy to explain.
