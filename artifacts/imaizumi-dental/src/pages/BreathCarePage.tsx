@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer"
 import { Link } from "wouter"
 import { ChevronRight, Check } from "lucide-react"
 import { useSEO } from "@/hooks/useSEO"
+import { useJsonLd, faqLd } from "@/lib/useJsonLd"
 
 const causes = [
   { title: "歯周病・歯肉炎", body: "歯周ポケット内の細菌が硫化水素やメチルメルカプタンなどの揮発性硫黄化合物（VSC）を産生します。口臭原因の約90%を占めます。" },
@@ -52,6 +53,7 @@ export default function BreathCarePage() {
     description: "桐生市の歯医者「今泉歯科医院」の口臭外来。専用測定器による精密口臭検査（¥5,500〜）と舌クリーニング・専門処置で口臭の根本原因を科学的に解決します。一人で悩まず、まずご相談ください。",
     canonicalPath: "/breath-care",
   })
+  useJsonLd(faqLd(faqs))
 
   return (
     <div className="min-h-screen font-sans bg-white">

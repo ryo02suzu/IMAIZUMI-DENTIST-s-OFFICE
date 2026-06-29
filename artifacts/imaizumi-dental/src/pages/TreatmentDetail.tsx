@@ -5,7 +5,7 @@ import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { columnArticles } from "@/data/columnData"
 import { useSEO } from "@/hooks/useSEO"
-import { useJsonLd, breadcrumbLd } from "@/lib/useJsonLd"
+import { useJsonLd, breadcrumbLd, faqLd } from "@/lib/useJsonLd"
 
 const BOOKING_URL = "https://dental-reservation-app.onrender.com/book/imaizumi-dental"
 
@@ -271,6 +271,7 @@ export default function TreatmentDetail() {
         ])
       : null,
   )
+  useJsonLd(t?.faq ? faqLd(t.faq) : null)
 
   if (!t) {
     return (

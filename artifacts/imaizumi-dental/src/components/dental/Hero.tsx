@@ -51,7 +51,7 @@ function Slideshow({ className, imgClassName }: { className?: string; imgClassNa
               <motion.div
                 key={i}
                 className="absolute inset-0"
-                initial={{ opacity: 0 }}
+                initial={i === 0 ? false : { opacity: 0 }}
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 1.8, ease: "easeInOut" }}
@@ -59,6 +59,8 @@ function Slideshow({ className, imgClassName }: { className?: string; imgClassNa
                 <img
                   src={`${import.meta.env.BASE_URL}${slide.src}`}
                   alt={slide.alt}
+                  loading={i === 0 ? "eager" : "lazy"}
+                  fetchPriority={i === 0 ? "high" : "auto"}
                   className={`absolute inset-0 w-full h-full object-cover object-center ${imgClassName ?? ""}`}
                 />
                 {/* スライドごとの明るさ調整オーバーレイ */}
