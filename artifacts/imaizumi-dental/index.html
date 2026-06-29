@@ -100,7 +100,8 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'G-MZ3XMKBVS4');
+      // SPAのため自動page_viewは無効化し、ルート遷移ごとに手動送信する（src/lib/analytics.ts）
+      gtag('config', 'G-MZ3XMKBVS4', { send_page_view: false });
     </script>
 
     <!-- Fonts -->
