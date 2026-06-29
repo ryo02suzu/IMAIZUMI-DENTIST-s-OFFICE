@@ -3,14 +3,16 @@ import { BOOKING_URL } from "@/config/booking"
 import { Link, useLocation } from "wouter"
 import { Menu, X, Phone } from "lucide-react"
 
-const navItems = [
+// desktop:false の項目はPC上部ナビには出さず、モバイルメニューにのみ表示する
+// （PCは項目が多いと折り返して崩れるため、主要項目に絞る）
+const navItems: { label: string; href: string; desktop?: boolean }[] = [
   { label: "お知らせ", href: "/news" },
   { label: "コラム", href: "/column" },
   { label: "診療内容", href: "/#treatment" },
   { label: "はじめての方へ", href: "/#about" },
-  { label: "医師紹介", href: "/#doctor" },
-  { label: "院内のご紹介", href: "/#gallery" },
-  { label: "お問い合わせ", href: "/#contact" },
+  { label: "医師紹介", href: "/#doctor", desktop: false },
+  { label: "院内のご紹介", href: "/#gallery", desktop: false },
+  { label: "お問い合わせ", href: "/#contact", desktop: false },
   { label: "よくある質問", href: "/faq" },
   { label: "アクセス", href: "/access" },
   { label: "English", href: "/en" },
@@ -64,23 +66,25 @@ export function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-6">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                className="text-[#4a4a4a] text-sm hover:text-[#7eb4d2] transition-colors"
-              >
-                {item.label}
-              </a>
-            ))}
+          {/* Desktop Navigation（主要項目のみ・折り返し防止） */}
+          <nav className="hidden xl:flex items-center gap-5">
+            {navItems
+              .filter((item) => item.desktop !== false)
+              .map((item) => (
+                <a
+                  key={item.label}
+                  href={item.href}
+                  className="text-[#4a4a4a] text-sm hover:text-[#7eb4d2] transition-colors whitespace-nowrap"
+                >
+                  {item.label}
+                </a>
+              ))}
           </nav>
 
           {/* CTA and Phone */}
-          <div className="hidden md:flex items-center gap-4">
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="bg-[#f5a623] text-white text-xs px-4 py-2 rounded-full hover:bg-[#e0961c] transition-colors">WEB予約</a>
-            <div className="flex items-baseline gap-1">
+          <div className="hidden md:flex items-center gap-4 shrink-0">
+            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="bg-[#f5a623] text-white text-xs px-4 py-2 rounded-full hover:bg-[#e0961c] transition-colors whitespace-nowrap">WEB予約</a>
+            <div className="flex items-baseline gap-1 whitespace-nowrap">
               <span className="text-[#7eb4d2] text-xs font-medium">TEL</span>
               <a href="tel:0277549893" className="text-[#7eb4d2] text-lg font-bold tracking-wider hover:opacity-80 transition-opacity">0277-54-9893</a>
             </div>
@@ -88,7 +92,7 @@ export function Navbar() {
 
           {/* Mobile Menu Button */}
           <button
-            className="lg:hidden p-2 text-[#4a4a4a]"
+            className="xl:hidden p-2 text-[#4a4a4a]"
             onClick={() => setIsOpen(!isOpen)}
             aria-label="メニュー"
           >
@@ -98,7 +102,7 @@ export function Navbar() {
 
         {/* Mobile Navigation */}
         {isOpen && (
-          <nav className="lg:hidden py-4 border-t border-border">
+          <nav className="xl:hidden py-4 border-t border-border">
             {navItems.map((item) => (
               <a
                 key={item.label}
