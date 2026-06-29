@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import Home from "@/pages/Home";
 import { StickyBottomBar } from "@/components/layout/StickyBottomBar";
+import { trackPageView, initClickTracking } from "@/lib/analytics";
 
 // トップ以外のページは必要になったときに読み込む（初回の表示を軽くする）
 const TreatmentDetail = lazy(() => import("@/pages/TreatmentDetail"));
@@ -25,7 +26,19 @@ function ScrollToTop() {
   const [location] = useLocation();
   useEffect(() => {
     window.scrollTo(0, 0);
+    // ルート遷移ごとにページビューを送信（タイトル確定を待つため次フレームで）
+    const id = window.setTimeout(() => {
+      trackPageView(location, document.title);
+    }, 0);
+    return () => window.clearTimeout(id);
   }, [location]);
+  return null;
+}
+
+function AnalyticsInit() {
+  useEffect(() => {
+    initClickTracking();
+  }, []);
   return null;
 }
 
@@ -60,6 +73,7 @@ function App() {
       <TooltipProvider>
         <WouterRouter base={import.meta.env.BASE_URL.replace(/\/$/, "")}>
           <ScrollToTop />
+          <AnalyticsInit />
           <Router />
         </WouterRouter>
         <StickyBottomBar />
