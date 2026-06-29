@@ -1,8 +1,9 @@
-import { useParams } from "wouter"
+import { useParams, Link } from "wouter"
 import { motion } from "framer-motion"
 import { ChevronRight, CheckCircle, ArrowLeft } from "lucide-react"
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
+import { columnArticles } from "@/data/columnData"
 import { useSEO } from "@/hooks/useSEO"
 import { useJsonLd, breadcrumbLd } from "@/lib/useJsonLd"
 
@@ -492,6 +493,32 @@ export default function TreatmentDetail() {
         )}
 
         {/* CTA */}
+        {/* 関連コラム */}
+        {(() => {
+          const related = columnArticles.filter((a) => a.related?.href === `/treatment/${t.slug}`)
+          if (related.length === 0) return null
+          return (
+            <section className="py-14 bg-white">
+              <div className="container mx-auto px-4 max-w-3xl">
+                <h2 className="text-xl font-bold text-[#3d5f7a] mb-4">関連コラム</h2>
+                <ul className="bg-[#f8fbfd] rounded-2xl overflow-hidden divide-y divide-gray-100 border border-[#c8e2ee]">
+                  {related.map((a) => (
+                    <li key={a.slug}>
+                      <Link
+                        href={`/column/${a.slug}`}
+                        className="flex items-center gap-3 p-4 hover:bg-white transition-colors"
+                      >
+                        <span className="text-sm text-[#4a4a4a]">{a.title}</span>
+                        <ChevronRight className="h-4 w-4 text-[#7eb4d2] ml-auto shrink-0" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+          )
+        })()}
+
         <section className="py-16 bg-[#7eb4d2]">
           <motion.div
             initial={{ opacity: 0, y: 20 }}

@@ -13,11 +13,13 @@ export type ColumnArticle = {
   excerpt: string
   eyecatch?: string // メイン写真。未設定ならプレースホルダー
   body: string // Markdown
+  related?: { label: string; href: string } // 関連する診療ページへの導線
 }
 
 export const columnArticles: ColumnArticle[] = [
   {
     slug: "wisdom-tooth",
+    related: { label: "口腔外科", href: "/treatment/oral-surgery" },
     title: "親知らずは抜いた方がいい？桐生の歯医者がやさしく解説",
     date: "2026.06.20",
     datetime: "2026-06-20",
@@ -97,6 +99,7 @@ A. 抜歯後は少し腫れたりすることもあるため、お休みの前�
   },
   {
     slug: "tooth-sensitivity",
+    related: { label: "一般歯科", href: "/treatment/general" },
     title: "歯がしみるのはなぜ？知覚過敏かもしれません",
     date: "2026.06.20",
     datetime: "2026-06-20",
@@ -158,6 +161,7 @@ A. 痛みがなくても、むし歯や歯周病が隠れていることがあ�
   },
   {
     slug: "filling-came-off",
+    related: { label: "一般歯科", href: "/treatment/general" },
     title: "詰め物・被せ物が取れた！応急処置とやってはいけないこと",
     date: "2026.06.20",
     datetime: "2026-06-20",
@@ -206,6 +210,7 @@ A. 市販の接着剤での自己処置はおすすめできません。かみ�
   },
   {
     slug: "toothache",
+    related: { label: "一般歯科", href: "/treatment/general" },
     title: "急に歯が痛い！考えられる原因と受診の目安",
     date: "2026.06.20",
     datetime: "2026-06-20",
@@ -265,6 +270,7 @@ A. まずは痛み止めで一時的にしのぎ、冷やして安静に。翌�
   },
   {
     slug: "gum-disease",
+    related: { label: "予防歯科", href: "/treatment/preventive" },
     title: "歯ぐきから血が出る・腫れる…歯周病のサインかも",
     date: "2026.06.20",
     datetime: "2026-06-20",
@@ -325,6 +331,7 @@ A. 固まった歯石はご自宅では取り除けません。歯科での専�
   },
   {
     slug: "bad-breath",
+    related: { label: "口臭外来", href: "/breath-care" },
     title: "口臭が気になる…原因と自分でできる対策",
     date: "2026.06.20",
     datetime: "2026-06-20",

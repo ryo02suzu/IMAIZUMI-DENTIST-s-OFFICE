@@ -1,8 +1,9 @@
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
-import { getColumnArticle } from "@/data/columnData"
+import { getColumnArticle, columnArticles } from "@/data/columnData"
+import { BOOKING_URL } from "@/config/booking"
 import { Link, useParams } from "wouter"
-import { Home } from "lucide-react"
+import { Home, ChevronRight, Phone } from "lucide-react"
 import { useSEO } from "@/hooks/useSEO"
 import { useJsonLd, breadcrumbLd } from "@/lib/useJsonLd"
 import ReactMarkdown from "react-markdown"
@@ -125,6 +126,68 @@ export default function ColumnDetail() {
               </ReactMarkdown>
             </div>
           </article>
+
+          {/* 関連する診療への導線 */}
+          {item.related && (
+            <div className="mt-8 rounded-2xl border border-[#c8e2ee] bg-[#f8fbfd] p-5 md:p-6">
+              <p className="text-sm text-[#7eb4d2] font-semibold mb-1">この症状の診療について</p>
+              <Link
+                href={item.related.href}
+                className="inline-flex items-center gap-1 text-lg font-bold text-[#3d5f7a] hover:underline"
+              >
+                {item.related.label}
+                <ChevronRight className="h-5 w-5" />
+              </Link>
+              <p className="text-sm text-[#666] mt-2 mb-4">
+                気になる症状は、無理せず一度ご相談ください。
+              </p>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <a
+                  href="tel:0277549893"
+                  className="inline-flex items-center justify-center gap-2 bg-[#7eb4d2] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#6aa3c4] transition-colors"
+                >
+                  <Phone className="h-4 w-4" /> 0277-54-9893
+                </a>
+                <a
+                  href={BOOKING_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-[#f5a623] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#e0961c] transition-colors"
+                >
+                  WEB予約
+                </a>
+              </div>
+            </div>
+          )}
+
+          {/* 関連記事（同カテゴリ） */}
+          {(() => {
+            const related = columnArticles
+              .filter((a) => a.category === item.category && a.slug !== item.slug)
+              .slice(0, 3)
+            if (related.length === 0) return null
+            return (
+              <div className="mt-10">
+                <h2 className="text-lg font-bold text-[#3d5f7a] mb-3">関連記事</h2>
+                <ul className="bg-white rounded-2xl shadow-sm overflow-hidden divide-y divide-gray-100">
+                  {related.map((a) => (
+                    <li key={a.slug}>
+                      <Link
+                        href={`/column/${a.slug}`}
+                        className="flex items-center gap-3 p-4 hover:bg-gray-50 transition-colors"
+                      >
+                        <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#7eb4d2] text-white shrink-0">
+                          {a.category}
+                        </span>
+                        <span className="text-sm text-[#4a4a4a]">{a.title}</span>
+                        <ChevronRight className="h-4 w-4 text-[#7eb4d2] ml-auto shrink-0" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )
+          })()}
 
           <div className="mt-8 text-center">
             <Link href="/column" className="text-[#7eb4d2] text-sm hover:underline">← コラム一覧へ戻る</Link>
