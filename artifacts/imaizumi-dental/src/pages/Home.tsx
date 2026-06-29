@@ -9,6 +9,7 @@ import { Checkup } from "@/components/dental/Checkup"
 import { SpecialServices } from "@/components/dental/SpecialServices"
 import { Gallery } from "@/components/dental/Gallery"
 import { News } from "@/components/dental/News"
+import { ColumnHighlight } from "@/components/dental/ColumnHighlight"
 import { Contact } from "@/components/dental/Contact"
 import { MapSection } from "@/components/dental/MapSection"
 import { Footer } from "@/components/layout/Footer"
@@ -28,6 +29,7 @@ export default function Home() {
         <Checkup />
         <SpecialServices />
         <Gallery />
+        <ColumnHighlight />
         <Contact />
         <MapSection />
       </main>
