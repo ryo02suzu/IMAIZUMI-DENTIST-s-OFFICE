@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { Link } from "wouter"
 import { Phone, Car, Train, Clock, MapPin, Globe, GraduationCap } from "lucide-react"
+import { useJsonLd, faqLd } from "@/lib/useJsonLd"
 
 const SITE_URL = "https://imaizumi-dentist-office.com"
 const BASE = import.meta.env.BASE_URL
@@ -70,6 +71,7 @@ const faqs = [
 
 export default function EnglishPage() {
   useEnglishSEO()
+  useJsonLd(faqLd(faqs))
 
   return (
     <div className="min-h-screen font-sans bg-white text-[#4a4a4a]">

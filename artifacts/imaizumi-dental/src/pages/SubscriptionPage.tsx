@@ -4,6 +4,7 @@ import { Footer } from "@/components/layout/Footer"
 import { Link } from "wouter"
 import { ChevronRight, Check, Star } from "lucide-react"
 import { useSEO } from "@/hooks/useSEO"
+import { useJsonLd, faqLd } from "@/lib/useJsonLd"
 
 const plans = [
   {
@@ -83,6 +84,7 @@ export default function SubscriptionPage() {
     description: "桐生市の歯医者「今泉歯科医院」のクリーニング定期コース（月額¥3,300〜）。PMTC・エアフロー・フッ素塗布など専門クリーニングで健康な歯を維持。いつでも解約可能・家族割あり。",
     canonicalPath: "/subscription",
   })
+  useJsonLd(faqLd(faqs))
 
   return (
     <div className="min-h-screen font-sans bg-white">

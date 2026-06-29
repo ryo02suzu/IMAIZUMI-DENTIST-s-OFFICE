@@ -17,6 +17,19 @@ export function useJsonLd(data: object | null) {
   }, [json])
 }
 
+// FAQPage（よくある質問）の構造化データを作るヘルパー。
+export function faqLd(items: { q: string; a: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: items.map((it) => ({
+      "@type": "Question",
+      name: it.q,
+      acceptedAnswer: { "@type": "Answer", text: it.a },
+    })),
+  }
+}
+
 // パンくず（BreadcrumbList）を作るヘルパー。
 // 最後の項目（現在ページ）は item を付けないのが推奨。
 export function breadcrumbLd(items: { name: string; path?: string }[]) {
