@@ -12,6 +12,8 @@ const STATIC: { path: string; changefreq: string; priority: string }[] = [
   { path: "/column/tooth-sensitivity", changefreq: "monthly", priority: "0.7" },
   { path: "/column/filling-came-off", changefreq: "monthly", priority: "0.7" },
   { path: "/column/toothache", changefreq: "monthly", priority: "0.7" },
+  { path: "/column/gum-disease", changefreq: "monthly", priority: "0.7" },
+  { path: "/column/bad-breath", changefreq: "monthly", priority: "0.7" },
   { path: "/treatment/general", changefreq: "monthly", priority: "0.8" },
   { path: "/treatment/pediatric", changefreq: "monthly", priority: "0.8" },
   { path: "/treatment/preventive", changefreq: "monthly", priority: "0.8" },
