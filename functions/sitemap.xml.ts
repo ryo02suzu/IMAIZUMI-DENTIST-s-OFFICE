@@ -6,6 +6,8 @@ const SITE = "https://imaizumi-dentist-office.com"
 
 const STATIC: { path: string; changefreq: string; priority: string }[] = [
   { path: "/", changefreq: "weekly", priority: "1.0" },
+  { path: "/access", changefreq: "monthly", priority: "0.8" },
+  { path: "/faq", changefreq: "monthly", priority: "0.8" },
   { path: "/news", changefreq: "weekly", priority: "0.9" },
   { path: "/column", changefreq: "weekly", priority: "0.8" },
   { path: "/column/wisdom-tooth", changefreq: "monthly", priority: "0.7" },
