@@ -1,3 +1,4 @@
+import { useState } from "react"
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { columnArticles } from "@/data/columnData"
@@ -6,7 +7,11 @@ import { Home, ChevronRight } from "lucide-react"
 import { useSEO } from "@/hooks/useSEO"
 import { useJsonLd, breadcrumbLd } from "@/lib/useJsonLd"
 
+const categories = ["すべて", ...Array.from(new Set(columnArticles.map((a) => a.category)))]
+
 export default function ColumnPage() {
+  const [cat, setCat] = useState("すべて")
+  const shown = cat === "すべて" ? columnArticles : columnArticles.filter((a) => a.category === cat)
   useSEO({
     title: "コラム（歯のお役立ち情報）",
     description:
@@ -41,8 +46,25 @@ export default function ColumnPage() {
 
       <main className="flex-1 bg-[#f8fbfc] py-12">
         <div className="container mx-auto px-4 max-w-4xl">
+          {/* カテゴリ絞り込み */}
+          <div className="flex flex-wrap gap-2 mb-8 justify-center">
+            {categories.map((c) => (
+              <button
+                key={c}
+                type="button"
+                onClick={() => setCat(c)}
+                className={`px-4 py-1.5 rounded-full text-sm transition-colors ${
+                  cat === c
+                    ? "bg-[#7eb4d2] text-white"
+                    : "bg-white text-[#4a4a4a] border border-gray-200 hover:border-[#7eb4d2]"
+                }`}
+              >
+                {c}
+              </button>
+            ))}
+          </div>
           <div className="grid gap-6 md:grid-cols-2">
-            {columnArticles.map((item) => (
+            {shown.map((item) => (
               <Link
                 key={item.slug}
                 href={`/column/${item.slug}`}
