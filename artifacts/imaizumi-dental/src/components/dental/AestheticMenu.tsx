@@ -20,31 +20,17 @@ type MenuItem = {
   price: string
 }
 
-// 口腔内写真（切り抜き不可）は丸枠、物撮りは背景を除去した
-// 浮遊カットアウト（materials/*-cut.png）＋やわらかい影で表示する
-const INTRAORAL = new Set(["direct-bonding", "laminate"])
-
-export function ItemPhoto({ img, name, boxClass }: { img: string; name: string; boxClass: string }) {
-  if (INTRAORAL.has(img)) {
-    return (
-      <img
-        loading="lazy"
-        decoding="async"
-        src={`${BASE}materials/${img}.jpeg`}
-        alt={name}
-        className={`${boxClass} rounded-full object-cover ring-1 ring-[#dbe7f0] shadow-sm`}
-      />
-    )
-  }
+// 素材写真は差し替え待ち。現状はNO IMAGEプレースホルダーを表示する。
+// （画像が用意でき次第、ここを実画像表示に戻す）
+export function ItemPhoto({ img: _img, name: _name, boxClass }: { img: string; name: string; boxClass: string }) {
   return (
-    <div className={`${boxClass} flex items-center justify-center`}>
-      <img
-        loading="lazy"
-        decoding="async"
-        src={`${BASE}materials/${img}-cut.png`}
-        alt={name}
-        className="max-w-full max-h-full object-contain [filter:drop-shadow(0_8px_10px_rgba(47,79,111,0.25))]"
-      />
+    <div
+      className={`${boxClass} flex items-center justify-center rounded border border-dashed`}
+      style={{ borderColor: "#c9dcea", backgroundColor: "#f4f9fc" }}
+    >
+      <span className="text-[10px] md:text-[11px] font-medium tracking-wider text-center leading-tight" style={{ color: "#9db6c9" }}>
+        NO<br />IMAGE
+      </span>
     </div>
   )
 }
