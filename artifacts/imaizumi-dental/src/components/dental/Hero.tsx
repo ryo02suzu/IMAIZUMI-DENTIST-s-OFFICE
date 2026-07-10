@@ -15,7 +15,7 @@ const schedule = [
 
 const slides = [
   { src: "clinic-waiting.jpeg", alt: "待合室", overlay: "bg-black/5" },
-  { src: "clinic-unit2.jpeg", alt: "診療室", overlay: "bg-black/20" },
+  { src: "clinic-unit2.jpeg", alt: "診療室", overlay: "bg-black/5" },
   { src: "clinic-treatment.jpeg", alt: "治療中", overlay: "bg-black/5" },
 ]
 
