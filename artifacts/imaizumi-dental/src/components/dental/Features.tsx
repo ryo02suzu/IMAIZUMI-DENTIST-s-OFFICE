@@ -6,13 +6,13 @@ const features = [
   {
     point: "01",
     img: `${BASE}clinic-reception.jpeg`,
-    brightness: 1.2,
+    brightness: 1.4,
     lines: ["笑顔でお迎えする受付から", "診療まで、ひとりひとりに", "寄り添った対応を心がけています"],
   },
   {
     point: "02",
     img: `${BASE}clinic-unit1.jpeg`,
-    brightness: 1.2,
+    brightness: 1.4,
     lines: ["最新のユニット（治療台）を", "導入し、快適な", "治療環境を整えています"],
   },
   {

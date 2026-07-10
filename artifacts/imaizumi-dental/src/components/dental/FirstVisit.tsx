@@ -158,8 +158,9 @@ export function FirstVisit() {
                   src={`${import.meta.env.BASE_URL}clinic-air-purifier.jpeg`}
                   alt="空気清浄機"
                   className="w-full h-full object-cover"
+                  style={{ filter: "brightness(1.3)" }}
                 />
-                <div className="absolute inset-0 bg-black/20" />
+                <div className="absolute inset-0 bg-black/5" />
               </div>
               <div className="p-4">
                 <p className="font-bold text-[#4a4a4a] mb-1">空気清浄機</p>
@@ -172,8 +173,9 @@ export function FirstVisit() {
                   src={`${import.meta.env.BASE_URL}clinic-humidifier.jpeg`}
                   alt="加湿器"
                   className="w-full h-full object-cover"
+                  style={{ filter: "brightness(1.3)" }}
                 />
-                <div className="absolute inset-0 bg-black/20" />
+                <div className="absolute inset-0 bg-black/5" />
               </div>
               <div className="p-4">
                 <p className="font-bold text-[#4a4a4a] mb-1">加湿器</p>
@@ -186,8 +188,9 @@ export function FirstVisit() {
                   src={`${import.meta.env.BASE_URL}clinic-autoclave.jpeg`}
                   alt="オートクレーブ（滅菌機）"
                   className="w-full h-full object-cover object-center"
+                  style={{ filter: "brightness(1.3)" }}
                 />
-                <div className="absolute inset-0 bg-black/20" />
+                <div className="absolute inset-0 bg-black/5" />
               </div>
               <div className="p-4">
                 <p className="font-bold text-[#4a4a4a] mb-1">オートクレーブ（滅菌機）</p>
