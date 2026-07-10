@@ -2,23 +2,21 @@ import { motion } from "framer-motion"
 
 const BASE = import.meta.env.BASE_URL
 
+// 写真の明るさはCSSで加工せず素の画像で統一する（画像自体を適正露出に揃えてある）
 const features = [
   {
     point: "01",
     img: `${BASE}clinic-reception.jpeg`,
-    brightness: 1.4,
     lines: ["笑顔でお迎えする受付から", "診療まで、ひとりひとりに", "寄り添った対応を心がけています"],
   },
   {
     point: "02",
     img: `${BASE}clinic-unit1.jpeg`,
-    brightness: 1.4,
     lines: ["最新のユニット（治療台）を", "導入し、快適な", "治療環境を整えています"],
   },
   {
     point: "03",
     img: `${BASE}doctor-fun.jpeg`,
-    brightness: 1.3,
     lines: ["写真は少し照れていますが", "話しかけやすく気さくな院長が", "いつでも丁寧に対応します"],
   },
 ]
@@ -54,9 +52,7 @@ export function Features() {
                     src={feature.img}
                     alt={`特徴${feature.point}`}
                     className="w-full h-full object-cover"
-                    style={{ filter: `brightness(${feature.brightness})` }}
                   />
-                  <div className="absolute inset-0 bg-black/5" />
                 </div>
                 <div className="absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2 bg-white rounded-full px-4 py-2 shadow-lg">
                   <p className="text-[#7eb4d2] text-xs">POINT</p>
