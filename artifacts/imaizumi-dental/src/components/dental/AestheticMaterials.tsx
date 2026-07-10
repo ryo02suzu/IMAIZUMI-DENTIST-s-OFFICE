@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import { CheckCircle2, UserRound } from "lucide-react"
+import { ItemPhoto } from "./AestheticMenu"
 
 // 審美歯科ページ「審美歯科メニュー」セクション。
 // クリニック提供のメニュー資料（ベージュ×ブラウンの紙面）の構成を
@@ -183,13 +184,9 @@ export function AestheticMaterials() {
             >
               {/* 写真 */}
               <div className="flex md:block items-center gap-4">
-                <img
-                  loading="lazy"
-                  decoding="async"
-                  src={`${BASE}materials/${m.img}.jpeg`}
-                  alt={m.name.join("")}
-                  className="w-28 h-28 rounded object-cover shrink-0"
-                />
+                <div className="shrink-0">
+                  <ItemPhoto img={m.img} name={m.name.join("")} boxClass="w-28 h-28" />
+                </div>
                 {/* モバイルでは写真の横に名前 */}
                 <div className="md:hidden">
                   <p className="font-serif font-bold text-lg leading-snug" style={{ color: BROWN }}>{m.name.join("")}</p>
@@ -242,13 +239,9 @@ export function AestheticMaterials() {
         <div className="grid md:grid-cols-2 gap-x-10 gap-y-8">
           {crowns.map((m, i) => (
             <motion.div key={m.img} {...fadeIn(i * 0.05)} className="flex gap-5">
-              <img
-                loading="lazy"
-                decoding="async"
-                src={`${BASE}materials/${m.img}.jpeg`}
-                alt={m.name}
-                className="w-28 h-28 md:w-32 md:h-32 rounded object-cover shrink-0"
-              />
+              <div className="shrink-0">
+                <ItemPhoto img={m.img} name={m.name} boxClass="w-28 h-28 md:w-32 md:h-32" />
+              </div>
               <div className="min-w-0">
                 <p className="font-serif font-bold text-lg leading-snug" style={{ color: BROWN }}>{m.name}</p>
                 <p className="text-xs mt-0.5 mb-2" style={{ color: BROWN }}>{m.catch}</p>
@@ -280,13 +273,9 @@ export function AestheticMaterials() {
         <div className="grid md:grid-cols-2 gap-x-10 gap-y-8">
           {others.map((m, i) => (
             <motion.div key={m.img} {...fadeIn(i * 0.05)} className="flex gap-5">
-              <img
-                loading="lazy"
-                decoding="async"
-                src={`${BASE}materials/${m.img}.jpeg`}
-                alt={m.name}
-                className="w-28 h-28 md:w-32 md:h-32 rounded object-cover shrink-0"
-              />
+              <div className="shrink-0">
+                <ItemPhoto img={m.img} name={m.name} boxClass="w-28 h-28 md:w-32 md:h-32" />
+              </div>
               <div className="min-w-0">
                 <p className="font-serif font-bold text-lg leading-snug" style={{ color: BROWN }}>{m.name}</p>
                 <p className="text-xs mt-0.5 mb-2" style={{ color: BROWN }}>{m.catch}</p>
