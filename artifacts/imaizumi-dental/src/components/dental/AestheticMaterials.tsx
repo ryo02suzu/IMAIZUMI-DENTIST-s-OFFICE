@@ -8,12 +8,12 @@ import { CheckCircle2, UserRound } from "lucide-react"
 
 const BASE = import.meta.env.BASE_URL
 
-// 紙面の配色
-const BROWN = "#8a7455"      // 見出し・強調のブラウン
-const BAND = "#b3a284"       // 帯・おすすめ見出しの濃ベージュ
-const BEIGE = "#f2ede4"      // 薄ベージュ背景
-const LINE = "#e3dccd"       // 罫線
-const TEXT = "#5f584c"       // 本文
+// 配色（メニューUIと同じ淡ブルー×紺の上品トーン）
+const BROWN = "#2f4f6f"      // 見出し・強調の紺
+const BAND = "#a9c5d8"       // 帯・おすすめ見出しの淡ブルー
+const BEIGE = "#eef5fa"      // 薄ブルー背景
+const LINE = "#dce8f1"       // 罫線
+const TEXT = "#55606a"       // 本文
 
 const inlays = [
   {
@@ -135,7 +135,7 @@ function Band({ children }: { children: string }) {
 function Check({ text, muted = false }: { text: string; muted?: boolean }) {
   return (
     <li className="flex items-start gap-1.5 text-xs leading-relaxed" style={{ color: TEXT }}>
-      <CheckCircle2 className="h-3.5 w-3.5 shrink-0 mt-0.5" style={{ color: muted ? "#c2b89f" : "#9caf88" }} />
+      <CheckCircle2 className="h-3.5 w-3.5 shrink-0 mt-0.5" style={{ color: muted ? "#b9c6d1" : "#9caf88" }} />
       {text}
     </li>
   )
@@ -145,12 +145,12 @@ export function AestheticMaterials() {
   return (
     <section className="py-14 bg-white">
       <div className="container mx-auto px-4 max-w-5xl">
-        {/* ヘッダー（紙面上部の構成） */}
+        {/* ヘッダー */}
         <motion.div {...fadeIn()} className="md:flex items-start justify-between gap-8 mb-4">
           <div>
             <p className="text-sm mb-2" style={{ color: BROWN }}>美しく、長く使える審美治療</p>
             <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4" style={{ color: BROWN }}>
-              審美歯科メニュー
+              素材の選び方
             </h2>
             <p className="text-sm md:text-[15px] leading-relaxed" style={{ color: TEXT }}>
               見た目の美しさだけでなく、機能性・耐久性にもこだわり、
@@ -261,7 +261,7 @@ export function AestheticMaterials() {
           <motion.div
             {...fadeIn(0.25)}
             className="rounded border p-5 flex gap-4"
-            style={{ borderColor: "#d8cdb8", backgroundColor: "#fdfcf9" }}
+            style={{ borderColor: "#cfe0ec", backgroundColor: "#fbfdfe" }}
           >
             <div className="w-14 h-14 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: BEIGE }}>
               <UserRound className="h-7 w-7" style={{ color: BROWN }} />
