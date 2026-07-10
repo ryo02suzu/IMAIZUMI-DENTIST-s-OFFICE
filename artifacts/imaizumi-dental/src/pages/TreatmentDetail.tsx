@@ -1,6 +1,6 @@
 import { useParams, Link } from "wouter"
 import { motion } from "framer-motion"
-import { ChevronRight, CheckCircle, ArrowLeft } from "lucide-react"
+import { ChevronRight, CheckCircle, ArrowLeft, Sparkles } from "lucide-react"
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { columnArticles } from "@/data/columnData"
@@ -20,6 +20,8 @@ type Treatment = {
   steps: { num: string; title: string; body: string }[]
   price?: { label: string; amount?: string; note?: string; isHeader?: boolean }[]
   faq?: { q: string; a: string }[]
+  /** 審美系メニューは濃紺×シャンパンゴールドの特別配色で表示する */
+  premium?: boolean
 }
 
 const treatments: Treatment[] = [
@@ -131,6 +133,7 @@ const treatments: Treatment[] = [
     subtitle: "つめ物・かぶせ物｜見た目も、長持ちも、費用の明確さも",
     tag: "銀歯を白くしたい",
     color: "#7eb4d2",
+    premium: true,
     intro:
       "「白くしたいけれど、どれを選べばいいかわからない」「保険と自費の違いを聞いてから決めたい」そのような方にも、わかりやすく丁寧にご説明します。見た目の自然さ・強度・ご予算のバランスに合わせて選べるメニューをご用意しています。",
     features: [
@@ -288,6 +291,63 @@ export default function TreatmentDetail() {
     )
   }
 
+  // 通常メニューは水色基調、premium（審美系）は濃紺×シャンパンゴールドの特別配色
+  const ui = t.premium
+    ? {
+        heroSection: "bg-gradient-to-br from-[#2c4a63] via-[#3d5f7a] to-[#2c4a63] py-14 md:py-20",
+        heroTag: "inline-block bg-gradient-to-r from-[#c9a86a] to-[#b08d4f] text-white text-xs px-3 py-1 rounded-full mb-4",
+        heroTitle: "text-3xl md:text-5xl font-bold text-white mb-4",
+        heroSubtitle: "text-lg md:text-xl text-[#e9d9b8] font-medium",
+        introBorder: "border-l-4 border-[#c9a86a] pl-5",
+        featuresSection: "py-12 bg-[#faf7f0]",
+        featureCard: "bg-white rounded-xl p-6 shadow-sm border border-[#e8dcc0]",
+        featureIcon: "h-6 w-6 text-[#b08d4f] mb-3",
+        stepCircle: "shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-[#c9a86a] to-[#a8853f] flex items-center justify-center text-white font-bold text-sm",
+        stepCard: "flex-1 bg-[#faf7f0] rounded-xl p-4 border border-[#e8dcc0]",
+        priceSection: "py-12 bg-[#faf7f0]",
+        priceTable: "w-full text-sm border border-[#e8dcc0] rounded-lg overflow-hidden",
+        priceThead: "bg-[#2c4a63] text-[#e9d9b8]",
+        priceHeaderRow: "border-t border-[#e8dcc0] bg-[#f5efe0]",
+        priceHeaderText: "py-2 px-5 text-xs font-bold text-[#a8853f] tracking-widest uppercase",
+        priceRow: "border-t border-[#e8dcc0]",
+        priceAmount: "py-4 px-5 text-right font-bold text-[#a8853f] whitespace-nowrap",
+        faqQRow: "bg-[#c9a86a]/15 px-5 py-4 flex gap-3 items-start",
+        faqQMark: "text-[#b08d4f] font-bold text-lg shrink-0",
+        faqAMark: "text-[#a8853f] font-bold text-lg shrink-0",
+        sectionEyebrow: "text-[#b08d4f] text-sm tracking-widest mb-1",
+        sectionTitle: "text-2xl md:text-3xl font-bold text-[#3d5f7a]",
+        ctaSection: "py-16 bg-gradient-to-br from-[#2c4a63] to-[#3d5f7a]",
+        ctaButton: "bg-gradient-to-r from-[#c9a86a] to-[#b08d4f] text-white px-10 py-4 rounded-full font-bold text-lg hover:opacity-90 transition-opacity",
+        ctaSecondary: "bg-white text-[#3d5f7a] px-10 py-4 rounded-full font-bold text-lg hover:bg-[#faf7f0] transition-colors flex items-center justify-center gap-2",
+      }
+    : {
+        heroSection: "bg-gradient-to-br from-[#e8f4f8] to-[#d1e8f0] py-14 md:py-20",
+        heroTag: "inline-block bg-[#f5d56e] text-[#5a4a3a] text-xs px-3 py-1 rounded-full mb-4",
+        heroTitle: "text-3xl md:text-5xl font-bold text-[#7eb4d2] mb-4",
+        heroSubtitle: "text-lg md:text-xl text-[#5a8ea8] font-medium",
+        introBorder: "border-l-4 border-[#7eb4d2] pl-5",
+        featuresSection: "py-12 bg-[#f8fbfc]",
+        featureCard: "bg-white rounded-xl p-6 shadow-sm border border-[#e0eff6]",
+        featureIcon: "h-6 w-6 text-[#7eb4d2] mb-3",
+        stepCircle: "shrink-0 w-12 h-12 rounded-full bg-[#7eb4d2] flex items-center justify-center text-white font-bold text-sm",
+        stepCard: "flex-1 bg-[#f8fbfc] rounded-xl p-4 border border-[#e0eff6]",
+        priceSection: "py-12 bg-[#f8fbfc]",
+        priceTable: "w-full text-sm border border-[#d1e8f0] rounded-lg overflow-hidden",
+        priceThead: "bg-[#7eb4d2] text-white",
+        priceHeaderRow: "border-t border-[#e0eff6] bg-[#f0f8fb]",
+        priceHeaderText: "py-2 px-5 text-xs font-bold text-[#7eb4d2] tracking-widest uppercase",
+        priceRow: "border-t border-[#e0eff6]",
+        priceAmount: "py-4 px-5 text-right font-bold text-[#7eb4d2] whitespace-nowrap",
+        faqQRow: "bg-[#7eb4d2]/10 px-5 py-4 flex gap-3 items-start",
+        faqQMark: "text-[#7eb4d2] font-bold text-lg shrink-0",
+        faqAMark: "text-[#f5a623] font-bold text-lg shrink-0",
+        sectionEyebrow: "text-[#7eb4d2] text-sm tracking-widest mb-1",
+        sectionTitle: "text-2xl md:text-3xl font-bold text-[#7eb4d2]",
+        ctaSection: "py-16 bg-[#7eb4d2]",
+        ctaButton: "bg-[#f5a623] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#e0961c] transition-colors",
+        ctaSecondary: "bg-white text-[#7eb4d2] px-10 py-4 rounded-full font-bold text-lg hover:bg-[#f0f8fb] transition-colors flex items-center justify-center gap-2",
+      }
+
   return (
     <div className="min-h-screen font-sans bg-white">
       <Navbar />
@@ -307,18 +367,24 @@ export default function TreatmentDetail() {
         </div>
 
         {/* Hero */}
-        <section className="bg-gradient-to-br from-[#e8f4f8] to-[#d1e8f0] py-14 md:py-20">
+        <section className={ui.heroSection}>
           <div className="container mx-auto px-4 max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
             >
-              <span className="inline-block bg-[#f5d56e] text-[#5a4a3a] text-xs px-3 py-1 rounded-full mb-4">
+              {t.premium && (
+                <p className="text-[#d9c08a] text-xs tracking-[0.35em] mb-3 flex items-center gap-2 font-medium">
+                  <Sparkles className="h-4 w-4" />
+                  PREMIUM MENU
+                </p>
+              )}
+              <span className={ui.heroTag}>
                 {t.tag}
               </span>
-              <h1 className="text-3xl md:text-5xl font-bold text-[#7eb4d2] mb-4">{t.title}</h1>
-              <p className="text-lg md:text-xl text-[#5a8ea8] font-medium">{t.subtitle}</p>
+              <h1 className={ui.heroTitle}>{t.title}</h1>
+              <p className={ui.heroSubtitle}>{t.subtitle}</p>
             </motion.div>
           </div>
         </section>
@@ -331,7 +397,7 @@ export default function TreatmentDetail() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="text-[#4a4a4a] leading-loose text-base md:text-lg border-l-4 border-[#7eb4d2] pl-5"
+              className={`text-[#4a4a4a] leading-loose text-base md:text-lg ${ui.introBorder}`}
             >
               {t.intro}
             </motion.p>
@@ -339,7 +405,7 @@ export default function TreatmentDetail() {
         </section>
 
         {/* Features */}
-        <section className="py-12 bg-[#f8fbfc]">
+        <section className={ui.featuresSection}>
           <div className="container mx-auto px-4 max-w-4xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -348,8 +414,8 @@ export default function TreatmentDetail() {
               transition={{ duration: 0.5 }}
               className="mb-8"
             >
-              <p className="text-[#7eb4d2] text-sm tracking-widest mb-1">FEATURES</p>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#7eb4d2]">当院の{t.title}の特長</h2>
+              <p className={ui.sectionEyebrow}>FEATURES</p>
+              <h2 className={ui.sectionTitle}>当院の{t.title}の特長</h2>
             </motion.div>
             <div className="grid md:grid-cols-3 gap-5">
               {t.features.map((f, i) => (
@@ -359,9 +425,9 @@ export default function TreatmentDetail() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.4, delay: i * 0.1 }}
-                  className="bg-white rounded-xl p-6 shadow-sm border border-[#e0eff6]"
+                  className={ui.featureCard}
                 >
-                  <CheckCircle className="h-6 w-6 text-[#7eb4d2] mb-3" />
+                  <CheckCircle className={ui.featureIcon} />
                   <p className="font-bold text-[#4a4a4a] mb-2">{f.title}</p>
                   <p className="text-sm text-[#666] leading-relaxed">{f.body}</p>
                 </motion.div>
@@ -380,8 +446,8 @@ export default function TreatmentDetail() {
               transition={{ duration: 0.5 }}
               className="mb-8"
             >
-              <p className="text-[#7eb4d2] text-sm tracking-widest mb-1">FLOW</p>
-              <h2 className="text-2xl md:text-3xl font-bold text-[#7eb4d2]">治療の流れ</h2>
+              <p className={ui.sectionEyebrow}>FLOW</p>
+              <h2 className={ui.sectionTitle}>治療の流れ</h2>
             </motion.div>
             <div className="space-y-4">
               {t.steps.map((s, i) => (
@@ -393,10 +459,10 @@ export default function TreatmentDetail() {
                   transition={{ duration: 0.4, delay: i * 0.08 }}
                   className="flex gap-5 items-start"
                 >
-                  <div className="shrink-0 w-12 h-12 rounded-full bg-[#7eb4d2] flex items-center justify-center text-white font-bold text-sm">
+                  <div className={ui.stepCircle}>
                     {s.num}
                   </div>
-                  <div className="flex-1 bg-[#f8fbfc] rounded-xl p-4 border border-[#e0eff6]">
+                  <div className={ui.stepCard}>
                     <p className="font-bold text-[#4a4a4a] mb-1">{s.title}</p>
                     <p className="text-sm text-[#666] leading-relaxed">{s.body}</p>
                   </div>
@@ -408,7 +474,7 @@ export default function TreatmentDetail() {
 
         {/* Price */}
         {t.price && (
-          <section className="py-12 bg-[#f8fbfc]">
+          <section className={ui.priceSection}>
             <div className="container mx-auto px-4 max-w-4xl">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -417,13 +483,13 @@ export default function TreatmentDetail() {
                 transition={{ duration: 0.5 }}
                 className="mb-8"
               >
-                <p className="text-[#7eb4d2] text-sm tracking-widest mb-1">PRICE</p>
-                <h2 className="text-2xl md:text-3xl font-bold text-[#7eb4d2]">料金の目安</h2>
+                <p className={ui.sectionEyebrow}>PRICE</p>
+                <h2 className={ui.sectionTitle}>料金の目安</h2>
               </motion.div>
               <div className="overflow-x-auto">
-                <table className="w-full text-sm border border-[#d1e8f0] rounded-lg overflow-hidden">
+                <table className={ui.priceTable}>
                   <thead>
-                    <tr className="bg-[#7eb4d2] text-white">
+                    <tr className={ui.priceThead}>
                       <th className="py-3 px-5 text-left">治療内容</th>
                       <th className="py-3 px-5 text-right">料金</th>
                     </tr>
@@ -431,18 +497,18 @@ export default function TreatmentDetail() {
                   <tbody>
                     {t.price.map((p, i) =>
                       p.isHeader ? (
-                        <tr key={i} className="border-t border-[#e0eff6] bg-[#f0f8fb]">
-                          <td colSpan={2} className="py-2 px-5 text-xs font-bold text-[#7eb4d2] tracking-widest uppercase">
+                        <tr key={i} className={ui.priceHeaderRow}>
+                          <td colSpan={2} className={ui.priceHeaderText}>
                             {p.label}
                           </td>
                         </tr>
                       ) : (
-                        <tr key={i} className="border-t border-[#e0eff6]">
+                        <tr key={i} className={ui.priceRow}>
                           <td className="py-4 px-5">
                             <p className="font-medium text-[#4a4a4a]">{p.label}</p>
                             {p.note && <p className="text-xs text-[#999] mt-1">{p.note}</p>}
                           </td>
-                          <td className="py-4 px-5 text-right font-bold text-[#7eb4d2] whitespace-nowrap">{p.amount}</td>
+                          <td className={ui.priceAmount}>{p.amount}</td>
                         </tr>
                       )
                     )}
@@ -465,8 +531,8 @@ export default function TreatmentDetail() {
                 transition={{ duration: 0.5 }}
                 className="mb-8"
               >
-                <p className="text-[#7eb4d2] text-sm tracking-widest mb-1">FAQ</p>
-                <h2 className="text-2xl md:text-3xl font-bold text-[#7eb4d2]">よくある質問</h2>
+                <p className={ui.sectionEyebrow}>FAQ</p>
+                <h2 className={ui.sectionTitle}>よくある質問</h2>
               </motion.div>
               <div className="space-y-4">
                 {t.faq.map((item, i) => (
@@ -478,12 +544,12 @@ export default function TreatmentDetail() {
                     transition={{ duration: 0.4, delay: i * 0.08 }}
                     className="rounded-xl overflow-hidden border border-[#e0eff6]"
                   >
-                    <div className="bg-[#7eb4d2]/10 px-5 py-4 flex gap-3 items-start">
-                      <span className="text-[#7eb4d2] font-bold text-lg shrink-0">Q.</span>
+                    <div className={ui.faqQRow}>
+                      <span className={ui.faqQMark}>Q.</span>
                       <p className="text-[#4a4a4a] font-medium">{item.q}</p>
                     </div>
                     <div className="bg-white px-5 py-4 flex gap-3 items-start">
-                      <span className="text-[#f5a623] font-bold text-lg shrink-0">A.</span>
+                      <span className={ui.faqAMark}>A.</span>
                       <p className="text-[#666] leading-relaxed text-sm">{item.a}</p>
                     </div>
                   </motion.div>
@@ -520,7 +586,7 @@ export default function TreatmentDetail() {
           )
         })()}
 
-        <section className="py-16 bg-[#7eb4d2]">
+        <section className={ui.ctaSection}>
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -533,10 +599,10 @@ export default function TreatmentDetail() {
               {t.title}についてご予約・お問い合わせ
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="bg-[#f5a623] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#e0961c] transition-colors">WEB予約</a>
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className={ui.ctaButton}>WEB予約</a>
               <a
                 href="/#treatment"
-                className="bg-white text-[#7eb4d2] px-10 py-4 rounded-full font-bold text-lg hover:bg-[#f0f8fb] transition-colors flex items-center justify-center gap-2"
+                className={ui.ctaSecondary}
               >
                 <ArrowLeft className="h-5 w-5" />
                 診療内容一覧へ

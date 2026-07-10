@@ -54,20 +54,24 @@ export default function DentalEsthetics() {
           </div>
         </div>
 
-        {/* Hero */}
-        <section className="bg-gradient-to-b from-[#e8f4f9] to-white py-16 md:py-20">
+        {/* Hero（審美系メニュー共通の濃紺×シャンパンゴールドの特別配色） */}
+        <section className="bg-gradient-to-br from-[#2c4a63] via-[#3d5f7a] to-[#2c4a63] py-16 md:py-20">
           <div className="container mx-auto px-4">
             <div className="max-w-2xl">
-              <span className="inline-block bg-[#f5a623] text-white text-xs px-3 py-1 rounded-full mb-4">
+              <p className="text-[#d9c08a] text-xs tracking-[0.35em] mb-3 flex items-center gap-2 font-medium">
+                <Sparkles className="h-4 w-4" />
+                PREMIUM MENU
+              </p>
+              <span className="inline-block bg-gradient-to-r from-[#c9a86a] to-[#b08d4f] text-white text-xs px-3 py-1 rounded-full mb-4">
                 キレイ・スッキリしたい
               </span>
-              <h1 className="text-3xl md:text-4xl font-bold text-[#3d5f7a] mb-4">
+              <h1 className="text-3xl md:text-4xl font-bold text-white mb-4">
                 お口のエステ
               </h1>
-              <p className="text-[#7eb4d2] text-lg font-medium mb-4">
+              <p className="text-[#e9d9b8] text-lg font-medium mb-4">
                 白く、清潔に、自信ある笑顔へ
               </p>
-              <p className="text-[#4a4a4a] leading-relaxed">
+              <p className="text-white/85 leading-relaxed">
                 見た目のケアから口内環境の根本改善まで、3つのメニューをご用意しています。どれか1つからでも、組み合わせでも、ご希望に合わせてお選びください。
               </p>
             </div>
@@ -77,7 +81,7 @@ export default function DentalEsthetics() {
         {/* Menu Cards */}
         <section className="py-16 bg-white">
           <div className="container mx-auto px-4">
-            <p className="text-xs font-semibold text-[#7eb4d2] tracking-widest uppercase mb-2 text-center">MENU</p>
+            <p className="text-xs font-semibold text-[#b08d4f] tracking-widest uppercase mb-2 text-center">MENU</p>
             <h2 className="text-2xl md:text-3xl font-bold text-[#3d5f7a] mb-10 text-center">
               3つのメニュー
             </h2>
@@ -87,21 +91,21 @@ export default function DentalEsthetics() {
                 <Link
                   key={i}
                   href={menu.href}
-                  className="group block bg-white rounded-2xl border border-[#c8e2ee] hover:shadow-lg hover:border-[#7eb4d2] transition-all overflow-hidden"
+                  className="group block bg-white rounded-2xl border border-[#e0d3b3] hover:shadow-lg hover:border-[#b08d4f] transition-all overflow-hidden"
                 >
-                  <div className="flex items-center justify-between px-6 py-4 bg-[#f0f8fc] border-b border-[#c8e2ee]">
+                  <div className="flex items-center justify-between px-6 py-4 bg-[#faf7f0] border-b border-[#e8dcc0]">
                     <div className="flex items-center gap-3">
-                      <span className="bg-[#7eb4d2] text-white text-[10px] px-2 py-0.5 rounded-full shrink-0">
+                      <span className="bg-gradient-to-r from-[#c9a86a] to-[#b08d4f] text-white text-[10px] px-2 py-0.5 rounded-full shrink-0">
                         {menu.tag}
                       </span>
                       <h3 className="font-bold text-[#3d5f7a] text-lg">{menu.title}</h3>
                     </div>
-                    <ArrowRight className="h-5 w-5 text-[#7eb4d2] group-hover:translate-x-1 transition-transform shrink-0" />
+                    <ArrowRight className="h-5 w-5 text-[#b08d4f] group-hover:translate-x-1 transition-transform shrink-0" />
                   </div>
                   <div className="px-6 py-5">
-                    <p className="text-[#7eb4d2] text-sm font-medium mb-2">{menu.subtitle}</p>
+                    <p className="text-[#a8853f] text-sm font-medium mb-2">{menu.subtitle}</p>
                     <p className="text-[#4a4a4a] text-sm leading-relaxed mb-3">{menu.body}</p>
-                    <p className="text-xs text-[#6b7280] bg-[#f8fbfd] rounded-lg px-3 py-2 inline-block">
+                    <p className="text-xs text-[#6b7280] bg-[#faf7f0] rounded-lg px-3 py-2 inline-block">
                       💰 {menu.price}（税込）
                     </p>
                   </div>
@@ -112,9 +116,9 @@ export default function DentalEsthetics() {
         </section>
 
         {/* Set Discount */}
-        <section className="py-16 bg-[#f8fbfd]">
+        <section className="py-16 bg-[#faf7f0]">
           <div className="container mx-auto px-4">
-            <p className="text-xs font-semibold text-[#f5a623] tracking-widest uppercase mb-2 text-center">SET PLAN</p>
+            <p className="text-xs font-semibold text-[#b08d4f] tracking-widest uppercase mb-2 text-center">SET PLAN</p>
             <h2 className="text-2xl md:text-3xl font-bold text-[#3d5f7a] mb-3 text-center">
               定期コースと組み合わせてお得に
             </h2>
@@ -244,14 +248,14 @@ export default function DentalEsthetics() {
         </section>
 
         {/* CTA */}
-        <section className="py-16 bg-[#3d5f7a] text-white text-center">
+        <section className="py-16 bg-gradient-to-br from-[#2c4a63] to-[#3d5f7a] text-white text-center">
           <div className="container mx-auto px-4">
             <h2 className="text-2xl md:text-3xl font-bold mb-4">まずはお気軽にご相談ください</h2>
             <p className="text-white/80 mb-8 max-w-xl mx-auto">
               どのメニューが合うかわからない場合も、診察時にゆっくりご説明します。
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="bg-[#f5a623] text-white px-8 py-3 rounded-full font-bold hover:bg-[#e0961c] transition-colors">WEB予約</a>
+              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-[#c9a86a] to-[#b08d4f] text-white px-8 py-3 rounded-full font-bold hover:opacity-90 transition-opacity">WEB予約</a>
               <a
                 href="tel:0277549893"
                 className="border border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition-colors"
