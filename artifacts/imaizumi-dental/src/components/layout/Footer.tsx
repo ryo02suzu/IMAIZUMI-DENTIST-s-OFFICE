@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import { ChevronRight } from "lucide-react"
 
 const footerMain = [
@@ -28,6 +29,16 @@ const footerTreatment = [
 ]
 
 export function Footer() {
+  // 下部の予約バー（StickyBottomBar）は scrollY>400 で表示される。
+  // PAGE TOP ボタンが予約バーと重ならないよう、バー表示時は上に持ち上げる。
+  const [barVisible, setBarVisible] = useState(false)
+  useEffect(() => {
+    const onScroll = () => setBarVisible(window.scrollY > 400)
+    onScroll()
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
+
   return (
     <footer className="bg-[#7eb4d2] text-white py-12 relative">
       <div className="container mx-auto px-4">
@@ -103,10 +114,12 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Page Top Button */}
+      {/* Page Top Button（予約バー表示中は重ならないよう上へ持ち上げる） */}
       <a
         href="#"
-        className="fixed bottom-6 right-6 w-16 h-16 bg-white rounded-full shadow-lg flex flex-col items-center justify-center hover:shadow-xl transition-shadow group z-50"
+        className={`fixed right-6 w-16 h-16 bg-white rounded-full shadow-lg flex flex-col items-center justify-center hover:shadow-xl transition-all duration-300 group z-40 ${
+          barVisible ? "bottom-28 md:bottom-24" : "bottom-6"
+        }`}
       >
         <span className="text-[#7eb4d2] text-[8px] font-bold">PAGE</span>
         <span className="text-[#7eb4d2] text-[8px] font-bold">TOP</span>
