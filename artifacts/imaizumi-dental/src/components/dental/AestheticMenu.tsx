@@ -131,11 +131,12 @@ export function AestheticMenu() {
         <div className="pointer-events-none absolute bottom-10 left-[45%] w-28 h-28 rounded-full bg-[#bcd8ea]/50 blur-2xl" />
 
         {/* 女性写真（右側・左端をグラデーションで溶け込ませる） */}
+        {/* モバイルは幅が狭いため、笑顔が中央に来るよう表示位置を調整（PCは左基準） */}
         <img
           src={`${BASE}aesthetic-hero.jpeg`}
           alt=""
           aria-hidden="true"
-          className="absolute right-0 top-0 h-full w-[52%] md:w-[44%] object-cover object-left [mask-image:linear-gradient(to_right,transparent,black_38%)]"
+          className="absolute right-0 top-0 h-full w-[58%] md:w-[44%] object-cover object-[60%_center] md:object-left [mask-image:linear-gradient(to_right,transparent,black_38%)]"
         />
 
         <div className="container mx-auto px-4 relative z-10">
