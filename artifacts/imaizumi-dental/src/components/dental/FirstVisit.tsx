@@ -158,7 +158,7 @@ export function FirstVisit() {
                   src={`${import.meta.env.BASE_URL}clinic-air-purifier.jpeg`}
                   alt="空気清浄機"
                   className="w-full h-full object-cover"
-                  style={{ filter: "brightness(1.3)" }}
+                  style={{ filter: "brightness(1.1)" }}
                 />
                 <div className="absolute inset-0 bg-black/5" />
               </div>
