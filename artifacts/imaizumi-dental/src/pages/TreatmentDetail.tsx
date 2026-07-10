@@ -3,6 +3,7 @@ import { motion } from "framer-motion"
 import { ChevronRight, CheckCircle, ArrowLeft, Sparkles } from "lucide-react"
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
+import { AestheticMaterials } from "@/components/dental/AestheticMaterials"
 import { columnArticles } from "@/data/columnData"
 import { useSEO } from "@/hooks/useSEO"
 import { useJsonLd, breadcrumbLd, faqLd } from "@/lib/useJsonLd"
@@ -471,6 +472,9 @@ export default function TreatmentDetail() {
             </div>
           </div>
         </section>
+
+        {/* 素材の選び方（審美歯科のみ） */}
+        {t.slug === "aesthetic" && <AestheticMaterials />}
 
         {/* Price */}
         {t.price && (
