@@ -2,12 +2,10 @@ import { motion } from "framer-motion"
 import { CheckCircle2, UserRound } from "lucide-react"
 import { ItemPhoto } from "./AestheticMenu"
 
-// 審美歯科ページ「審美歯科メニュー」セクション。
-// クリニック提供のメニュー資料（ベージュ×ブラウンの紙面）の構成を
-// そのまま再現している：帯見出し／写真・名前・説明・メリット・
-// デメリット・おすすめの横並び行／こだわり枠／安心3ポイントの帯。
-
-const BASE = import.meta.env.BASE_URL
+// 審美歯科ページ「素材の選び方」セクション。
+// インレー・クラウン・その他の審美治療を、すべて共通フォーマット
+// （写真／名前・特徴・料金／説明／メリット・デメリット／おすすめ）で掲載する。
+// 文言はクリニック提供の原稿に基づく。
 
 // 配色（メニューUIと同じ淡ブルー×紺の上品トーン）
 const BROWN = "#2f4f6f"      // 見出し・強調の紺
@@ -16,12 +14,23 @@ const BEIGE = "#eef5fa"      // 薄ブルー背景
 const LINE = "#dce8f1"       // 罫線
 const TEXT = "#55606a"       // 本文
 
-const inlays = [
+type Material = {
+  img: string
+  name: string
+  catch: string
+  price: string
+  body: string
+  merits: string[]
+  demerits: string[]
+  recommend: string
+}
+
+const inlays: Material[] = [
   {
     img: "hybrid-inlay",
-    name: ["ハイブリッド", "インレー"],
+    name: "ハイブリッドインレー",
     price: "¥33,000〜",
-    catch: ["費用を抑えて", "白い歯にしたい方へ"],
+    catch: "費用を抑えて白い歯にしたい方へ",
     body: "セラミックとレジン（歯科用樹脂）を組み合わせた素材です。保険の銀歯より自然な見た目で、比較的費用を抑えて白い歯にできます。",
     merits: ["費用を抑えられる", "白い歯になる", "金属アレルギーの心配がない"],
     demerits: ["長期間で変色することがある", "セラミックより摩耗・劣化しやすい", "強い力がかかる部位には向かない場合がある"],
@@ -29,9 +38,9 @@ const inlays = [
   },
   {
     img: "zirconia-inlay",
-    name: ["ジルコニア", "インレー"],
+    name: "ジルコニアインレー",
     price: "¥44,000〜",
-    catch: ["強度を重視する", "奥歯におすすめ"],
+    catch: "強度を重視する奥歯におすすめ",
     body: "ジルコニアは人工ダイヤモンドにも例えられる高い強度を持つセラミック素材です。噛む力が強くかかる奥歯にも適しています。",
     merits: ["非常に丈夫", "割れにくい", "金属を使用しない", "汚れが付きにくい"],
     demerits: ["e.maxより透明感はやや少ない", "強い衝撃では破損する可能性がある"],
@@ -39,9 +48,9 @@ const inlays = [
   },
   {
     img: "emax-inlay",
-    name: ["e.max", "インレー"],
+    name: "e.maxインレー",
     price: "¥55,000〜",
-    catch: ["天然歯のような", "透明感"],
+    catch: "天然歯のような透明感",
     body: "ガラスセラミックで作られた審美性に優れた素材です。自然な透明感があり、周囲の歯になじみやすいことが特徴です。",
     merits: ["見た目が自然", "色調が美しい", "汚れが付きにくい"],
     demerits: ["ジルコニアより強度はやや低い", "強い力がかかる部位では適応を選ぶ"],
@@ -49,9 +58,9 @@ const inlays = [
   },
   {
     img: "gold-inlay",
-    name: ["ゴールド", "インレー"],
+    name: "ゴールドインレー",
     price: "¥77,000〜",
-    catch: ["長期間の安定性を", "重視する方へ"],
+    catch: "長期間の安定性を重視する方へ",
     body: "18金を使用した詰め物です。歯との適合性に優れ、噛み合わせにも優しく、長期間安定して使用できる素材です。",
     merits: ["適合性が高い", "二次虫歯のリスク軽減が期待できる", "噛み合う歯に優しい", "長持ちしやすい"],
     demerits: ["金色", "費用が高い"],
@@ -59,13 +68,24 @@ const inlays = [
   },
 ]
 
-const crowns = [
+const crowns: Material[] = [
   {
     img: "full-zirconia",
     name: "フルジルコニアクラウン",
     price: "¥88,000〜",
     catch: "奥歯のスタンダード",
     body: "すべてジルコニアで製作するクラウンです。高い強度があり、奥歯の治療によく選ばれています。金属を使用しないため、金属アレルギーが心配な方にも選ばれています。",
+    merits: [
+      "非常に丈夫で割れにくい",
+      "金属アレルギーの心配がない",
+      "汚れ（プラーク）が付きにくく衛生的",
+      "保険の銀歯と比べて二次虫歯になりにくい",
+    ],
+    demerits: [
+      "e.max等のガラスセラミックに比べると透明感はやや劣る",
+      "天然歯よりも硬いため、噛み合う歯（対合歯）がすり減る可能性がある",
+    ],
+    recommend: "噛む力が強い方・食いしばりがある方で、奥歯を白くしたい方",
   },
   {
     img: "emax-crown",
@@ -73,6 +93,17 @@ const crowns = [
     price: "¥99,000〜",
     catch: "自然な透明感を求める方へ",
     body: "ガラスセラミックのみで製作します。天然歯に近い透明感があり、前歯にも適しています。金属を使用しないため、金属アレルギーが心配な方にも選ばれています。",
+    merits: [
+      "天然歯のような美しく自然な透明感がある",
+      "金属アレルギーの心配がない",
+      "汚れが付きにくく、変色しない",
+      "歯との接着性が高く、二次虫歯になりにくい",
+    ],
+    demerits: [
+      "ジルコニアに比べると強度が劣るため、強い衝撃で割れるリスクがある",
+      "強い力がかかる奥歯（大臼歯）やブリッジには向かない場合がある",
+    ],
+    recommend: "前歯や笑った時に見える歯を、とにかく自然で美しく仕上げたい方",
   },
   {
     img: "zirconia-stain",
@@ -80,6 +111,16 @@ const crowns = [
     price: "¥110,000〜",
     catch: "強さと美しさのバランス",
     body: "フルジルコニアに色調を付与し、天然歯に近い色合いを再現したクラウンです。金属を使用しないため、金属アレルギーが心配な方にも選ばれています。",
+    merits: [
+      "フルジルコニアの「高い強度」を保ちつつ、より自然な色合いを出せる",
+      "金属アレルギーの心配がない",
+      "汚れが付きにくく衛生的",
+    ],
+    demerits: [
+      "表面の着色（ステイン）が、長年の使用でわずかに摩耗・退色する可能性がある",
+      "ジルコニアボンド（陶材焼付）ほどの複雑な透明感やグラデーションは出せない",
+    ],
+    recommend: "奥歯でも見た目の自然さにこだわりたい方、強度と美しさのバランスを取りたい方",
   },
   {
     img: "pga-crown",
@@ -87,6 +128,17 @@ const crowns = [
     price: "¥132,000〜",
     catch: "噛み合わせを大切にしたい方へ",
     body: "白金加金は適度な硬さを持ち、噛み合う歯への負担が少ない金属材料です。適合性にも優れています。",
+    merits: [
+      "天然歯に近い硬さで、噛み合う歯（対合歯）を傷めない",
+      "歯との適合性（密着度）が極めて高く、二次虫歯になりにくい",
+      "強い力がかかっても割れる心配がない",
+    ],
+    demerits: [
+      "金属色（ゴールド・シルバー系）のため、見た目の審美性には劣る",
+      "貴金属を使用するため、費用が高額になりやすい",
+      "金属アレルギーのリスクがゼロではない（保険の銀歯よりは極めて低い）",
+    ],
+    recommend: "見た目よりも、噛み合わせの良さや「歯を長持ちさせること」を最優先したい方",
   },
   {
     img: "zirconia-bond",
@@ -94,17 +146,40 @@ const crowns = [
     price: "¥143,000〜",
     catch: "前歯の最高峰の美しさ",
     body: "内側にジルコニア、表面にセラミックを築盛したクラウンです。透明感や色調を細かく再現できます。金属を使用しないため、金属アレルギーが心配な方にも選ばれています。",
+    merits: [
+      "前歯に最適な、最高クラスの美しさと透明感（周りの歯に色を完璧に合わせられる）",
+      "内側がジルコニアなので、ベースの強度がしっかりしている",
+      "金属アレルギーの心配がない",
+      "長期間使用しても変色しない",
+    ],
+    demerits: [
+      "表面のセラミック部分が、強い衝撃や噛み合わせで欠ける（チッピング）リスクがある",
+      "製作工程が複雑なため、費用が最も高額になりやすい",
+    ],
+    recommend: "前歯の見た目を最高に美しくしたい方、ご自身の歯と見分けがつかない仕上がりを求める方",
   },
 ]
 
-const others = [
+const others: Material[] = [
   {
     img: "direct-bonding",
     name: "ダイレクトボンディング",
     price: "¥33,000〜¥55,000",
     catch: "歯をできるだけ削らない治療",
     body: "高品質なコンポジットレジンを直接盛り付けて修復する治療です。型取りをせず、その日のうちに治療が完了する場合があります。",
-    cases: ["小さな虫歯", "すきっ歯", "欠けた歯"],
+    merits: [
+      "健康な歯を削る量を最小限に抑えられる",
+      "型取りが不要で、1回の通院で治療が完了することが多い（即日修復）",
+      "セラミック治療（インレーやクラウン）と比べて費用を抑えやすい",
+      "金属アレルギーの心配がない",
+      "万が一欠けたり着色したりしても、部分的な修理（リペア）が比較的容易",
+    ],
+    demerits: [
+      "セラミックに比べると、長期間の使用で変色やツヤ落ち（劣化）が起こりやすい",
+      "強度はセラミックや金属に劣るため、大きく欠けた歯や強い力がかかる部位には向かない",
+      "歯科医師の技術によって、仕上がりの美しさや耐久性に差が出やすい",
+    ],
+    recommend: "なるべくご自身の歯を削らずに、手軽にすきっ歯や小さな欠けを綺麗に治したい方",
   },
   {
     img: "laminate",
@@ -112,7 +187,18 @@ const others = [
     price: "¥110,000〜¥132,000",
     catch: "前歯の見た目を美しく整える",
     body: "前歯の表面をわずかに整え、薄いセラミックを貼り付ける治療です。歯の色や形、すき間の改善に適しています。",
-    cases: ["変色した歯", "すきっ歯", "歯の形を整えたい方"],
+    merits: [
+      "クラウン（被せ物）にするよりも、歯を削る量が少なく済む（表面をわずかに整えるのみ）",
+      "ホワイトニングでは白くならない歯（薬の影響による変色など）でも、確実に理想の白さにできる",
+      "セラミック製のため、長期間使用しても変色せず、汚れ（プラーク）も付きにくい",
+      "歯の形や大きさ、すきっ歯（正中離開など）を短期間で美しく整えられる",
+    ],
+    demerits: [
+      "わずかではあるが、健康な歯の表面（エナメル質）を削る必要がある",
+      "強い衝撃や、歯ぎしり・食いしばりなどによって、セラミックが割れたり剥がれたりするリスクがある",
+      "虫歯が進行している歯や、噛み合わせの負担が大きすぎる部位には適応できないことがある",
+    ],
+    recommend: "前歯の色・形・すき間を、短期間でトータルに美しく改善したい方",
   },
 ]
 
@@ -153,6 +239,62 @@ function Check({ text, muted = false }: { text: string; muted?: boolean }) {
   )
 }
 
+// 素材1件の行（インレー・クラウン・その他で共通）
+function MaterialRow({ m }: { m: Material }) {
+  return (
+    <div
+      className="py-6 grid gap-4 md:gap-0 md:grid-cols-[128px_160px_1fr_1fr_170px] border-b"
+      style={{ borderColor: LINE }}
+    >
+      {/* 写真（モバイルは名前・特徴・料金を横に） */}
+      <div className="flex md:block items-center gap-4">
+        <div className="shrink-0">
+          <ItemPhoto img={m.img} name={m.name} boxClass="w-28 h-28" />
+        </div>
+        <div className="md:hidden">
+          <p className="font-serif font-bold text-lg leading-snug" style={{ color: BROWN }}>{m.name}</p>
+          <p className="text-xs mt-1" style={{ color: TEXT }}>{m.catch}</p>
+          <p className="font-serif text-xl mt-1" style={{ color: BROWN }}>{m.price}</p>
+        </div>
+      </div>
+      {/* 名前・特徴・料金（PC） */}
+      <div className="hidden md:block md:px-4">
+        <p className="font-serif font-bold text-lg leading-snug" style={{ color: BROWN }}>{m.name}</p>
+        <p className="text-xs mt-2 leading-relaxed" style={{ color: TEXT }}>{m.catch}</p>
+        <p className="font-serif text-2xl mt-3" style={{ color: BROWN }}>{m.price}</p>
+      </div>
+      {/* 説明 */}
+      <div className="md:px-4 md:border-l" style={{ borderColor: LINE }}>
+        <p className="text-xs leading-loose" style={{ color: TEXT }}>{m.body}</p>
+      </div>
+      {/* メリット・デメリット */}
+      <div className="grid grid-cols-2 gap-4 md:gap-0 md:px-4 md:border-l" style={{ borderColor: LINE }}>
+        <div className="md:pr-3">
+          <p className="text-xs font-bold mb-2" style={{ color: BROWN }}>メリット</p>
+          <ul className="space-y-1.5">
+            {m.merits.map((x) => <Check key={x} text={x} />)}
+          </ul>
+        </div>
+        <div className="md:pl-3 md:border-l" style={{ borderColor: LINE }}>
+          <p className="text-xs font-bold mb-2" style={{ color: BROWN }}>デメリット</p>
+          <ul className="space-y-1.5">
+            {m.demerits.map((x) => <Check key={x} text={x} muted />)}
+          </ul>
+        </div>
+      </div>
+      {/* おすすめ */}
+      <div className="md:ml-4 self-start rounded overflow-hidden">
+        <p className="text-white text-xs font-bold text-center py-1.5 tracking-widest" style={{ backgroundColor: BAND }}>
+          おすすめ
+        </p>
+        <p className="text-xs leading-relaxed text-center px-3 py-3" style={{ backgroundColor: BEIGE, color: TEXT }}>
+          {m.recommend}
+        </p>
+      </div>
+    </div>
+  )
+}
+
 export function AestheticMaterials() {
   return (
     <section className="py-14 bg-white">
@@ -188,127 +330,51 @@ export function AestheticMaterials() {
         <Band>詰め物（インレー）</Band>
         <div>
           {inlays.map((m, i) => (
-            <motion.div
-              key={m.img}
-              {...fadeIn(i * 0.05)}
-              className="py-6 grid gap-4 md:gap-0 md:grid-cols-[128px_150px_1fr_1fr_170px] border-b"
-              style={{ borderColor: LINE }}
-            >
-              {/* 写真 */}
-              <div className="flex md:block items-center gap-4">
-                <div className="shrink-0">
-                  <ItemPhoto img={m.img} name={m.name.join("")} boxClass="w-28 h-28" />
-                </div>
-                {/* モバイルでは写真の横に名前 */}
-                <div className="md:hidden">
-                  <p className="font-serif font-bold text-lg leading-snug" style={{ color: BROWN }}>{m.name.join("")}</p>
-                  <p className="text-xs mt-1" style={{ color: TEXT }}>{m.catch.join("")}</p>
-                  <p className="font-serif text-xl mt-1" style={{ color: BROWN }}>{m.price}</p>
-                </div>
-              </div>
-              {/* 名前（PC） */}
-              <div className="hidden md:block md:px-4">
-                <p className="font-serif font-bold text-lg leading-snug" style={{ color: BROWN }}>
-                  {m.name[0]}<br />{m.name[1]}
-                </p>
-                <p className="text-xs mt-2 leading-relaxed" style={{ color: TEXT }}>
-                  {m.catch[0]}<br />{m.catch[1]}
-                </p>
-                <p className="font-serif text-2xl mt-3" style={{ color: BROWN }}>{m.price}</p>
-              </div>
-              {/* 説明 */}
-              <div className="md:px-4 md:border-l" style={{ borderColor: LINE }}>
-                <p className="text-xs leading-loose" style={{ color: TEXT }}>{m.body}</p>
-              </div>
-              {/* メリット・デメリット */}
-              <div className="grid grid-cols-2 gap-4 md:gap-0 md:px-4 md:border-l" style={{ borderColor: LINE }}>
-                <div className="md:pr-3">
-                  <p className="text-xs font-bold mb-2" style={{ color: BROWN }}>メリット</p>
-                  <ul className="space-y-1.5">
-                    {m.merits.map((x) => <Check key={x} text={x} />)}
-                  </ul>
-                </div>
-                <div className="md:pl-3 md:border-l" style={{ borderColor: LINE }}>
-                  <p className="text-xs font-bold mb-2" style={{ color: BROWN }}>デメリット</p>
-                  <ul className="space-y-1.5">
-                    {m.demerits.map((x) => <Check key={x} text={x} muted />)}
-                  </ul>
-                </div>
-              </div>
-              {/* おすすめ */}
-              <div className="md:ml-4 self-start rounded overflow-hidden">
-                <p className="text-white text-xs font-bold text-center py-1.5 tracking-widest" style={{ backgroundColor: BAND }}>
-                  おすすめ
-                </p>
-                <p className="text-xs leading-relaxed text-center px-3 py-3" style={{ backgroundColor: BEIGE, color: TEXT }}>
-                  {m.recommend}
-                </p>
-              </div>
+            <motion.div key={m.img} {...fadeIn(i * 0.05)}>
+              <MaterialRow m={m} />
             </motion.div>
           ))}
         </div>
 
         {/* ===== 被せ物（クラウン） ===== */}
         <Band>被せ物（クラウン）</Band>
-        <div className="grid md:grid-cols-2 gap-x-10 gap-y-8">
+        <div>
           {crowns.map((m, i) => (
-            <motion.div key={m.img} {...fadeIn(i * 0.05)} className="flex gap-5">
-              <div className="shrink-0">
-                <ItemPhoto img={m.img} name={m.name} boxClass="w-28 h-28 md:w-32 md:h-32" />
-              </div>
-              <div className="min-w-0">
-                <p className="font-serif font-bold text-lg leading-snug" style={{ color: BROWN }}>{m.name}</p>
-                <p className="text-xs mt-0.5 mb-2" style={{ color: BROWN }}>{m.catch}</p>
-                <p className="text-xs leading-loose" style={{ color: TEXT }}>{m.body}</p>
-                <p className="font-serif text-xl mt-2" style={{ color: BROWN }}>{m.price}</p>
-              </div>
+            <motion.div key={m.img} {...fadeIn(i * 0.05)}>
+              <MaterialRow m={m} />
             </motion.div>
           ))}
-
-          {/* こだわり枠（紙面と同じくクラウン一覧の右下） */}
-          <motion.div
-            {...fadeIn(0.25)}
-            className="rounded border p-5 flex gap-4"
-            style={{ borderColor: "#cfe0ec", backgroundColor: "#fbfdfe" }}
-          >
-            <div className="w-14 h-14 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: BEIGE }}>
-              <UserRound className="h-7 w-7" style={{ color: BROWN }} />
-            </div>
-            <div>
-              <p className="font-serif font-bold mb-2" style={{ color: BROWN }}>今泉歯科医院のこだわり</p>
-              <p className="text-xs leading-loose" style={{ color: TEXT }}>
-                当院では、見た目の美しさだけでなく、長く快適に使えることを大切にしています。患者さんのご予算やご希望も考慮し、無理に高額な治療をおすすめすることはありません。必ず複数の選択肢をご提案し、納得のいく治療を一緒に選んでいきます。
-              </p>
-            </div>
-          </motion.div>
         </div>
 
         {/* ===== その他の審美治療 ===== */}
         <Band>その他の審美治療</Band>
-        <div className="grid md:grid-cols-2 gap-x-10 gap-y-8">
+        <div>
           {others.map((m, i) => (
-            <motion.div key={m.img} {...fadeIn(i * 0.05)} className="flex gap-5">
-              <div className="shrink-0">
-                <ItemPhoto img={m.img} name={m.name} boxClass="w-28 h-28 md:w-32 md:h-32" />
-              </div>
-              <div className="min-w-0">
-                <p className="font-serif font-bold text-lg leading-snug" style={{ color: BROWN }}>{m.name}</p>
-                <p className="text-xs mt-0.5 mb-2" style={{ color: BROWN }}>{m.catch}</p>
-                <p className="text-xs leading-loose mb-2" style={{ color: TEXT }}>{m.body}</p>
-                <p className="text-[11px] font-bold inline-block px-2 py-0.5 rounded mb-1.5" style={{ backgroundColor: BEIGE, color: BROWN }}>
-                  向いている症例
-                </p>
-                <ul className="flex flex-wrap gap-x-4 gap-y-1">
-                  {m.cases.map((c) => <Check key={c} text={c} />)}
-                </ul>
-                <p className="font-serif text-xl mt-2" style={{ color: BROWN }}>{m.price}</p>
-              </div>
+            <motion.div key={m.img} {...fadeIn(i * 0.05)}>
+              <MaterialRow m={m} />
             </motion.div>
           ))}
         </div>
 
+        {/* 当院のこだわり */}
+        <motion.div
+          {...fadeIn()}
+          className="mt-12 rounded border p-6 flex gap-5"
+          style={{ borderColor: "#cfe0ec", backgroundColor: "#fbfdfe" }}
+        >
+          <div className="w-14 h-14 rounded-full flex items-center justify-center shrink-0" style={{ backgroundColor: BEIGE }}>
+            <UserRound className="h-7 w-7" style={{ color: BROWN }} />
+          </div>
+          <div>
+            <p className="font-serif font-bold mb-2" style={{ color: BROWN }}>今泉歯科医院のこだわり</p>
+            <p className="text-xs md:text-sm leading-loose" style={{ color: TEXT }}>
+              当院では、見た目の美しさだけでなく、長く快適に使えることを大切にしています。患者さんのご予算やご希望も考慮し、無理に高額な治療をおすすめすることはありません。必ず複数の選択肢をご提案し、納得のいく治療を一緒に選んでいきます。
+            </p>
+          </div>
+        </motion.div>
+
         {/* ===== 安心してご相談ください（紙面下部の帯） ===== */}
-        <motion.div {...fadeIn()} className="mt-12 rounded px-6 py-8" style={{ backgroundColor: BEIGE }}>
+        <motion.div {...fadeIn()} className="mt-8 rounded px-6 py-8" style={{ backgroundColor: BEIGE }}>
           <p className="font-serif text-center font-bold text-lg mb-6 tracking-wider" style={{ color: BROWN }}>
             安心してご相談ください
           </p>
