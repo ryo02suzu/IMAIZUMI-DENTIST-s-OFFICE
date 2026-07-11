@@ -239,57 +239,56 @@ function Check({ text, muted = false }: { text: string; muted?: boolean }) {
   )
 }
 
-// 素材1件の行（インレー・クラウン・その他で共通）
-function MaterialRow({ m }: { m: Material }) {
+// 素材1件のカード（インレー・クラウン・その他で共通）
+// PCでは2枚並びで四角く、カード内はメリット｜デメリットを左右分割にして
+// 各テキストに十分な横幅を持たせ、変な位置での折り返しを防ぐ。
+function MaterialCard({ m }: { m: Material }) {
   return (
     <div
-      className="py-6 grid gap-4 md:gap-0 md:grid-cols-[128px_160px_1fr_1fr_170px] border-b"
+      className="h-full flex flex-col rounded-xl border p-5 md:p-6 bg-white"
       style={{ borderColor: LINE }}
     >
-      {/* 写真（モバイルは名前・特徴・料金を横に） */}
-      <div className="flex md:block items-center gap-4">
+      {/* ヘッダー：写真 ＋ 名前・特徴・料金 */}
+      <div className="flex gap-4 md:gap-5 items-start">
         <div className="shrink-0">
-          <ItemPhoto img={m.img} name={m.name} boxClass="w-28 h-28" />
+          <ItemPhoto img={m.img} name={m.name} boxClass="w-24 h-24 md:w-28 md:h-28" />
         </div>
-        <div className="md:hidden">
-          <p className="font-serif font-bold text-lg leading-snug" style={{ color: BROWN }}>{m.name}</p>
-          <p className="text-xs mt-1" style={{ color: TEXT }}>{m.catch}</p>
-          <p className="font-serif text-xl mt-1" style={{ color: BROWN }}>{m.price}</p>
+        <div className="min-w-0">
+          <p className="font-serif font-bold text-lg md:text-xl leading-snug" style={{ color: BROWN }}>{m.name}</p>
+          <p className="text-xs md:text-sm mt-1" style={{ color: TEXT }}>{m.catch}</p>
+          <p className="font-serif text-2xl mt-2" style={{ color: BROWN }}>{m.price}</p>
         </div>
       </div>
-      {/* 名前・特徴・料金（PC） */}
-      <div className="hidden md:block md:px-4">
-        <p className="font-serif font-bold text-lg leading-snug" style={{ color: BROWN }}>{m.name}</p>
-        <p className="text-xs mt-2 leading-relaxed" style={{ color: TEXT }}>{m.catch}</p>
-        <p className="font-serif text-2xl mt-3" style={{ color: BROWN }}>{m.price}</p>
-      </div>
+
       {/* 説明 */}
-      <div className="md:px-4 md:border-l" style={{ borderColor: LINE }}>
-        <p className="text-xs leading-loose" style={{ color: TEXT }}>{m.body}</p>
-      </div>
-      {/* メリット・デメリット */}
-      <div className="grid grid-cols-2 gap-4 md:gap-0 md:px-4 md:border-l" style={{ borderColor: LINE }}>
-        <div className="md:pr-3">
+      <p className="text-xs md:text-sm leading-loose mt-4" style={{ color: TEXT }}>{m.body}</p>
+
+      {/* メリット ｜ デメリット（左右分割） */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-4 pt-4 border-t" style={{ borderColor: LINE }}>
+        <div className="sm:pr-4">
           <p className="text-xs font-bold mb-2" style={{ color: BROWN }}>メリット</p>
           <ul className="space-y-1.5">
             {m.merits.map((x) => <Check key={x} text={x} />)}
           </ul>
         </div>
-        <div className="md:pl-3 md:border-l" style={{ borderColor: LINE }}>
+        <div className="sm:pl-4 sm:border-l" style={{ borderColor: LINE }}>
           <p className="text-xs font-bold mb-2" style={{ color: BROWN }}>デメリット</p>
           <ul className="space-y-1.5">
             {m.demerits.map((x) => <Check key={x} text={x} muted />)}
           </ul>
         </div>
       </div>
-      {/* おすすめ */}
-      <div className="md:ml-4 self-start rounded overflow-hidden">
-        <p className="text-white text-xs font-bold text-center py-1.5 tracking-widest" style={{ backgroundColor: BAND }}>
-          おすすめ
-        </p>
-        <p className="text-xs leading-relaxed text-center px-3 py-3" style={{ backgroundColor: BEIGE, color: TEXT }}>
-          {m.recommend}
-        </p>
+
+      {/* おすすめ（カード下部・全幅） */}
+      <div className="mt-auto pt-4">
+        <div className="rounded overflow-hidden flex items-stretch">
+          <p className="text-white text-xs font-bold flex items-center px-4 tracking-widest shrink-0" style={{ backgroundColor: BAND }}>
+            おすすめ
+          </p>
+          <p className="text-xs md:text-sm leading-relaxed px-4 py-3 flex-1" style={{ backgroundColor: BEIGE, color: TEXT }}>
+            {m.recommend}
+          </p>
+        </div>
       </div>
     </div>
   )
@@ -328,30 +327,30 @@ export function AestheticMaterials() {
 
         {/* ===== 詰め物（インレー） ===== */}
         <Band>詰め物（インレー）</Band>
-        <div>
+        <div className="grid gap-5 lg:grid-cols-2">
           {inlays.map((m, i) => (
             <motion.div key={m.img} {...fadeIn(i * 0.05)}>
-              <MaterialRow m={m} />
+              <MaterialCard m={m} />
             </motion.div>
           ))}
         </div>
 
         {/* ===== 被せ物（クラウン） ===== */}
         <Band>被せ物（クラウン）</Band>
-        <div>
+        <div className="grid gap-5 lg:grid-cols-2">
           {crowns.map((m, i) => (
             <motion.div key={m.img} {...fadeIn(i * 0.05)}>
-              <MaterialRow m={m} />
+              <MaterialCard m={m} />
             </motion.div>
           ))}
         </div>
 
         {/* ===== その他の審美治療 ===== */}
         <Band>その他の審美治療</Band>
-        <div>
+        <div className="grid gap-5 lg:grid-cols-2">
           {others.map((m, i) => (
             <motion.div key={m.img} {...fadeIn(i * 0.05)}>
-              <MaterialRow m={m} />
+              <MaterialCard m={m} />
             </motion.div>
           ))}
         </div>
