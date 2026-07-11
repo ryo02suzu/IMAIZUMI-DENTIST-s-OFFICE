@@ -20,6 +20,7 @@ const inlays = [
   {
     img: "hybrid-inlay",
     name: ["ハイブリッド", "インレー"],
+    price: "¥33,000〜",
     catch: ["費用を抑えて", "白い歯にしたい方へ"],
     body: "セラミックとレジン（歯科用樹脂）を組み合わせた素材です。保険の銀歯より自然な見た目で、比較的費用を抑えて白い歯にできます。",
     merits: ["費用を抑えられる", "白い歯になる", "金属アレルギーの心配がない"],
@@ -29,6 +30,7 @@ const inlays = [
   {
     img: "zirconia-inlay",
     name: ["ジルコニア", "インレー"],
+    price: "¥44,000〜",
     catch: ["強度を重視する", "奥歯におすすめ"],
     body: "ジルコニアは人工ダイヤモンドにも例えられる高い強度を持つセラミック素材です。噛む力が強くかかる奥歯にも適しています。",
     merits: ["非常に丈夫", "割れにくい", "金属を使用しない", "汚れが付きにくい"],
@@ -38,6 +40,7 @@ const inlays = [
   {
     img: "emax-inlay",
     name: ["e.max", "インレー"],
+    price: "¥55,000〜",
     catch: ["天然歯のような", "透明感"],
     body: "ガラスセラミックで作られた審美性に優れた素材です。自然な透明感があり、周囲の歯になじみやすいことが特徴です。",
     merits: ["見た目が自然", "色調が美しい", "汚れが付きにくい"],
@@ -47,6 +50,7 @@ const inlays = [
   {
     img: "gold-inlay",
     name: ["ゴールド", "インレー"],
+    price: "¥77,000〜",
     catch: ["長期間の安定性を", "重視する方へ"],
     body: "18金を使用した詰め物です。歯との適合性に優れ、噛み合わせにも優しく、長期間安定して使用できる素材です。",
     merits: ["適合性が高い", "二次虫歯のリスク軽減が期待できる", "噛み合う歯に優しい", "長持ちしやすい"],
@@ -59,30 +63,35 @@ const crowns = [
   {
     img: "full-zirconia",
     name: "フルジルコニアクラウン",
+    price: "¥88,000〜",
     catch: "奥歯のスタンダード",
     body: "すべてジルコニアで製作するクラウンです。高い強度があり、奥歯の治療によく選ばれています。金属を使用しないため、金属アレルギーが心配な方にも選ばれています。",
   },
   {
     img: "emax-crown",
     name: "e.maxクラウン",
+    price: "¥99,000〜",
     catch: "自然な透明感を求める方へ",
     body: "ガラスセラミックのみで製作します。天然歯に近い透明感があり、前歯にも適しています。金属を使用しないため、金属アレルギーが心配な方にも選ばれています。",
   },
   {
     img: "zirconia-stain",
     name: "ジルコニアステイン",
+    price: "¥110,000〜",
     catch: "強さと美しさのバランス",
     body: "フルジルコニアに色調を付与し、天然歯に近い色合いを再現したクラウンです。金属を使用しないため、金属アレルギーが心配な方にも選ばれています。",
   },
   {
     img: "pga-crown",
     name: "白金加金（PGA）クラウン",
+    price: "¥132,000〜",
     catch: "噛み合わせを大切にしたい方へ",
     body: "白金加金は適度な硬さを持ち、噛み合う歯への負担が少ない金属材料です。適合性にも優れています。",
   },
   {
     img: "zirconia-bond",
     name: "ジルコニアボンド",
+    price: "¥143,000〜",
     catch: "前歯の最高峰の美しさ",
     body: "内側にジルコニア、表面にセラミックを築盛したクラウンです。透明感や色調を細かく再現できます。金属を使用しないため、金属アレルギーが心配な方にも選ばれています。",
   },
@@ -92,6 +101,7 @@ const others = [
   {
     img: "direct-bonding",
     name: "ダイレクトボンディング",
+    price: "¥33,000〜¥55,000",
     catch: "歯をできるだけ削らない治療",
     body: "高品質なコンポジットレジンを直接盛り付けて修復する治療です。型取りをせず、その日のうちに治療が完了する場合があります。",
     cases: ["小さな虫歯", "すきっ歯", "欠けた歯"],
@@ -99,6 +109,7 @@ const others = [
   {
     img: "laminate",
     name: "ラミネートベニア",
+    price: "¥110,000〜¥132,000",
     catch: "前歯の見た目を美しく整える",
     body: "前歯の表面をわずかに整え、薄いセラミックを貼り付ける治療です。歯の色や形、すき間の改善に適しています。",
     cases: ["変色した歯", "すきっ歯", "歯の形を整えたい方"],
@@ -158,6 +169,7 @@ export function AestheticMaterials() {
               <br className="hidden md:block" />
               お一人おひとりに最適な素材をご提案します。
             </p>
+            <p className="text-xs mt-3" style={{ color: "#9db6c9" }}>※価格はすべて税込です。状態によって異なる場合があります。</p>
           </div>
           {/* 金属アレルギーの丸バッジ */}
           <div
@@ -191,6 +203,7 @@ export function AestheticMaterials() {
                 <div className="md:hidden">
                   <p className="font-serif font-bold text-lg leading-snug" style={{ color: BROWN }}>{m.name.join("")}</p>
                   <p className="text-xs mt-1" style={{ color: TEXT }}>{m.catch.join("")}</p>
+                  <p className="font-serif text-xl mt-1" style={{ color: BROWN }}>{m.price}</p>
                 </div>
               </div>
               {/* 名前（PC） */}
@@ -201,6 +214,7 @@ export function AestheticMaterials() {
                 <p className="text-xs mt-2 leading-relaxed" style={{ color: TEXT }}>
                   {m.catch[0]}<br />{m.catch[1]}
                 </p>
+                <p className="font-serif text-2xl mt-3" style={{ color: BROWN }}>{m.price}</p>
               </div>
               {/* 説明 */}
               <div className="md:px-4 md:border-l" style={{ borderColor: LINE }}>
@@ -246,6 +260,7 @@ export function AestheticMaterials() {
                 <p className="font-serif font-bold text-lg leading-snug" style={{ color: BROWN }}>{m.name}</p>
                 <p className="text-xs mt-0.5 mb-2" style={{ color: BROWN }}>{m.catch}</p>
                 <p className="text-xs leading-loose" style={{ color: TEXT }}>{m.body}</p>
+                <p className="font-serif text-xl mt-2" style={{ color: BROWN }}>{m.price}</p>
               </div>
             </motion.div>
           ))}
@@ -286,6 +301,7 @@ export function AestheticMaterials() {
                 <ul className="flex flex-wrap gap-x-4 gap-y-1">
                   {m.cases.map((c) => <Check key={c} text={c} />)}
                 </ul>
+                <p className="font-serif text-xl mt-2" style={{ color: BROWN }}>{m.price}</p>
               </div>
             </motion.div>
           ))}
