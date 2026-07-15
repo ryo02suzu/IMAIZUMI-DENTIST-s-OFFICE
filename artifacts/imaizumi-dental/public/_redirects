@@ -1,7 +1,7 @@
-# 予約の読み込み画面：/booking は必ず静的な booking.html を返す
-# （下のSPAフォールバックに飲まれないよう明示。予約導線は最重要なので確実に固定する）。
-/booking    /booking.html    200
-
 # Cloudflare Pages（SPA）用：実在するファイル以外はすべて index.html を返し、
 # wouter のクライアントサイドルーティングに任せる（/news/:id などの直リンク対策）。
+# 注意：/booking は静的ファイル booking.html が実在するため、明示ルール無しでも
+# Cloudflareが /booking で自動配信する（access.html→/access と同じ）。ここに
+# /booking→/booking.html の200ルールを足すと .html 正規化リダイレクトと衝突して
+# 無限リダイレクトになるため、絶対に追加しないこと。
 /*    /index.html    200
