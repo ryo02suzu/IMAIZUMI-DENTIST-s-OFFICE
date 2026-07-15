@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import { BOOKING_URL } from "@/config/booking"
+import { BOOKING_PATH } from "@/config/booking"
 import { Clock, Mail } from "lucide-react"
 
 const schedule = [
@@ -38,7 +38,7 @@ export function Contact() {
                   <span className="text-sm">TEL</span>
                   <span className="text-2xl md:text-3xl font-bold ml-1">0277-54-9893</span>
                 </a>
-                <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#f5a623] text-white px-6 py-2 rounded-full text-sm hover:bg-[#e0961c] transition-colors">WEB予約</a>
+                <a href={BOOKING_PATH} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 bg-[#f5a623] text-white px-6 py-2 rounded-full text-sm hover:bg-[#e0961c] transition-colors">WEB予約</a>
               </div>
             </div>
 

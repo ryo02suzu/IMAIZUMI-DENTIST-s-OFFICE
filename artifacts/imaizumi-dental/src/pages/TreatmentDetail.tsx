@@ -8,8 +8,8 @@ import { AestheticMaterials } from "@/components/dental/AestheticMaterials"
 import { columnArticles } from "@/data/columnData"
 import { useSEO } from "@/hooks/useSEO"
 import { useJsonLd, breadcrumbLd, faqLd } from "@/lib/useJsonLd"
+import { BOOKING_PATH } from "@/config/booking"
 
-const BOOKING_URL = "https://dental-reservation-app.onrender.com/book/imaizumi-dental"
 
 type Treatment = {
   slug: string
@@ -545,7 +545,7 @@ export default function TreatmentDetail() {
               {t.title}についてご予約・お問い合わせ
             </h2>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="bg-[#f5a623] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#e0961c] transition-colors">WEB予約</a>
+              <a href={BOOKING_PATH} target="_blank" rel="noopener noreferrer" className="bg-[#f5a623] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#e0961c] transition-colors">WEB予約</a>
               <a
                 href="/#treatment"
                 className="bg-white text-[#7eb4d2] px-10 py-4 rounded-full font-bold text-lg hover:bg-[#f0f8fb] transition-colors flex items-center justify-center gap-2"

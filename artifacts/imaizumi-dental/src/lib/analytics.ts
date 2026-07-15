@@ -38,7 +38,8 @@ export function initClickTracking() {
       const href = a.getAttribute("href") || ""
       if (href.startsWith("tel:")) {
         trackEvent("tel_tap", { link_url: href, page: window.location.pathname })
-      } else if (/onrender\.com\/book/.test(href)) {
+      } else if (/onrender\.com\/book/.test(href) || href === "/booking" || href.startsWith("/booking?")) {
+        // 「WEB予約」ボタンは読み込み画面(/booking)経由でRenderへ遷移する
         trackEvent("book_click", { link_url: href, page: window.location.pathname })
       }
     },

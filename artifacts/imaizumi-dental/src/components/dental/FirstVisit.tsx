@@ -1,5 +1,6 @@
 import { motion } from "framer-motion"
 import { CheckCircle, Car, Bus } from "lucide-react"
+import { BOOKING_PATH } from "@/config/booking"
 
 const steps = [
   {
@@ -31,7 +32,6 @@ const items = [
   "他院での治療中の方はその情報があれば",
 ]
 
-const BOOKING_URL = "https://dental-reservation-app.onrender.com/book/imaizumi-dental"
 
 export function FirstVisit() {
   return (
@@ -202,7 +202,7 @@ export function FirstVisit() {
           transition={{ duration: 0.5 }}
           className="text-center mt-12"
         >
-          <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="inline-block bg-[#f5a623] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#e0961c] transition-colors">WEB予約</a>
+          <a href={BOOKING_PATH} target="_blank" rel="noopener noreferrer" className="inline-block bg-[#f5a623] text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-[#e0961c] transition-colors">WEB予約</a>
         </motion.div>
       </div>
     </section>

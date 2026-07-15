@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { BOOKING_URL } from "@/config/booking"
+import { BOOKING_PATH } from "@/config/booking"
 import { Link, useLocation } from "wouter"
 import { Menu, X, Phone } from "lucide-react"
 
@@ -83,7 +83,7 @@ export function Navbar() {
 
           {/* CTA and Phone */}
           <div className="hidden md:flex items-center gap-4 shrink-0">
-            <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="bg-[#f5a623] text-white text-xs px-4 py-2 rounded-full hover:bg-[#e0961c] transition-colors whitespace-nowrap">WEB予約</a>
+            <a href={BOOKING_PATH} target="_blank" rel="noopener noreferrer" className="bg-[#f5a623] text-white text-xs px-4 py-2 rounded-full hover:bg-[#e0961c] transition-colors whitespace-nowrap">WEB予約</a>
             <div className="flex items-baseline gap-1 whitespace-nowrap">
               <span className="text-[#7eb4d2] text-xs font-medium">TEL</span>
               <a href="tel:0277549893" className="text-[#7eb4d2] text-lg font-bold tracking-wider hover:opacity-80 transition-opacity">0277-54-9893</a>
@@ -129,7 +129,7 @@ export function Navbar() {
               </div>
             )}
             <div className="pt-4 space-y-3">
-              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="block bg-[#f5a623] text-white text-center py-3 rounded-full text-sm hover:bg-[#e0961c] transition-colors">WEB予約</a>
+              <a href={BOOKING_PATH} target="_blank" rel="noopener noreferrer" className="block bg-[#f5a623] text-white text-center py-3 rounded-full text-sm hover:bg-[#e0961c] transition-colors">WEB予約</a>
               <div className="flex items-center justify-center gap-2 text-[#3d5f7a]">
                 <Phone className="h-4 w-4" />
                 <a href="tel:0277549893" className="text-[#3d5f7a] text-lg font-bold hover:opacity-80 transition-opacity">0277-54-9893</a>
