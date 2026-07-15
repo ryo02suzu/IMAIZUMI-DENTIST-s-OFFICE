@@ -1,7 +1,7 @@
 import { Navbar } from "@/components/layout/Navbar"
 import { Footer } from "@/components/layout/Footer"
 import { getColumnArticle, columnArticles } from "@/data/columnData"
-import { BOOKING_URL } from "@/config/booking"
+import { BOOKING_PATH } from "@/config/booking"
 import { Link, useParams } from "wouter"
 import { Home, ChevronRight, Phone } from "lucide-react"
 import { useSEO } from "@/hooks/useSEO"
@@ -149,7 +149,7 @@ export default function ColumnDetail() {
                   <Phone className="h-4 w-4" /> 0277-54-9893
                 </a>
                 <a
-                  href={BOOKING_URL}
+                  href={BOOKING_PATH}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center justify-center gap-2 bg-[#f5a623] text-white px-6 py-2.5 rounded-full text-sm font-bold hover:bg-[#e0961c] transition-colors"

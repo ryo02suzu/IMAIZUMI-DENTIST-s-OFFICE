@@ -1,5 +1,5 @@
 import { Navbar } from "@/components/layout/Navbar"
-import { BOOKING_URL } from "@/config/booking"
+import { BOOKING_PATH } from "@/config/booking"
 import { Footer } from "@/components/layout/Footer"
 import { Link } from "wouter"
 import { ChevronRight, ArrowRight, Gift, Sparkles } from "lucide-react"
@@ -255,7 +255,7 @@ export default function DentalEsthetics() {
               どのメニューが合うかわからない場合も、診察時にゆっくりご説明します。
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href={BOOKING_URL} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-[#c9a86a] to-[#b08d4f] text-white px-8 py-3 rounded-full font-bold hover:opacity-90 transition-opacity">WEB予約</a>
+              <a href={BOOKING_PATH} target="_blank" rel="noopener noreferrer" className="bg-gradient-to-r from-[#c9a86a] to-[#b08d4f] text-white px-8 py-3 rounded-full font-bold hover:opacity-90 transition-opacity">WEB予約</a>
               <a
                 href="tel:0277549893"
                 className="border border-white text-white px-8 py-3 rounded-full font-bold hover:bg-white/10 transition-colors"
