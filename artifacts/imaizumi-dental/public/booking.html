@@ -22,12 +22,11 @@
 <!-- JS無効環境向けの即時フォールバック転送 -->
 <noscript><meta http-equiv="refresh" content="0;url=https://dental-reservation-app.onrender.com/book/imaizumi-dental" /></noscript>
 
-<!-- 装飾フォントは非ブロッキングで読み込む（背景・UIの初期表示や上のスクリプトを妨げない）。
-     読み込めない環境ではシステム明朝にフォールバックする。 -->
+<!-- 医院名フォント(Shippori Mincho明朝)を確実に反映するため通常読み込み(ブロッキング)。
+     ウォームアップのfetchはhead最上部で既に発火済みなので、ここでブロックされても影響しない。 -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous" />
-<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
-<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" /></noscript>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Cormorant+Garamond:wght@500;600&display=swap" rel="stylesheet" />
 <style>
   html, body { margin: 0; padding: 0; background: #eef3f9; }
   .stage {
