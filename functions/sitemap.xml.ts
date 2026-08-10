@@ -47,7 +47,15 @@ function urlEntry(path: string, lastmod: string, changefreq: string, priority: s
   return `  <url>\n    <loc>${SITE}${path}</loc>\n    <lastmod>${lastmod}</lastmod>\n    <changefreq>${changefreq}</changefreq>\n    <priority>${priority}</priority>\n  </url>`
 }
 
+// メンテナンス公開中はサイトマップを出さない（全URLがメンテナンス画面を返すため、
+// ページ一覧を配る意味がない）。解除時はこの定数を false に戻す。
+const MAINTENANCE: boolean = true
+
 export async function onRequestGet(context: any): Promise<Response> {
+  if (MAINTENANCE) {
+    return new Response("Not Found", { status: 404 })
+  }
+
   const { env } = context
   const today = new Date().toISOString().slice(0, 10)
 
