@@ -1,0 +1,6 @@
+# メンテナンス画面はキャッシュさせない。
+# 本番ゾーンには HTML を長期(s-maxage=604800)キャッシュするルールがあり、
+# そのままだと解除後もメンテナンス画面が最大7日間残ってしまうため。
+/*
+  Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+  CDN-Cache-Control: no-store
