@@ -16,6 +16,7 @@ const ColumnDetail = lazy(() => import("@/pages/ColumnDetail"));
 const AccessPage = lazy(() => import("@/pages/AccessPage"));
 const FaqPage = lazy(() => import("@/pages/FaqPage"));
 const PrivacyPolicy = lazy(() => import("@/pages/PrivacyPolicy"));
+const FacilityStandards = lazy(() => import("@/pages/FacilityStandards"));
 const SubscriptionPage = lazy(() => import("@/pages/SubscriptionPage"));
 const BreathCarePage = lazy(() => import("@/pages/BreathCarePage"));
 const DentalEsthetics = lazy(() => import("@/pages/DentalEsthetics"));
@@ -59,6 +60,7 @@ function Router() {
         <Route path="/access" component={AccessPage} />
         <Route path="/faq" component={FaqPage} />
         <Route path="/privacy-policy" component={PrivacyPolicy} />
+        <Route path="/facility-standards" component={FacilityStandards} />
         <Route path="/subscription" component={SubscriptionPage} />
         <Route path="/breath-care" component={BreathCarePage} />
         <Route path="/dental-esthetics" component={DentalEsthetics} />
