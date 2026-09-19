@@ -14,6 +14,7 @@ const footerMain = [
   { label: "アクセス", href: "/access" },
   { label: "採用情報", href: "/recruit" },
   { label: "English", href: "/en" },
+  { label: "施設基準", href: "/facility-standards" },
   { label: "プライバシーポリシー", href: "/privacy-policy" },
 ]
 
